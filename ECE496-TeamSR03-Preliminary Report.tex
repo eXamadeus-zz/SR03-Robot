@@ -1,0 +1,213 @@
+% LaTeX template for ECE 496 Reports
+% Last updated 27 January 2014 by Ben Ujcich
+
+%% CHANGE REPORT TITLE HERE
+\newcommand{\reporttitle}{
+2-Wheeled Segway Robot Design:
+Preliminary Report
+}
+
+%% HEADER/PREAMBLE INFORMATION
+
+\documentclass[11pt]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% "The font should be 11pt Times New Roman"
+\usepackage{mathptmx}               
+
+% "The body of the paper should use 1" margins on all sides."
+\usepackage[margin=1in]{geometry}
+
+% "Pages must be numbered, starting with 1 on the first page in the body of the report.
+% The cover page should not be numbered. 
+% Page numbers should be in the bottom-right corner of the page."
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[R]{\thepage}
+
+% Set up customized spacing
+\usepackage{setspace}
+
+% Allows for Trademark Symbols
+\usepackage{textcomp}
+
+% Remove spacing between items in lists
+\usepackage{enumitem}
+
+% Remove extra spacing between titles of sections and subsections
+\usepackage{titlesec}
+\titlespacing\section{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsection{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\subsubsection{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+
+% Set up BibTeX integration using IEEE citation format
+\usepackage{cite}
+\bibliographystyle{ieeetr}
+\usepackage{url}
+
+% Set bibliography to have a section header rather than chapter header
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\section*{Works Cited}% <-- this line was changed from \chapter* to \section*
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}%
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}%
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}%
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}%
+      \endlist}
+\makeatother
+
+%% START OF DOCUMENT
+
+\begin{document}
+
+% "The main body of text should use 1.5 spacing"
+\begin{spacing}{1.5}
+
+% Suppress page numbering on first page
+\thispagestyle{empty}
+
+% Title
+% "The title should be centered and written in approximately 22pt font."
+\vspace*{72pt}
+{
+\huge
+\begin{center}
+    \reporttitle
+\end{center}
+}
+\vspace{72pt}
+
+% Team Number
+% "The Team number should be centered and written several lines below the title and should use a
+% similar size font as the title."
+{
+\huge
+\begin{center}
+    Team SR03
+\end{center}
+}
+
+% Team Members
+% "Directly below the team identifier, team members should be listed alphabetically by last name, one
+% per line, in approximately 14pt font. The column of names should be approximately centered on
+% the page, but the names within the column should be left justified (so they all start at the same
+% horizontal position)."
+{
+\Large 
+\begin{center}
+    \begin{tabular}{l}
+      Laura Clancy \\
+      Julian Coy \\
+      Katelyn Fry \\
+      Gregory Stephens \\
+      Ben Ujcich
+    \end{tabular}
+\end{center}
+}
+
+% New page and reset page numbering
+\clearpage
+\setcounter{page}{1}
+
+%% START EDITS BELOW %%
+
+
+
+
+\section*{Problem Statement} %(0.5 pages)
+
+%\begin{itemize}[noitemsep,nolistsep]
+%    \item Some item that has a citation \cite{Calin}.
+%\end{itemize}
+
+\section*{Design Objectives} %(0.5-1 page)
+
+\subsection*{Performance Goals}
+
+
+
+\subsection*{Design Principles}
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item \emph{Choose off-the-shelf parts} rather than self-made parts whenever possible.
+    \item \emph{Reuse and expand on open-source software libraries} to avoid spending time writing code that duplicates functionality that already exists elsewhere (and is likely more robust).
+    \item \emph{Keep the hardware simple} by using the least amount of hardware necessary for operation to avoid additional potential points of failure.
+    \item \emph{Modularize systems and components}. Each component should do one thing and do it well.
+\end{itemize}
+
+\section*{Preliminary Design} %(3-5 pages)
+
+
+\subsection*{Battery System}
+
+For our standing robot, we would like to use battery packs to power the onboard computation, sensors, and the two torque motors that will enable the robot to self-balance. The final choice of exact battery pack will rely heavily on the motor test results that are gathered once we acquire and test the motor control in lab. As a preliminary estimation, it is expected that we will need a 9.6V or 12V NiMH (nickel metal-hydride) with a current rating somewhere between 2000 mAh and 10000 mAh. This prediction is based on the fact that similar size batteries are widely recommended for "small" robotics projects.
+
+
+\section*{Research and Analysis} %(1-3 pages)
+
+\subsection*{Battery Power Supply}
+There are multiple battery sizes and types available on the market. Many factors need to be taken into consideration to determine the correct battery for the correct application. In our case, a small multiple motor robot, a safe, cheap battery with a high energy density is needed. Lithium Ion Polymer batteries have a high energy density and small size, but they can be potentially dangerous. Lithium Ion batteries (common in laptops) can store lots of energy, but have relatively low current outputs, and are often quite expensive. Nickel Metal Hydride (NiMH) batteries are cheap, high energy density batteries that contain no toxic metals. This makes them a safer alternative to other options. There are many NiMH cells available for consumer use on the market, and lots of DIY projects recommend the use of NiMH battery packs. Given this information, our design will likely incorporate an NiMH battery pack as the onboard power supply \cite{Calin}.
+
+\subsection*{Bluetooth Communication}
+Bluetooth\textsuperscript{\textregistered} communication is a highly popular wireless communication standard.  By implementing Bluetooth\textsuperscript{\textregistered} in our system we greatly increase the portability and reliability of our robot.  There are many advantages to using Bluetooth\textsuperscript{\textregistered} over other technologies, such as IR technology.  The major two advantages are that Bluetooth\textsuperscript{\textregistered} does not require line of sight for communication and Bluetooth\textsuperscript{\textregistered} can be readily modified to our needs using existing libraries and technologies.
+
+We have decided on using the Emmoco EDB-BLE development board to control our wireless communications.  This board will allow us to utilize the Bluetooth\textsuperscript{\textregistered} 4.0 or Bluetooth\textsuperscript{\textregistered} Low Energy (BLE) standard, which will be useful for exenting the battery life of our robot.
+
+\subsection*{Wireless controller (PS3) and Interfacing}
+
+\subsection*{Segway Physics}
+
+\subsection*{Voltage Regulators}
+
+\subsection*{Motors}
+
+\subsection*{Motor Control and PD Control}
+
+\subsection*{Gyroscopes}
+
+\section*{Risk Assessment and Contingency Plans} %(1 page)
+
+Safety should be one of the most important focuses of any project. For our project, we have identified potential hazards that could develop during the course of work. For any mechanical/fabrication work, there is always the possibility of shards/fragments/dust being expelled from the subject of work. In order to mitigate the potential eye damage, safety glasses are to be worn at all times when power tools are being used or there is ongoing testing involving moving parts. 
+
+Batteries introduce another hazard in the form of fire and explosion. It is quite common for batteries to overheat, and this can lead to dangerous explosions or burn related injuries. External forces can also damage batteries – this can lead to leakage of toxic chemicals. To mitigate these dangers, the team is planning to use a NiMH battery to negate the presence of dangerous chemicals. During motor load testing, the maximum current draw will be determined. From there, we will determine if we need a fan or some other heat sink to cool the battery during operation. 
+
+In the off chance that our battery fails or does not perform as expected, the team has planned to order a DC wall adapter to power the robot. While undesirable, a DC wall adapter provides a cheap way to ensure a power source in the case of an equipment malfunction. 
+
+The team has also identified several bottlenecks in our project development. These subsystems will all be worked on in parallel to minimize the down-time experienced. The systems identified include: the power supply/electronics, the mechanical design, and the sensing system. Without the mechanical frame and gyroscopes being developed, it will be impossible to calibrate any kind of motor control, and none of these systems will work without a power supply. The plan is to start by using the bench top amplifier and DC supplies to power the initial stages of the project, and switch to using our own electronics after the first milestone. This will allow time for the proper theoretical design and parts acquisition to take place.  
+
+\section*{Testing and Data Collection Plan} %(1.5 page)
+
+\subsection*{Testing Plan}
+
+\subsection*{Data Collection Plan}
+
+\section*{Cost Accounting} %(1 page)
+
+\section*{Project Schedule} %(1 page)
+
+% Bibliography
+\bibliography{citationsfile}{}
+
+
+
+%% END EDITS HERE %%
+
+\end{spacing}
+
+\end{document}
