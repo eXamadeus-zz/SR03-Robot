@@ -1,2 +1,4 @@
-ECE-496-SR03
+SR03-Robot
 ==============
+
+Clemson University - ECE 496 - SR03
