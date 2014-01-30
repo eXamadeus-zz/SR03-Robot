@@ -99,7 +99,7 @@ Preliminary Report
 {
 \huge
 \begin{center}
-    Team SR03
+  Team SR03
 \end{center}
 }
 
@@ -111,13 +111,13 @@ Preliminary Report
 {
 \Large 
 \begin{center}
-    \begin{tabular}{l}
-      Laura Clancy \\
-      Julian Coy \\
-      Katelyn Fry \\
-      Gregory Stephens \\
-      Ben Ujcich
-    \end{tabular}
+  %\begin{tabular}{l}
+    Laura Clancy \\
+    Julian Coy \\
+    Katelyn Fry \\
+    Gregory Stephens \\
+    Ben Ujcich
+  %\end{tabular}
 \end{center}
 }
 
@@ -158,6 +158,9 @@ Preliminary Report
 
 For our standing robot, we would like to use battery packs to power the onboard computation, sensors, and the two torque motors that will enable the robot to self-balance. The final choice of exact battery pack will rely heavily on the motor test results that are gathered once we acquire and test the motor control in lab. As a preliminary estimation, it is expected that we will need a 9.6V or 12V NiMH (nickel metal-hydride) with a current rating somewhere between 2000 mAh and 10000 mAh. This prediction is based on the fact that similar size batteries are widely recommended for "small" robotics projects.
 
+\subsection*{Wireless (Bluetooth\textsuperscript{\textregistered}) Communication}
+
+As a design requirement our robot must be controlled through a wireless interface.  We have selected Bluetooth\textsuperscript{\textregistered} as our wireless protocol.  We did this so we would easily be able to connect different devices as controllers.  We will have a backup IR sensor installed on the device that may possibly be used for pairing devices.  We will be using a peripheral communication chip to control the wirless communication.  This will free up processor time on the Tiva board allowing for more thorough sensor readings and calculations.
 
 \section*{Research and Analysis} %(1-3 pages)
 
