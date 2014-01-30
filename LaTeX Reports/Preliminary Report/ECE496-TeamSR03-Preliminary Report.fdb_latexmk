@@ -1,13 +1,13 @@
 # Fdb version 3
 ["bibtex ECE496-TeamSR03-Preliminary Report"] 1391044333 "ECE496-TeamSR03-Preliminary Report.aux" "ECE496-TeamSR03-Preliminary Report.bbl" "ECE496-TeamSR03-Preliminary Report" 
   "/usr/share/texmf-texlive/bibtex/bst/base/ieeetr.bst" 1136766823 16932 60a0804ebef57891abf0021fa74d0cd1 ""
-  "ECE496-TeamSR03-Preliminary Report.aux" 1391047602 122 796ccfa601783f65daf9bf3cf96aefac ""
+  "ECE496-TeamSR03-Preliminary Report.aux" 1391050329 122 796ccfa601783f65daf9bf3cf96aefac ""
   "ECE496-TeamSR03-Preliminary Report.bcf" 0 -1 0 ""
   "citationsfile.bib" 1391044329 538 71cdcd7b03febe189ff7c2b46671c1bc ""
   (generated)
   "ECE496-TeamSR03-Preliminary Report.blg"
   "ECE496-TeamSR03-Preliminary Report.bbl"
-["pdflatex"] 1391047602 "ECE496-TeamSR03-Preliminary Report.tex" "ECE496-TeamSR03-Preliminary Report.pdf" "ECE496-TeamSR03-Preliminary Report" 
+["pdflatex"] 1391050329 "ECE496-TeamSR03-Preliminary Report.tex" "ECE496-TeamSR03-Preliminary Report.pdf" "ECE496-TeamSR03-Preliminary Report" 
   "/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty" 1252191266 5690 9002058925a339410803685f261f74ab ""
   "/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty" 1252191266 5220 dcdf2a64b6f1cf5c1a78b23867fe16eb ""
   "/usr/share/texmf-texlive/tex/latex/base/fontenc.sty" 1254151887 4435 b97063eb2f20be499e7725926af85c55 ""
@@ -40,9 +40,9 @@
   "/usr/share/texmf-texlive/tex/latex/setspace/setspace.sty" 1137110789 21972 cc53f66d4e62f6e032b3f45042648ee8 ""
   "/usr/share/texmf-texlive/tex/latex/titlesec/titlesec.sty" 1187203465 46098 910ff673e624173d1a547d649d5ceb44 ""
   "/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg" 1169251881 322 f4a6234bc28bf70659404393c15d3854 ""
-  "ECE496-TeamSR03-Preliminary Report.aux" 1391047602 122 796ccfa601783f65daf9bf3cf96aefac ""
+  "ECE496-TeamSR03-Preliminary Report.aux" 1391050329 122 796ccfa601783f65daf9bf3cf96aefac ""
   "ECE496-TeamSR03-Preliminary Report.bbl" 1391044333 409 3b9346c32766f9c0adb95d5ea71076cc "bibtex ECE496-TeamSR03-Preliminary Report"
-  "ECE496-TeamSR03-Preliminary Report.tex" 1391047602 12509 c4fe7a61ec3581cb3a748fc088aea3e6 ""
+  "ECE496-TeamSR03-Preliminary Report.tex" 1391050319 12507 6d083b40fcc955665ecee7d2aa0c837e ""
   "enumitem.sty" 1391032496 42666 6fa770e3485520a6a5f2ea7d259c8f8d ""
   (generated)
   "ECE496-TeamSR03-Preliminary Report.log"
