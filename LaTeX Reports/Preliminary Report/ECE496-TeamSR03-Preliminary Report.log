@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.1.28)  29 JAN 2014 20:00
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.1.28)  29 JAN 2014 20:12
 entering extended mode
  %&-line parsing enabled.
 **"ECE496-TeamSR03-Preliminary Report.tex"
@@ -639,10 +639,10 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )) [3]
 (./ECE496-TeamSR03-Preliminary Report.aux) ) 
 Here is how much of TeX's memory you used:
- 2668 strings out of 495061
- 35433 string characters out of 1182621
+ 2669 strings out of 495061
+ 35440 string characters out of 1182621
  81761 words of memory out of 3000000
- 5807 multiletter control sequences out of 15000+50000
+ 5808 multiletter control sequences out of 15000+50000
  48721 words of font info for 79 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  27i,11n,43p,1003b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -651,10 +651,10 @@ jfour/jknappen/ec/ectt1095.600pk>{/usr/share/texmf-texlive/fonts/enc/dvips/base
 /8r.enc}</usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on "ECE496-TeamSR03-Preliminary Report.pdf" (4 pages, 60091 byte
+Output written on "ECE496-TeamSR03-Preliminary Report.pdf" (4 pages, 62521 byte
 s).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
