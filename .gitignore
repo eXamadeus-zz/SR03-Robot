@@ -1,4 +1,23 @@
-496.sublime-project
-496.sublime-workspace
-LaTeX Reports/Preliminary Report/TODO.julian
-LaTeX Reports/Preliminary Report/ECE496-TeamSR03-Preliminary Report.synctex.gz
+# Object files
+*.o
+*.ko
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+*.app
+
+*.sublime-project
+*.sublime-workspace
+
+*.julian
