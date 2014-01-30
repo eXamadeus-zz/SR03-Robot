@@ -72,6 +72,16 @@ Preliminary Report
       \endlist}
 \makeatother
 
+% Set up math
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+% Set up graphics
+\usepackage{graphicx}
+\usepackage{float}
+
+
 %% START OF DOCUMENT
 
 \begin{document}
@@ -132,15 +142,14 @@ Preliminary Report
 
 \section*{Problem Statement} %(0.5 pages)
 
-%\begin{itemize}[noitemsep,nolistsep]
-%    \item Some item that has a citation \cite{Calin}.
-%\end{itemize}
+The desired goal of this senior design project is to build a functioning robot that can successfully balance and move on two wheels as directed by the user. This design is meant to be based on the commercial Segway robot but created on a much smaller scale. The robot will be roughly 18 inched high and no more than 9 inches wide. Without the use of RC Servo motors, the miniature Segway robot must be able to move forwards, backwards, and turn left and right. The remote control will consist of a wireless PlayStation controller which enables all the ranges of desired motion. An individual power amplifier must be constructed and the entire device must be run from a single DC voltage supplied to the system. The system will be controlled wirelessly with Bluetooth communication connecting the TIVA C Series TM4C123G LaunchPad and the computer. The robot will be able to withstand perturbations and balance itself quickly and accordingly. The main test and goal for the robot will be its ability to traverse a relatively flat surface with few balancing problems. Both cordless operation and stability will be taken as the most important aspects to perfect. Stability will be stressed over speed due to the limited testing environment. 
+
 
 \section*{Design Objectives} %(0.5-1 page)
 
 \subsection*{Performance Goals}
 
-
+The setting of performance goals is imperative to successful goal setting throughout a project’s duration. Certain goals take precedence in this project: cordless operation and stability. Cordless operation is a main goal for two reasons. It will not only create a seamless and efficient look, but will also greatly reduce risks concerning tangling wires around the robot during motion. The implementation of the Bluetooth and battery systems will enable this. Additionally, it is desired that the robot be extremely stable and be able to balance itself with minimal movements and overshoots. Ideally, it would be stable enough to place something on top without falling during movement and testing. To make this achievable, the motors must be capable of exerting high torque on the wheels at quick response times. For this goal, the gyroscope will use three axes of motion to maximize the efficiency of the controls that direct the motors. Lastly, utilizing the voltage regulator and power amplifier will ensure that all the electronics and controller receive the proper power to function as desired.
 
 \subsection*{Design Principles}
 
@@ -151,23 +160,47 @@ Preliminary Report
     \item \emph{Modularize systems and components}. Each component should do one thing and do it well.
 \end{itemize}
 
+
 \section*{Preliminary Design} %(3-5 pages)
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{BlockDiagram}
+    \caption{Block Diagram of Subsystems}
+    \label{BlockDiagram}
+\end{figure}
 
-\subsection*{Battery System}
+\subsection*{Battery Subsystem}
 
 For our standing robot, we would like to use battery packs to power the onboard computation, sensors, and the two torque motors that will enable the robot to self-balance. The final choice of exact battery pack will rely heavily on the motor test results that are gathered once we acquire and test the motor control in lab. As a preliminary estimation, it is expected that we will need a 9.6V or 12V NiMH (nickel metal-hydride) with a current rating somewhere between 2000 mAh and 10000 mAh. This prediction is based on the fact that similar size batteries are widely recommended for "small" robotics projects.
 
-\subsection*{Wireless (Bluetooth\textsuperscript{\textregistered}) Communication}
+\subsection*{Wireless (Bluetooth\textsuperscript{\textregistered}) Communication Subsystem}
 
 As a design requirement our robot must be controlled through a wireless interface.  We have selected Bluetooth\textsuperscript{\textregistered} as our wireless protocol.  We did this so we would easily be able to connect different devices as controllers.  We will have a backup IR sensor installed on the device that may possibly be used for pairing devices.  We will be using a peripheral communication chip to control the wirless communication.  This will free up processor time on the Tiva board allowing for more thorough sensor readings and calculations.
+
+\subsection*{Balancing and Sensing Subsystem}
+
+The purpose of the balancing system is to ensure that the robotic system will maintain a desired position determined by the brain of the system.  The desired position, called the desired $\theta_2$ value as shown in the mathematical model discussed previously, is fed to the balancing system by the brain.   The actual angle position of the robotic system is derived by measurements from a gyroscope.  The gyroscope measures angular velocity.  This value is then integrated twice to provide the actual angle position $\theta_2$.   The balancing system will then employ a PID control scheme to minimize the distance between the desired $\theta_2$ and the actual $\theta_2$ (i.e. minimizing the error).  To balance the system at rest, the desired $\theta_2$ will be set to zero.  To move the robot either forwards or backwards, the desired $\theta_2$ will be set to a positive or negative angle respectively.  This angle will be determined upon experimentation of the physical system.   The PID controller will send a signal back to the brain to create a current signal to be fed to the motors.  Also, the built in encoders from the motors will be used to determine how much current is being applied to the motors.  The number of encoder counts in a certain amount of time will be used to determine the output torque of the motor and thus the applied current to achieve this torque.
+
+\subsection*{Motor Subsystem}
+
+The motor subsystem will consist of two continuous DC motors attached to each wheel of the Segway robot. The two motors will work together to balance the robot and move it as commanded by the controller. Moving straight or backwards will require both motors to exert the same torque in the same direction simultaneously while turning will necessitate the motors moving at two different speeds (exerting two separate torques).  In order to balance while moving forward, the robot will first moving backwards slightly to tilt the robot forward and "chase" itself to balance properly.
+
+The motor subsystem will connect directly to The Brain and the power amplifier. The amplifier will augment the power supplied by the battery in order to sufficiently supply the motors. The Brain will receive data from the motors’ encoders and feed it back to the controls to be used in verifying the system’s current position. In return, The Brain will adjust the signals sent to each motor to govern their movement according to the desired motion provided by the controls. The DC 29:1 gear motors will exert a maximum torque of 8 kg cm2 that will enable the Segway robot to reach a desired speed between 0.5 m/s and 1 m/s.  Together both motors will weigh no more than 0.84 pounds and will act as balancing weights on the bottom axle of the mechanical system.
+
+\subsection*{Power Subsystem}
+
+The batteries will be connected to the power amplifier. This amplifier will consist of two B547 transistors, one LED, and several resistors. This will allow the power to be amplified before going to the motors to ensure that proper torque is attained to drive the system. However, this system will not be connected to the TIVA board. The battery pack will also be wired to the voltage regulator chip. This will step down the voltage from the battery to 3.3 V. Regulating the voltage down to the proper level will ensure that the TIVA board does not receive too much voltage and stop working.
+
 
 \section*{Research and Analysis} %(1-3 pages)
 
 \subsection*{Battery Power Supply}
+
 There are multiple battery sizes and types available on the market. Many factors need to be taken into consideration to determine the correct battery for the correct application. In our case, a small multiple motor robot, a safe, cheap battery with a high energy density is needed. Lithium Ion Polymer batteries have a high energy density and small size, but they can be potentially dangerous. Lithium Ion batteries (common in laptops) can store lots of energy, but have relatively low current outputs, and are often quite expensive. Nickel Metal Hydride (NiMH) batteries are cheap, high energy density batteries that contain no toxic metals. This makes them a safer alternative to other options. There are many NiMH cells available for consumer use on the market, and lots of DIY projects recommend the use of NiMH battery packs. Given this information, our design will likely incorporate an NiMH battery pack as the onboard power supply \cite{Calin}.
 
-\subsection*{Bluetooth Communication}
+\subsection*{Bluetooth\textsuperscript{\textregistered} Communication}
+
 Bluetooth\textsuperscript{\textregistered} is a highly popular wireless communication standard.  By implementing Bluetooth\textsuperscript{\textregistered} in our system we greatly increase the portability and reliability of our robot.  There are many advantages to using Bluetooth\textsuperscript{\textregistered} over other protocols, such as IR technology.  The two major advantages of Bluetooth\textsuperscript{\textregistered} are that it does not require line of sight for communication and it can be readily modified to our needs using existing libraries and technologies.
 
 We have decided to use the Emmoco EDB-BLE development board to control our wireless communications.  This board will allow us to utilize the Bluetooth\textsuperscript{\textregistered} 4.0 or Bluetooth\textsuperscript{\textregistered} Low Energy (BLE) standard, which will be useful for exenting the battery life of our robot \cite{Nokia}.  By having a separate development board for Bluetooth\textsuperscript{\textregistered} communications we will be able to debug the wireless protocols seperately from the rest of the system.  This will save us development time and costs.
@@ -175,15 +208,39 @@ We have decided to use the Emmoco EDB-BLE development board to control our wirel
 One final benefit of Bluetooth\textsuperscript{\textregistered} technology is multiple communication channels.  By using the Bluetooth\textsuperscript{\textregistered} stack we can stay connected to multiple control devices simultaneously.  This means that we can have multiple remote controllers for the system.  The EDB-BLE development board provides the em-framework which will allow our team to build custom control apps for moobile devices such as Android and iOS phones.
 
 \subsection*{Wireless controller (Sony Dualshock 3\textsuperscript{\textregistered}) and Interfacing}
+
 One of our goals is to fully interface with the Sony Dualshock 3\textsuperscript{\textregistered} controller system.  This will provide us with 2 10-bit joystick inputs, a 3-axis gyroscope, and 3-axis accelerometer for use as a controller.  We will be able to provide very detailed instructions to our robot, so that the human to machine interfacing will feel natural and smooth.  If possible, we will try to integrate the rotational orientation and translational acceleration readings from the controller to produce a hybrid-control model.  This will allow to the user to not only direct the robot, but to "guide" the robot from a distance through natural motion.
 
-\subsection*{Segway Physics}
+\subsection*{Power Amplifier}
+
+Researching the power amplifier yielded mixed results about how to build an amplifier that is both simple and functional. Two potential choices were determined: an amplifier built using operational amplifiers and an amplifier built using transistors and resistors. It was decided to build an amplifier using transistors due to low cost and heating concerns.  The research indicated that in some cases the operational amplifiers became overheated very quickly. Because this project demands continued movement, excessive heat may not only affect the amplifier but also the temperature of the surrounding electronics. The two B547 transistors in combination with several bias resistors and an LED should create a functioning amplifier that is simple and inexpensive to replace should parts overheat and cease functional operation.
 
 \subsection*{Voltage Regulators}
 
+Due to the restrictions outline in the project requirements, only one continuous DC voltage is permitted to power all electronics. This creates a problem because while the TIVA is rated to operate at 3.3 V, the DC motors must run at a higher voltage in order to obtain the necessary torque. Therefore a voltage regulator will be placed between the battery and TIVA chip. The Pololu Step Down Voltage Regulator D15V35F5S3 takes an input voltage between 4.5 and 24 V DC and can output either 3.3 or 5 V. This allows us to select the 3.3 V output and power the TIVA without worrying about damaging the controller. It also allows the motors to be run at a higher voltage than the controller to gain more torque for more robust movement. 
+
 \subsection*{Motors}
 
-\subsection*{Motor Control and PD Control}
+There are three types of DC motors that are commonly used in robotics – continuous DC motors, stepper motors, and RC servo motors. Servo motors, in addition to not being allowed according to the project requirements, are not suitable for the two wheeled design without modification. Stepper motors are incredibly accurate but not desirable for continuous motion and it also not great for motion over uneven surfaces. Although our design will be moving over “flat” surfaces there will still be small irregularities that it will need to overcome. Therefore the decision was made to use continuous DC motors with a low gear ratio (29:1) to ensure maximum achievable torque. By using motors with encoders the position of the motors can be fed back to The Brain and used to verify the balancing controls being sent to the motors. DC motors should provide the necessary torque as well as the range of motion that is desired.
+
+\subsection*{PID Control}
+
+The control scheme to be used in this system is a PID controller as shown in Figure \ref{PIDControlScheme} and Equation \ref{PIDControlEquation}.  This controller was chosen because it is relatively simple to tune and provides fine control.  A PID controller calculates an error signal by subtracting the actual measured value from the desired set value.  For this project, the desired set value is an angle called $\theta_2$, the angle between the zero position and the robot’s position.  The actual value is determined by integrating the output of a gyroscope sensor twice, from angular velocity to angular displacement.  This actual value is fed back to controller to determine the error signal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{PIDControlScheme}
+    \caption{PID Control Scheme}
+    \label{PIDControlScheme}
+\end{figure}
+
+\begin{align}
+    u(t) &= \text{MV}(t) = K_p e(t) + K_i \int\limits_0^t e(\tau) d\tau + K_d \dfrac{d}{dt} e(t) \label{PIDControlEquation}
+\end{align}
+
+The PID controller is comprised of three gains: $K_p$, the proportional gain, $K_i$, the integral gain, and $K_d$, the derivative gain.  These three gains are used to reduce certain aspects of the error signal.  The proportional term yields an output that is directly proportional to the current error and as such is used to reduce present error.  Adjusting the proportional gain yields the most change to the output signal.  The integral term sums the instantaneous error over time and thus gives the accumulated offset that was not corrected for.  The integral term is used to eliminate the steady-state error left over from adjusting the proportional gain. The derivative term is used to predict the systems’ behavior and determine the future error.  The derivative gain is most useful in systems with little noise because excessive measurement noise will degrade the controller performance.   If any of these gains are set too high, the system is driven to instability.  To manually tune these gains, first the proportional gain is increased until the output signal begins to oscillate.  Then, the integral gain is increased until the output signal’s offset is corrected quickly.  Finally, if necessary, the derivative gain is increased so that the output signal will quickly reach zero.  Once our system’s controller gains are tuned, the output signal will then be sent to the motors as a current signal to control the motors.          
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+To ensure that the task of tuning the gains for the controller is kept as simple as possible, the choice of motors to control the wheels of the robot is limited.  Specifically, the ideal choice of motor would be one without a gear box.  The more gears present in the gear box, the more difficult it becomes to tune the gains of the controller.
 
 \subsection*{Gyroscopes}
 
@@ -201,13 +258,27 @@ In the off chance that our battery fails or does not perform as expected, the te
 
 The team has also identified several bottlenecks in our project development. These subsystems will all be worked on in parallel to minimize the down-time experienced. The systems identified include: the power supply/electronics, the mechanical design, and the sensing system. Without the mechanical frame and gyroscopes being developed, it will be impossible to calibrate any kind of motor control, and none of these systems will work without a power supply. The plan is to start by using the bench top amplifier and DC supplies to power the initial stages of the project, and switch to using our own electronics after the first milestone. This will allow time for the proper theoretical design and parts acquisition to take place.  
 
+
 \section*{Testing and Data Collection Plan} %(1.5 page)
 
 \subsection*{Testing Plan}
 
+\paragraph*{Balancing System}
+The first tests that will be run for this subsystem will be testing the accuracy and robustness of the different sensors.  To test the gyroscope, the robot will be moved to different angles while the output of the gyroscope is recorded.  These measured angular velocities will be used to determine the desired values for the controller.  The encoders will be similarly tested.  The goal in this case is to determine the relationship between encoder counts and applied current (i.e. number of encoder counts will be used to determine how much current is being applied to the motor).    However, the majority of testing that will take place for this subsystem will come from the process of tuning the gains to write the PID controller.  A series of runs will be executed for each command (i.e. balance in position, move forward, turn, etc.).  While the system is running, different scopes will be used to compare the actual position with the desired position.  This data will be continually collected as the gains are adjusted to reduce the error.  
+
+\paragraph*{Motors}
+In order to test the functionality of the motors, two tests will be performed. First is a preliminary torque test. The motors will be connected to the wheels and sent signals to move at different speeds. The speed of the rotating wheel will be visually observed and the control speeds will be calibrated in order to determine what needs to be sent to the motors to achieve minimum and maximum speeds. Additionally, timing tests will be performed to ascertain how quickly the motors react to directed signals. A huge component to being able to balance the robot well is how responsive the motors are once the control signals are sent. The motors must move and exert torque very quickly to correctly balance the system. Varying signals will be sent to the two motors and their response times will be recorded to gauge how well the motors will be able to respond and balance the system. 
+
+\paragraph*{Power Amplifier and Voltage Regulator}
+Both the power amplifier electronics and voltage regulator only need to be tested using a multimeter. The input voltages will be tested to verify their compatibility with the circuit components. Each electronic device will then be wired into the system and its voltage and current outputs measured before connecting them to the entire system. The resistors will need to be adjusted for the power amplifier based on these findings and the output of the voltage regulator must be verified at 3.3 V to ensure that it is a safe voltage to avoid damaging the TIVA microcontroller.
+
 \subsection*{Data Collection Plan}
 
+In order to preserve all the data concerning the proper function of the system both videos and photos will be taken prior to each milestone to show that all required systems are properly operational. Additionally, plots for error control will be saved for future work. Also, times for the balancing and speed components will be tested and recorded prior to each milestone. The system speed and time it takes to balance are important components to prove the practicality of the robot. Lastly any overshoot will be measured if the signal is dropped.
+
+
 \section*{Cost Accounting} %(1 page)
+
 
 \section*{Project Schedule} %(1 page)
 
