@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.1.28)  29 JAN 2014 18:14
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2014.1.28)  29 JAN 2014 20:00
 entering extended mode
  %&-line parsing enabled.
 **"ECE496-TeamSR03-Preliminary Report.tex"
@@ -615,8 +615,23 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 168.
  [1
 
-] [2]
-(./ECE496-TeamSR03-Preliminary Report.bbl
+]
+Overfull \hbox (3.11938pt too wide) in paragraph at lines 172--173
+[]\T1/ptm/m/n/10.95 One fi-nal ben-e-fit of Bluetooth$[]$ tech-nol-ogy is mul-t
+i-ple com-mu-ni-ca-tion chan-nels. By us-ing the Bluetooth$[]$
+ []
+
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 174.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 174.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 174.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 174.
+LaTeX Font Info:    Font shape `TS1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `TS1/ptm/b/n' tried instead on input line 174.
+[2] (./ECE496-TeamSR03-Preliminary Report.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 6.
 
 (/usr/share/texmf-texlive/tex/latex/base/t1cmtt.fd
@@ -624,19 +639,19 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )) [3]
 (./ECE496-TeamSR03-Preliminary Report.aux) ) 
 Here is how much of TeX's memory you used:
- 2641 strings out of 495061
- 35056 string characters out of 1182621
- 82761 words of memory out of 3000000
- 5782 multiletter control sequences out of 15000+50000
- 37477 words of font info for 58 fonts, out of 3000000 for 9000
+ 2668 strings out of 495061
+ 35433 string characters out of 1182621
+ 81761 words of memory out of 3000000
+ 5807 multiletter control sequences out of 15000+50000
+ 48721 words of font info for 79 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 24i,10n,43p,1003b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,11n,43p,1003b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
  </home/rathe/.texmf-var/fonts/pk/l
 jfour/jknappen/ec/ectt1095.600pk>{/usr/share/texmf-texlive/fonts/enc/dvips/base
 /8r.enc}</usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on "ECE496-TeamSR03-Preliminary Report.pdf" (4 pages, 58508 byte
+Output written on "ECE496-TeamSR03-Preliminary Report.pdf" (4 pages, 60091 byte
 s).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
