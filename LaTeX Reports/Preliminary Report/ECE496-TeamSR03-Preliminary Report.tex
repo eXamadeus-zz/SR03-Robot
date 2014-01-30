@@ -187,6 +187,10 @@ One of our goals is to fully interface with the Sony Dualshock 3\textsuperscript
 
 \subsection*{Gyroscopes}
 
+The gyroscope we selected is a 9DOF MPU-9150 9-axis MotionTracking MEMS device.  It's the first of its kind.  It has a 3-axis accelerometer, 3-axis gyroscope, and 3-axis compass.  The 9DOF was specifically designed for low power, low cost, and high performance devices.  Full 9-axis operation will draw 4.25 mA with maximum gyro sampling, a 1kHz accelerometer sample rate, and an 8Hz compass sample rate.  The 9DOF is capable of reading $\pm2000$ degrees per second up to 131 LSBs/dps for the gyroscope.
+
+By using such a highly tuned gyroscope we will be able to quickly notice shifts in momentum and torque through the system.  This will allow us great control over the device when plugged into power.  Since this device can be tuned down for low power consumption, we can also extend battery life by turning off the compass and lowering the sampling rates for the remaining 6 axes.
+
 \section*{Risk Assessment and Contingency Plans} %(1 page)
 
 Safety should be one of the most important focuses of any project. For our project, we have identified potential hazards that could develop during the course of work. For any mechanical/fabrication work, there is always the possibility of shards/fragments/dust being expelled from the subject of work. In order to mitigate the potential eye damage, safety glasses are to be worn at all times when power tools are being used or there is ongoing testing involving moving parts. 
