@@ -83,7 +83,7 @@ Preliminary Report
 
 % Set up tables
 \usepackage{tabularx}
-
+\usepackage{booktabs}
 
 %% START OF DOCUMENT
 
@@ -328,10 +328,12 @@ In order to preserve all the data concerning the proper function of the system, 
 
 \section*{Project Schedule} %(1 page)
 
+\begin{table}[H]
 \begin{tabular}{lllll}
 
+\toprule
 Task & Start Date & End Date & Assigned To \\
-\hline
+\midrule
 Motor Control & Feb 3 & Feb 17 & Laura \\
 Sensor System &	Feb 3 &	Feb 17 &			Katelyn \\
 Structure	& Feb 3	& Feb 14 &			Katelyn, Greg \\
@@ -345,9 +347,10 @@ Tuning \& Calibration	& Mar 3	& Mar 24 &		Julian, Ben, Katelyn \\
 \textit{Milestone 3}	& Mar 25	& Mar 25				 \\
 Tweak	& Mar 25 &	Apr 7 &	Julian, Laura, Ben, Katelyn, Greg \\
 \textit{Demo} & Apr 7 & Apr 7 \\				
-
+\bottomrule
 
 \end{tabular}
+\end{table}
 
 % Bibliography
 \bibliography{citationsfile}{}
@@ -356,9 +359,13 @@ Tweak	& Mar 25 &	Apr 7 &	Julian, Laura, Ben, Katelyn, Greg \\
 
 \section*{Appendix A: Parts List}
 
+\begin{table}[H]
+
 \begin{tabular}{lll}
+\toprule
+
 Supplier & Part Number & Quantity \\
-\hline
+\midrule
 RadioShack & 278-1215 & 1 \\
 Pololu & 	1103	 & 3 \\
 RadioShack & 57-12D-500-4 & 	1 \\
@@ -373,7 +380,9 @@ Digi-Key Corp. & 	430BOOST-ADS1118 & 	1 \\
 Newark & 	 EK-TM4C123GXL	 & 1 \\
 Various Venders & 	N/A & 	1 \\
 RadioShack & 271-309 & 5 \\
+ \bottomrule
 \end{tabular}
+\end{table}
 
 
 %% END EDITS HERE %%
