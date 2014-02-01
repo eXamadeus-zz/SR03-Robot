@@ -20,46 +20,131 @@
     </calendar>
   </calendars>
   <tasks>
-    <task id="1" name="Motor Control" note="" work="316800" start="20140203T000000Z" end="20140217T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-    <task id="2" name="Sensor System" note="" work="316800" start="20140203T000000Z" end="20140217T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-    <task id="3" name="Structure" note="" work="576000" start="20140203T000000Z" end="20140214T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-    <task id="4" name="Milestone 1" note="" work="0" start="20140217T000000Z" end="20140217T000000Z" work-start="20140217T080000Z" percent-complete="0" priority="1" type="milestone" scheduling="fixed-work">
+    <task id="1" name="Motor Control" note="" work="316800" start="20140203T000000Z" end="20140217T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="2" name="Torque Test" note="" work="57600" start="20140203T000000Z" end="20140204T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="3" name="Timing Test" note="" work="86400" start="20140204T170000Z" end="20140207T170000Z" work-start="20140205T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="2" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="4" name="Calibration" note="" work="172800" start="20140207T170000Z" end="20140217T170000Z" work-start="20140210T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="3" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="5" name="Sensor System" note="" work="374400" start="20140203T000000Z" end="20140214T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="6" name="Testing" note="" work="172800" start="20140203T000000Z" end="20140205T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="7" name="Configuration" note="" work="201600" start="20140205T170000Z" end="20140214T170000Z" work-start="20140206T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="6" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="8" name="Structure" note="" work="633600" start="20140203T000000Z" end="20140217T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="9" name="Structural Analysis" note="" work="86400" start="20140203T000000Z" end="20140204T120000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="10" name="Durability Testing" note="" work="115200" start="20140204T120000Z" end="20140206T120000Z" work-start="20140204T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="9" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="11" name="Build" note="" work="345600" start="20140206T120000Z" end="20140214T120000Z" work-start="20140206T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="10" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="12" name="Stress Test" note="" work="86400" start="20140214T120000Z" end="20140217T170000Z" work-start="20140214T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="11" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="13" name="Milestone 1" note="" work="0" start="20140217T000000Z" end="20140217T000000Z" work-start="20140217T080000Z" percent-complete="0" priority="1" type="milestone" scheduling="fixed-work">
       <constraint type="must-start-on" time="20140217T000000Z"/>
     </task>
-    <task id="5" name="&quot;Brain&quot; System" note="" work="864000" start="20140203T000000Z" end="20140221T170000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-    <task id="6" name="Bluetooth" note="" work="806400" start="20140221T170000Z" end="20140313T170000Z" work-start="20140224T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <predecessors>
-        <predecessor id="1" predecessor-id="5" type="FS"/>
-      </predecessors>
+    <task id="14" name="Microcontroller System" note="" work="950400" start="20140203T000000Z" end="20140225T120000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="15" name="Setup &amp; Config" note="" work="86400" start="20140203T000000Z" end="20140204T120000Z" work-start="20140203T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="16" name="Build Core System" note="" work="432000" start="20140204T120000Z" end="20140225T120000Z" work-start="20140204T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="15" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="17" name="Peripheral Interface" note="" work="432000" start="20140204T120000Z" end="20140225T120000Z" work-start="20140204T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="15" type="FS"/>
+        </predecessors>
+      </task>
     </task>
-    <task id="7" name="Stabilize System" note="" work="273600" start="20140217T170000Z" end="20140303T120000Z" work-start="20140218T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="18" name="Bluetooth" note="" work="806400" start="20140225T120000Z" end="20140317T120000Z" work-start="20140225T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="19" name="Configure Remote" note="" work="172800" start="20140225T120000Z" end="20140228T120000Z" work-start="20140225T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="16" type="FS"/>
+          <predecessor id="1" predecessor-id="17" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="20" name="Encoding" note="" work="288000" start="20140228T120000Z" end="20140307T120000Z" work-start="20140228T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="19" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="21" name="Calibration" note="" work="288000" start="20140307T120000Z" end="20140314T120000Z" work-start="20140307T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="20" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="22" name="Stress Testing" note="" work="57600" start="20140314T120000Z" end="20140317T120000Z" work-start="20140314T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="21" type="FS"/>
+        </predecessors>
+      </task>
+    </task>
+    <task id="23" name="Stabilize System" note="" work="273600" start="20140217T170000Z" end="20140303T120000Z" work-start="20140218T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
         <predecessor id="1" predecessor-id="1" type="FS"/>
-        <predecessor id="1" predecessor-id="3" type="FS"/>
+        <predecessor id="1" predecessor-id="8" type="FS"/>
       </predecessors>
     </task>
-    <task id="8" name="Milestone 2" note="" work="0" start="20140303T000000Z" end="20140303T000000Z" work-start="20140303T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+    <task id="24" name="Milestone 2" note="" work="0" start="20140303T000000Z" end="20140303T000000Z" work-start="20140303T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
       <constraint type="must-start-on" time="20140303T000000Z"/>
     </task>
-    <task id="9" name="Battery Power" note="" work="1382400" start="20140214T170000Z" end="20140320T170000Z" work-start="20140217T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="25" name="Battery Power" note="" work="921600" start="20140217T170000Z" end="20140311T170000Z" work-start="20140218T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="3" type="FS"/>
+        <predecessor id="1" predecessor-id="8" type="FS"/>
       </predecessors>
+      <task id="26" name="Test Components" note="" work="57600" start="20140217T170000Z" end="20140218T170000Z" work-start="20140218T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="27" name="Compatibility Testing" note="" work="288000" start="20140218T170000Z" end="20140225T170000Z" work-start="20140219T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="26" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="28" name="Design &amp; Build" note="" work="576000" start="20140225T170000Z" end="20140311T170000Z" work-start="20140226T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="27" type="FS"/>
+        </predecessors>
+      </task>
     </task>
-    <task id="10" name="Tuning &amp; Calibration" note="" work="1339200" start="20140303T120000Z" end="20140324T170000Z" work-start="20140303T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <predecessors>
-        <predecessor id="1" predecessor-id="7" type="FS"/>
-      </predecessors>
+    <task id="29" name="System QA" note="" work="1706400" start="20140311T170000Z" end="20140404T150000Z" work-start="20140312T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="30" name="Physical QA" note="" work="345600" start="20140311T170000Z" end="20140317T170000Z" work-start="20140312T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="28" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="31" name="Software QA" note="" work="460800" start="20140317T120000Z" end="20140327T120000Z" work-start="20140317T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="22" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="32" name="System QA" note="" work="900000" start="20140327T120000Z" end="20140404T150000Z" work-start="20140327T120000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="30" type="FS"/>
+          <predecessor id="1" predecessor-id="31" type="FS"/>
+        </predecessors>
+      </task>
     </task>
-    <task id="11" name="Milestone 3" note="" work="0" start="20140325T000000Z" end="20140325T000000Z" work-start="20140325T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+    <task id="33" name="Milestone 3" note="" work="0" start="20140325T000000Z" end="20140325T000000Z" work-start="20140325T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
       <constraint type="must-start-on" time="20140325T000000Z"/>
     </task>
-    <task id="12" name="Tweak" note="" work="1354000" start="20140324T170000Z" end="20140407T111320Z" work-start="20140325T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-      <predecessors>
-        <predecessor id="1" predecessor-id="10" type="FS"/>
-      </predecessors>
-    </task>
-    <task id="13" name="Demo" note="" work="0" start="20140407T000000Z" end="20140407T000000Z" work-start="20140407T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
+    <task id="34" name="Demo" note="" work="0" start="20140407T000000Z" end="20140407T000000Z" work-start="20140407T080000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
       <constraint type="must-start-on" time="20140407T000000Z"/>
     </task>
   </tasks>
@@ -74,24 +159,48 @@
     <resource group="1" id="5" name="Greg Stephens" short-name="Greg" type="1" units="0" email="" note="" std-rate="0"/>
   </resources>
   <allocations>
-    <allocation task-id="12" resource-id="1" units="100"/>
-    <allocation task-id="10" resource-id="1" units="100"/>
-    <allocation task-id="5" resource-id="1" units="100"/>
+    <allocation task-id="32" resource-id="1" units="100"/>
+    <allocation task-id="31" resource-id="1" units="100"/>
+    <allocation task-id="22" resource-id="1" units="100"/>
+    <allocation task-id="21" resource-id="1" units="100"/>
+    <allocation task-id="20" resource-id="1" units="100"/>
+    <allocation task-id="19" resource-id="1" units="100"/>
+    <allocation task-id="15" resource-id="1" units="100"/>
+    <allocation task-id="17" resource-id="1" units="100"/>
     <allocation task-id="6" resource-id="1" units="100"/>
-    <allocation task-id="12" resource-id="2" units="100"/>
-    <allocation task-id="9" resource-id="2" units="100"/>
-    <allocation task-id="1" resource-id="2" units="100"/>
-    <allocation task-id="12" resource-id="3" units="100"/>
+    <allocation task-id="4" resource-id="2" units="100"/>
+    <allocation task-id="3" resource-id="2" units="100"/>
+    <allocation task-id="2" resource-id="2" units="100"/>
+    <allocation task-id="32" resource-id="2" units="100"/>
+    <allocation task-id="26" resource-id="2" units="100"/>
+    <allocation task-id="27" resource-id="2" units="100"/>
+    <allocation task-id="28" resource-id="2" units="100"/>
+    <allocation task-id="30" resource-id="2" units="100"/>
+    <allocation task-id="32" resource-id="3" units="100"/>
+    <allocation task-id="31" resource-id="3" units="100"/>
+    <allocation task-id="22" resource-id="3" units="100"/>
+    <allocation task-id="21" resource-id="3" units="100"/>
+    <allocation task-id="20" resource-id="3" units="100"/>
+    <allocation task-id="19" resource-id="3" units="100"/>
+    <allocation task-id="15" resource-id="3" units="100"/>
+    <allocation task-id="16" resource-id="3" units="100"/>
     <allocation task-id="6" resource-id="3" units="100"/>
-    <allocation task-id="10" resource-id="3" units="100"/>
-    <allocation task-id="5" resource-id="3" units="100"/>
-    <allocation task-id="3" resource-id="4" units="100"/>
-    <allocation task-id="10" resource-id="4" units="100"/>
     <allocation task-id="12" resource-id="4" units="100"/>
+    <allocation task-id="11" resource-id="4" units="100"/>
+    <allocation task-id="10" resource-id="4" units="100"/>
+    <allocation task-id="9" resource-id="4" units="100"/>
+    <allocation task-id="32" resource-id="4" units="100"/>
+    <allocation task-id="30" resource-id="4" units="100"/>
     <allocation task-id="7" resource-id="4" units="100"/>
-    <allocation task-id="2" resource-id="4" units="100"/>
+    <allocation task-id="23" resource-id="4" units="100"/>
     <allocation task-id="12" resource-id="5" units="100"/>
+    <allocation task-id="11" resource-id="5" units="100"/>
+    <allocation task-id="10" resource-id="5" units="100"/>
     <allocation task-id="9" resource-id="5" units="100"/>
-    <allocation task-id="3" resource-id="5" units="100"/>
+    <allocation task-id="32" resource-id="5" units="100"/>
+    <allocation task-id="26" resource-id="5" units="100"/>
+    <allocation task-id="27" resource-id="5" units="100"/>
+    <allocation task-id="28" resource-id="5" units="100"/>
+    <allocation task-id="30" resource-id="5" units="100"/>
   </allocations>
 </project>
