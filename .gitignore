@@ -22,3 +22,11 @@
 
 *.julian
 TI Tiva/
+.metadata/
+Thumbs.db
+airmouse/
+blinky/
+gpio_jtag/
+interrupts/
+light_isl29023/
+timers/
