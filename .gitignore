@@ -30,3 +30,13 @@ gpio_jtag/
 interrupts/
 light_isl29023/
 timers/
+lab3/project/
+
+
+# Tiva Projects
+*/Debug/*
+*/.project
+*/.cproject
+*/.ccsproject
+*/.launches/
+*/.settings/*
