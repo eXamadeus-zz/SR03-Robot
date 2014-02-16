@@ -40,3 +40,6 @@ lab3/project/
 */.ccsproject
 */.launches/
 */.settings/*
+
+# Windows Links
+*.lnk
