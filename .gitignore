@@ -21,7 +21,7 @@
 *.sublime-workspace
 
 *.julian
-TI Tiva/
+TI Tiva/Tools
 .metadata/
 Thumbs.db
 airmouse/

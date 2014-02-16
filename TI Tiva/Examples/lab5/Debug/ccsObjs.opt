@@ -1,0 +1,1 @@
+"./tm4c123gh6pm_startup_ccs.obj" "./main1.obj" "C:/ti/ccsv5/eclipse/TIVAWARE_INSTALL/driverlib/ccs/Debug/driverlib.lib" "../tm4c123gh6pm.cmd" -l"libc.a" 
