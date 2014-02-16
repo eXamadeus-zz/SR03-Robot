@@ -1,0 +1,1175 @@
+******************************************************************************
+                  TI ARM Linker PC v5.1.1                      
+******************************************************************************
+>> Linked Sun Feb 16 17:26:20 2014
+
+OUTPUT FILE NAME:   <usb_host_hub.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 00007a0d
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00100000  0000db40  000f24c0  R  X
+  SRAM                  20000000   00040000  00002184  0003de7c  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    0000db40   0000db40    r-x
+  00000000    00000000    00000200   00000200    r-- .intvecs
+  00000200    00000200    00009378   00009378    r-x .text
+  00009578    00009578    000044a0   000044a0    r-- .const
+  0000da18    0000da18    00000128   00000128    r-- .cinit
+20000000    20000000    00002184   00000000    rw-
+  20000000    20000000    000017c0   00000000    rw- .bss
+  200017c0    200017c0    00000800   00000000    rw- .stack
+  20001fc0    20001fc0    000001c4   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    00000200     
+                  00000000    00000200     startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.text      0    00000200    00009378     
+                  00000200    000004c8     pinout.obj (.text:PinoutSet)
+                  000006c8    00000488     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119Init)
+                  00000b50    00000398     usblib.lib : usbhostenum.obj (.text:USBHostIntHandlerInternal)
+                  00000ee8    00000374     grlib.lib : image.obj (.text:InternalImageDraw)
+                  0000125c    00000300     ff.obj (.text:chk_mounted)
+                  0000155c    000002ba     grlib.lib : image.obj (.text:PixelTransparentDraw)
+                  00001816    00000266               : string.obj (.text:GrFontGlyphRender)
+                  00001a7c    00000245     ustdlib.obj (.text:uvsnprintf)
+                  00001cc1    00000001     --HOLE-- [fill = 0]
+                  00001cc2    00000002     startup_ccs.obj (.text:FaultISR)
+                  00001cc4    00000218     usb_host_hub.obj (.text:main)
+                  00001edc    0000020c     usb_host_hub.obj (.text:WriteString)
+                  000020e8    00000200     frame.obj (.text:FrameDraw)
+                  000022e8    000001fc     driverlib.lib : sysctl.obj (.text:SysCtlClockFreqSet)
+                  000024e4    000001c4     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119PixelDrawMultiple)
+                  000026a8    00000198     usblib.lib : usbhostenum.obj (.text:ProcessUSBDeviceStateMachine)
+                  00002840    0000018c                : usbhostenum.obj (.text:USBHCDPipeAllocSize)
+                  000029cc    00000184     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119RectFill)
+                  00002b50    00000180     usb_host_hub.obj (.text:PrintChar)
+                  00002cd0    0000017c     usb_host_msc.obj (.text:Cmd_ls)
+                  00002e4c    00000174     usblib.lib : usbhhub.obj (.text:USBHHubMain)
+                  00002fc0    0000016c                : usbhostenum.obj (.text:USBHCDInitInternal)
+                  0000312c    00000160                : usbdenum.obj (.text:USBDEP0StateTxConfig)
+                  0000328c    00000160                : usbdma.obj (.text:USBLibDMAInit)
+                  000033ec    0000015e     ff.obj (.text:f_read)
+                  0000354a    00000002     usb_host_hub.obj (.text:HubCallback)
+                  0000354c    00000154     usblib.lib : usbhostenum.obj (.text:USBHCDPipeRead)
+                  000036a0    0000014a     ff.obj (.text:f_open)
+                  000037ea    00000002     startup_ccs.obj (.text:IntDefaultHandler)
+                  000037ec    00000140     usblib.lib : usbdconfig.obj (.text:USBDeviceConfig)
+                  0000392c    00000140                : usbdenum.obj (.text:USBDeviceIntHandlerInternal)
+                  00003a6c    00000134                : usbhostenum.obj (.text:USBHCDPipeWrite)
+                  00003ba0    00000130     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00003cd0    00000123     ff.obj (.text:create_name)
+                  00003df3    00000001     --HOLE-- [fill = 0]
+                  00003df4    00000110     usblib.lib : usbhhub.obj (.text:HubDriverOpen)
+                  00003f04    0000010c     usb_host_msc.obj (.text:Cmd_cat)
+                  00004010    00000100     usblib.lib : usbhostenum.obj (.text:USBHCDEnumHandler)
+                  00004110    000000fa     ff.obj (.text:dir_next)
+                  0000420a    00000002     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119Flush)
+                  0000420c    000000f8     usblib.lib : usbhostenum.obj (.text:USBHCDPipeFree)
+                  00004304    000000f8                : usbhmsc.obj (.text:USBHMSCDriveReady)
+                  000043fc    000000f4                : usbhostenum.obj (.text:USBHCDInit)
+                  000044f0    000000f0                : usbhostenum.obj (.text:USBHCDControlTransfer)
+                  000045e0    000000ec                : usbhostenum.obj (.text:USBHCDPipeSchedule)
+                  000046cc    000000e8                : usbdma.obj (.text:iDMAUSBTransfer)
+                  000047b4    000000e0                : usbhostenum.obj (.text:USBHCDMain)
+                  00004894    000000dc                : usbdenum.obj (.text:USBDGetDescriptor)
+                  00004970    000000dc     ff.obj (.text:put_fat)
+                  00004a4c    000000da     ff.obj (.text:f_getfree)
+                  00004b26    00000002     startup_ccs.obj (.text:NmiSR)
+                  00004b28    000000d8     usb_host_msc.obj (.text:ChangeToDirectory)
+                  00004c00    000000d8     usblib.lib : usbdenum.obj (.text:USBDeviceEnumHandler)
+                  00004cd8    000000d8     usb_host_hub.obj (.text:UpdateStatus)
+                  00004db0    000000d4     usblib.lib : usbhostenum.obj (.text:USBHCDPipeConfig)
+                  00004e84    000000cc     ff.obj (.text:get_fat)
+                  00004f50    000000ca     grlib.lib : string.obj (.text:GrDefaultStringRenderer)
+                  0000501a    00000002     usblib.lib : usbdma.obj (.text:iDMAUSBArbSizeSet)
+                  0000501c    000000c8     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  000050e4    000000c0                   : usb.obj (.text:USBHostEndpointConfig)
+                  000051a4    000000c0     usblib.lib : usbdma.obj (.text:uDMAUSBChannelAllocate)
+                  00005264    000000bc     usb_host_msc.obj (.text:MSCMain)
+                  00005320    000000bc     usblib.lib : usbmode.obj (.text:USB0OTGModeIntHandler)
+                  000053dc    000000ba                : usbdma.obj (.text:uDMAUSBTransfer)
+                  00005496    00000002                : usbdma.obj (.text:iDMAUSBUnitSizeSet)
+                  00005498    000000b8     usb_host_msc.obj (.text:Cmd_cd)
+                  00005550    000000b6     usblib.lib : usbhhidkeyboard.obj (.text:UpdateKeyboardState)
+                  00005606    00000002                : usbdma.obj (.text:uDMAUSBChannelIntDisable)
+                  00005608    000000b0     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119LineDrawH)
+                  000056b8    000000b0     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119LineDrawV)
+                  00005768    000000a4     usb_host_hub.obj (.text:UpdateStatusBox)
+                  0000580c    000000a0     usblib.lib : usbhmsc.obj (.text:USBHMSCOpen)
+                  000058ac    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.obj (.text)
+                  00005948    00000098     usblib.lib : usbhhid.obj (.text:HIDDriverOpen)
+                  000059e0    00000098                : usbdenum.obj (.text:USBDSetInterface)
+                  00005a78    00000098                : usbhostenum.obj (.text:USBHCDFeatureSet)
+                  00005b10    00000098     ff.obj (.text:create_chain)
+                  00005ba8    00000094     usblib.lib : usbhostenum.obj (.text:USBHCDDeviceDisconnected)
+                  00005c3c    00000094     rtsv7M4_T_le_v4SPD16_eabi.lib : auto_init.obj (.text)
+                  00005cd0    00000090     usblib.lib : usbhostenum.obj (.text:USBHCDOpenDriver)
+                  00005d60    0000008c                : usbhostenum.obj (.text:FIFOAlloc)
+                  00005dec    0000008c                : usbdenum.obj (.text:USBDSetConfiguration)
+                  00005e78    0000008c                : usbdconfig.obj (.text:USBDeviceConfigAlternate)
+                  00005f04    0000008c                : usbhostenum.obj (.text:USBHCDClearFeature)
+                  00005f90    0000008c                : usbhscsi.obj (.text:USBHSCSISendCommand)
+                  0000601c    00000086     grlib.lib : rectangle.obj (.text:GrRectFill)
+                  000060a2    00000086     usblib.lib : usbdma.obj (.text:iDMAUSBChannelAllocate)
+                  00006128    00000080     driverlib.lib : udma.obj (.text:uDMAChannelTransferSet)
+                  000061a8    0000007c     usb_host_keyboard.obj (.text:KeyboardCallback)
+                  00006224    0000007c     ff.obj (.text:dir_sdi)
+                  000062a0    0000007a     driverlib.lib : usb.obj (.text:USBDevEndpointConfigSet)
+                  0000631a    0000007a     ff.obj (.text:get_fileinfo)
+                  00006394    00000078     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119PixelDraw)
+                  0000640c    00000078     usblib.lib : usbdenum.obj (.text:USBDClearFeature)
+                  00006484    00000074                : usbhostenum.obj (.text:USBHCDGetConfigDescriptor)
+                  000064f8    00000074     ff.obj (.text:check_fs)
+                  0000656c    00000072     usblib.lib : usbdma.obj (.text:uDMAUSBArbSizeSet)
+                  000065de    00000002                : usbdma.obj (.text:uDMAUSBChannelIntEnable)
+                  000065e0    00000070                : usbdenum.obj (.text:USBDEP0StateTx)
+                  00006650    00000070                : usbdenum.obj (.text:USBDGetStatus)
+                  000066c0    00000070                : usbdma.obj (.text:uDMAUSBUnitSizeSet)
+                  00006730    0000006a     grlib.lib : string.obj (.text:GrStringWidthGet)
+                  0000679a    00000002     --HOLE-- [fill = 0]
+                  0000679c    00000068     usblib.lib : usbmode.obj (.text:USBOTGSetMode)
+                  00006804    00000066     grlib.lib : rectangle.obj (.text:GrRectDraw)
+                  0000686a    00000002     --HOLE-- [fill = 0]
+                  0000686c    00000064               : context.obj (.text:GrContextInit)
+                  000068d0    00000064     usblib.lib : usbhhub.obj (.text:HubDriverClose)
+                  00006934    00000064     driverlib.lib : interrupt.obj (.text:IntIsEnabled)
+                  00006998    00000064     usblib.lib : usbdenum.obj (.text:USBDSetFeature)
+                  000069fc    00000064                : usbhhidkeyboard.obj (.text:USBHKeyboardUsageToChar)
+                  00006a60    00000064     ff.obj (.text:remove_chain)
+                  00006ac4    00000064     usblib.lib : usbdma.obj (.text:uDMAUSBChannelEnable)
+                  00006b28    00000062     grlib.lib : context.obj (.text:GrContextClipRegionSet)
+                  00006b8a    00000062     ff.obj (.text:follow_path)
+                  00006bec    00000060     cmdline.obj (.text:CmdLineProcess)
+                  00006c4c    00000060     usb_host_hub.obj (.text:Cmd_help)
+                  00006cac    00000060     driverlib.lib : interrupt.obj (.text:IntDisable)
+                  00006d0c    00000060                   : interrupt.obj (.text:IntEnable)
+                  00006d6c    00000060     usblib.lib : usbdenum.obj (.text:USBDCDFeatureSet)
+                  00006dcc    00000060                : usbdenum.obj (.text:USBDReadAndDispatchRequest)
+                  00006e2c    00000060                : usbhostenum.obj (.text:USBHostCheckPipes)
+                  00006e8c    0000005e     driverlib.lib : usb.obj (.text:USBDevEndpointStatusClear)
+                  00006eea    0000005e     ff.obj (.text:f_opendir)
+                  00006f48    0000005e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text)
+                  00006fa6    00000002     --HOLE-- [fill = 0]
+                  00006fa8    0000005c     usblib.lib : usbhostenum.obj (.text:ConfigDescAlloc)
+                  00007004    0000005c     grlib.lib : string.obj (.text:FontWideGlyphDataGet)
+                  00007060    0000005c     usblib.lib : usbdenum.obj (.text:USBDStringIndexFromRequest)
+                  000070bc    0000005c                : usbhostenum.obj (.text:USBHCDGetDeviceDescriptor)
+                  00007118    0000005c                : usbhscsi.obj (.text:USBHSCSIRead10)
+                  00007174    0000005c                : usbhscsi.obj (.text:USBHSCSIWrite10)
+                  000071d0    00000058                : usbhostenum.obj (.text:USBHCDEP0StateTx)
+                  00007228    00000058                : usbhostenum.obj (.text:USBHCDHubDeviceConnected)
+                  00007280    00000054     usb_host_hub.obj (.text:USBHCDEvents)
+                  000072d4    00000054     ff.obj (.text:sync_window)
+                  00007328    00000054     usblib.lib : usbdma.obj (.text:uDMAUSBChannelRelease)
+                  0000737c    00000052                : usbulpi.obj (.text:ULPIConfigSet)
+                  000073ce    00000052     ff.obj (.text:dir_read)
+                  00007420    00000050     usblib.lib : usbhhub.obj (.text:HubGetPortStatus)
+                  00007470    00000050     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralReset)
+                  000074c0    00000050     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigDescGet)
+                  00007510    00000050                : usbdenum.obj (.text:USBDeviceResumeTickHandler)
+                  00007560    0000004c                : usbdcdesc.obj (.text:ConfigAlternateInterfaceGet)
+                  000075ac    0000004c                : usbdconfig.obj (.text:GetEPDescriptorType)
+                  000075f8    0000004c                : usbhhub.obj (.text:HubDriverDeviceDisconnect)
+                  00007644    0000004c                : usbhhub.obj (.text:HubIntINCallback)
+                  00007690    0000004c     driverlib.lib : usb.obj (.text:USBDevEndpointStallClear)
+                  000076dc    0000004c                   : usb.obj (.text:USBEndpointDMAConfigSet)
+                  00007728    0000004c     usblib.lib : usbhostenum.obj (.text:USBHCDPowerConfigSet)
+                  00007774    0000004c     driverlib.lib : sysctl.obj (.text:_SysCtlFrequencyGet)
+                  000077c0    0000004a     grlib.lib : string.obj (.text:UpdateContextCharMapping)
+                  0000780a    0000004a     ff.obj (.text:dir_find)
+                  00007854    0000004a     ff.obj (.text:f_readdir)
+                  0000789e    0000004a     usblib.lib : usbdma.obj (.text:iDMAUSBChannelEnable)
+                  000078e8    0000004a                : usbdma.obj (.text:uDMAUSBChannelDisable)
+                  00007932    00000048     driverlib.lib : usb.obj (.text:USBFIFOFlush)
+                  0000797a    00000002     --HOLE-- [fill = 0]
+                  0000797c    00000048     usblib.lib : usbhostenum.obj (.text:USBHCDSetAddress)
+                  000079c4    00000048                : usbhhub.obj (.text:USBHHubInit)
+                  00007a0c    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00007a54    00000048     driverlib.lib : udma.obj (.text:uDMAChannelAttributeDisable)
+                  00007a9c    00000046     grlib.lib : line.obj (.text:GrLineDrawH)
+                  00007ae2    00000046               : line.obj (.text:GrLineDrawV)
+                  00007b28    00000044     usblib.lib : usbhhub.obj (.text:GetHubDescriptor)
+                  00007b6c    00000044                : usbdenum.obj (.text:USBDeviceEnumResetHandler)
+                  00007bb0    00000044     driverlib.lib : usb.obj (.text:USBEndpointDataGet)
+                  00007bf4    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  00007c38    00000044                                   : exit.obj (.text)
+                  00007c7c    00000042     usblib.lib : usbhhid.obj (.text:USBHHIDSetProtocol)
+                  00007cbe    00000042     rtsv7M4_T_le_v4SPD16_eabi.lib : u_divt2.obj (.text)
+                  00007d00    00000040     usblib.lib : usbdenum.obj (.text:USBDGetInterface)
+                  00007d40    00000040                : usbhhidkeyboard.obj (.text:USBHKeyboardCallback)
+                  00007d80    00000040                : usbhmsc.obj (.text:USBHMSCGetMaxLUN)
+                  00007dc0    00000040     fat_usbmsc.obj (.text:disk_write)
+                  00007e00    0000003e     usblib.lib : usbhscsi.obj (.text:USBHSCSIInquiry)
+                  00007e3e    0000003e                : usbhscsi.obj (.text:USBHSCSIReadCapacity)
+                  00007e7c    0000003e     ff.obj (.text:dir_alloc)
+                  00007eba    00000002     --HOLE-- [fill = 0]
+                  00007ebc    0000003c     usblib.lib : usbhhub.obj (.text:HubDriverReset)
+                  00007ef8    0000003c                : usbhostenum.obj (.text:USBHCDPipeReadNonBlocking)
+                  00007f34    0000003c                : usbhscsi.obj (.text:USBHSCSIRequestSense)
+                  00007f70    0000003a     grlib.lib : string.obj (.text:FontGlyphDataGet)
+                  00007faa    0000003a     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigGetInterfaceEndpoint)
+                  00007fe4    0000003a     driverlib.lib : usb.obj (.text:USBFIFOConfigSet)
+                  0000801e    0000003a     usblib.lib : usbdma.obj (.text:iDMAUSBChannelRelease)
+                  00008058    00000038                : usbhhid.obj (.text:HIDIntINCallback)
+                  00008090    00000038                : usbhostenum.obj (.text:USBHCDReset)
+                  000080c8    00000038                : usbhhid.obj (.text:USBHHIDGetReportDescriptor)
+                  00008100    00000038                : usbhhid.obj (.text:USBHHIDSetIdle)
+                  00008138    00000038                : usbhhid.obj (.text:USBHHIDSetReport)
+                  00008170    00000038                : usbhhidkeyboard.obj (.text:USBHKeyboardInit)
+                  000081a8    00000038                : usbhscsi.obj (.text:USBHSCSITestUnitReady)
+                  000081e0    00000038     driverlib.lib : usb.obj (.text:USBIntStatusControl)
+                  00008218    00000038     ff.obj (.text:dir_register)
+                  00008250    00000036     usblib.lib : usbhhub.obj (.text:HubClearPortFeature)
+                  00008286    00000036                : usbhhub.obj (.text:HubSetPortFeature)
+                  000082bc    00000036     driverlib.lib : lcd.obj (.text:LCDIDDTimingSet)
+                  000082f2    00000002     --HOLE-- [fill = 0]
+                  000082f4    00000034     usblib.lib : usbhostenum.obj (.text:FIFOFree)
+                  00008328    00000034                : usbtick.obj (.text:InternalUSBStartOfFrameTick)
+                  0000835c    00000034     usb_host_keyboard.obj (.text:KeyboardMain)
+                  00008390    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  000083c4    00000034     usblib.lib : usbmode.obj (.text:USBOTGRemovePower)
+                  000083f8    00000034                : usbdma.obj (.text:iDMAUSBChannelStatus)
+                  0000842c    00000032                : usbdcdesc.obj (.text:NextConfigDescGet)
+                  0000845e    00000032     driverlib.lib : usb.obj (.text:USBDevEndpointStall)
+                  00008490    00000032     usblib.lib : usbhostenum.obj (.text:USBHCDSetConfig)
+                  000084c2    00000032                : usbdma.obj (.text:iDMAUSBChannelDisable)
+                  000084f4    00000030                : usbdma.obj (.text:DMAUSBIntHandler)
+                  00008524    00000030                : usbtick.obj (.text:InternalUSBTickInit)
+                  00008554    00000030     usb_host_msc.obj (.text:StringFromFresult)
+                  00008584    00000030     usblib.lib : usbdenum.obj (.text:USBDGetConfiguration)
+                  000085b4    00000030     driverlib.lib : usb.obj (.text:USBEndpointDataPut)
+                  000085e4    00000030     usblib.lib : usbhostenum.obj (.text:USBHCDDevClass)
+                  00008614    00000030                : usbhostenum.obj (.text:USBHCDDevProtocol)
+                  00008644    00000030                : usbhmsc.obj (.text:USBHMSCBlockRead)
+                  00008674    00000030                : usbhmsc.obj (.text:USBHMSCBlockWrite)
+                  000086a4    00000030                : usbhmsc.obj (.text:USBHMSCClose)
+                  000086d4    00000030     fat_usbmsc.obj (.text:disk_initialize)
+                  00008704    00000030     fat_usbmsc.obj (.text:disk_read)
+                  00008734    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : strncpy.obj (.text)
+                  00008764    0000002e     driverlib.lib : usb.obj (.text:USBEndpointDataSend)
+                  00008792    0000002e                   : usb.obj (.text:USBHostHubAddrSet)
+                  000087c0    0000002e     ff.obj (.text:move_window)
+                  000087ee    00000002     --HOLE-- [fill = 0]
+                  000087f0    0000002c     usblib.lib : usbhostenum.obj (.text:ConfigDescFree)
+                  0000881c    0000002c                : usbhostenum.obj (.text:InternalUSBHCDSendEvent)
+                  00008848    0000002c                : usbdesc.obj (.text:USBDescGet)
+                  00008874    0000002c                : usbdesc.obj (.text:USBDescGetAlternateInterface)
+                  000088a0    0000002c                : usbdma.obj (.text:uDMAUSBIntStatus)
+                  000088cc    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000088f6    0000002a     grlib.lib : string.obj (.text:GrFontBaselineGet)
+                  00008920    0000002a               : string.obj (.text:GrFontHeightGet)
+                  0000894a    0000002a               : string.obj (.text:GrFontMaxWidthGet)
+                  00008974    0000002a               : string.obj (.text:GrStringNextCharGet)
+                  0000899e    0000002a     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigDescGetNum)
+                  000089c8    00000028     usb_host_keyboard.obj (.text:KeyboardOpen)
+                  000089f0    00000028     usblib.lib : usbdesc.obj (.text:USBDescGetNum)
+                  00008a18    00000028                : usbhostenum.obj (.text:USBHCDPipeDataAck)
+                  00008a40    00000028     driverlib.lib : usb.obj (.text:USBHostEndpointStatusClear)
+                  00008a68    00000028                   : usb.obj (.text:USBIntEnableControl)
+                  00008a90    00000028     ff.obj (.text:f_mount)
+                  00008ab8    00000028     driverlib.lib : udma.obj (.text:uDMAChannelModeGet)
+                  00008ae0    00000028     ff.obj (.text:validate)
+                  00008b08    00000026     grlib.lib : string.obj (.text:GrFontInfoGet)
+                  00008b2e    00000026     driverlib.lib : usb.obj (.text:USBEndpointDataToggleClear)
+                  00008b54    00000026                   : usb.obj (.text:USBHostSpeedGet)
+                  00008b7a    00000026     usblib.lib : usbmode.obj (.text:USBOTGFeatureSet)
+                  00008ba0    00000024                : usbhhub.obj (.text:HubDriverDeviceReset)
+                  00008bc4    00000024                : usbdenum.obj (.text:USBDSetAddress)
+                  00008be8    00000024     driverlib.lib : usb.obj (.text:USBDevEndpointDataAck)
+                  00008c0c    00000024                   : usb.obj (.text:USBEndpointDMADisable)
+                  00008c30    00000024                   : usb.obj (.text:USBEndpointDMAEnable)
+                  00008c54    00000024     usblib.lib : usbhhid.obj (.text:USBHHIDOpen)
+                  00008c78    00000024     driverlib.lib : udma.obj (.text:uDMAChannelControlSet)
+                  00008c9c    00000022     grlib.lib : string.obj (.text:GrFontGlyphDataGet)
+                  00008cbe    00000022     driverlib.lib : lcd.obj (.text:LCDModeSet)
+                  00008ce0    00000022     usblib.lib : usbdma.obj (.text:uDMAUSBChannelStatus)
+                  00008d02    00000022     ustdlib.obj (.text:ustrncpy)
+                  00008d24    00000020     usblib.lib : usbdconfig.obj (.text:GetEndpointFIFOSize)
+                  00008d44    00000020                : usbhhid.obj (.text:HIDDriverClose)
+                  00008d64    00000020                : usbhhub.obj (.text:HubDriverDeviceConnect)
+                  00008d84    00000020                : usbhostenum.obj (.text:USBHCDDevHubPort)
+                  00008da4    00000020                : usbhhidkeyboard.obj (.text:USBHKeyboardOpen)
+                  00008dc4    00000020     driverlib.lib : usb.obj (.text:USBHostEndpointDataAck)
+                  00008de4    00000020     usblib.lib : usbmode.obj (.text:USBStackModeSet)
+                  00008e04    00000020     ustdlib.obj (.text:usprintf)
+                  00008e24    0000001e     grlib.lib : string.obj (.text:GrFontCodepageGet)
+                  00008e42    0000001e     driverlib.lib : usb.obj (.text:USBULPIRegRead)
+                  00008e60    0000001e                   : usb.obj (.text:USBULPIRegWrite)
+                  00008e7e    0000001e     ff.obj (.text:ld_clust)
+                  00008e9c    0000001c     usb_host_msc.obj (.text:Cmd_pwd)
+                  00008eb8    0000001c     usb_host_msc.obj (.text:MSCCallback)
+                  00008ed4    0000001c     usblib.lib : usbmode.obj (.text:OTGDeviceDisconnect)
+                  00008ef0    0000001c                : usbdcdesc.obj (.text:USBDCDConfigGetInterface)
+                  00008f0c    0000001c                : usbdenum.obj (.text:USBDCDStallEP0)
+                  00008f28    0000001c                : usbhhub.obj (.text:USBHHubEnumerationComplete)
+                  00008f44    0000001c                : usbhhub.obj (.text:USBHHubEnumerationError)
+                  00008f60    0000001c     driverlib.lib : usb.obj (.text:USBHostPwrConfig)
+                  00008f7c    0000001c                   : sysctl.obj (.text:_SysCtlMemTimingGet)
+                  00008f98    0000001c     ff.obj (.text:mem_cmp)
+                  00008fb4    0000001a     driverlib.lib : usb.obj (.text:USBEndpointDMAChannel)
+                  00008fce    0000001a     usblib.lib : usbhhidkeyboard.obj (.text:USBHKeyboardModifierSet)
+                  00008fe8    0000001a     driverlib.lib : usb.obj (.text:USBOTGSessionRequest)
+                  00009002    0000001a     rtsv7M4_T_le_v4SPD16_eabi.lib : strcat.obj (.text)
+                  0000901c    00000018     usb_host_msc.obj (.text:FileInit)
+                  00009034    00000018     usb_host_msc.obj (.text:MSCOpen)
+                  0000904c    00000018     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigDescGetSize)
+                  00009064    00000018                : usbdenum.obj (.text:USBDSetDescriptor)
+                  0000907c    00000018                : usbdenum.obj (.text:USBDSyncFrame)
+                  00009094    00000018                : usbhhub.obj (.text:USBHHubOpen)
+                  000090ac    00000018     driverlib.lib : usb.obj (.text:USBHostRequestINClear)
+                  000090c4    00000018     ff.obj (.text:clust2sect)
+                  000090dc    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  000090f4    00000018                                   : strcmp.obj (.text)
+                  0000910c    00000018     driverlib.lib : udma.obj (.text:uDMAChannelDisable)
+                  00009124    00000018                   : udma.obj (.text:uDMAChannelEnable)
+                  0000913c    00000016     kentec320x240x16_ssd2119.obj (.text:Kentec320x240x16_SSD2119ColorTranslate)
+                  00009152    00000016     usblib.lib : usbdesc.obj (.text:USBDescGetInterface)
+                  00009168    00000016                : usbdesc.obj (.text:USBDescGetInterfaceEndpoint)
+                  0000917e    00000016     driverlib.lib : usb.obj (.text:USBHostAddrSet)
+                  00009194    00000014                   : sysctl.obj (.text:SysCtlUSBPLLEnable)
+                  000091a8    00000014     usblib.lib : usbhmsc.obj (.text:USBHMSCDriveOpen)
+                  000091bc    00000014     driverlib.lib : usb.obj (.text:USBHostReset)
+                  000091d0    00000014                   : usb.obj (.text:USBHostResume)
+                  000091e4    00000014     usblib.lib : usbhhub.obj (.text:USBHubPortSpeedSet)
+                  000091f8    00000014     driverlib.lib : usb.obj (.text:USBIntEnableEndpoint)
+                  0000920c    00000014                   : usb.obj (.text:_USBIndexWrite)
+                  00009220    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00009234    00000014                                   : strlen.obj (.text)
+                  00009248    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeEthernetLED)
+                  0000925a    00000012     grlib.lib : string.obj (.text:GrStringDraw)
+                  0000926c    00000012     usblib.lib : usbhostenum.obj (.text:SendUnknownConnect)
+                  0000927e    00000012     driverlib.lib : usb.obj (.text:USBDMAChannelConfigSet)
+                  00009290    00000012                   : usb.obj (.text:USBDMAChannelDisable)
+                  000092a2    00000012                   : usb.obj (.text:USBDMAChannelEnable)
+                  000092b4    00000012                   : usb.obj (.text:USBDMAChannelIntDisable)
+                  000092c6    00000012                   : usb.obj (.text:USBDMAChannelIntEnable)
+                  000092d8    00000012                   : usb.obj (.text:USBHostLPMConfig)
+                  000092ea    00000012                   : usb.obj (.text:USBHostRequestIN)
+                  000092fc    00000012     ff.obj (.text:chk_chr)
+                  0000930e    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00009320    00000012     ustdlib.obj (.text:ustrlen)
+                  00009332    00000010     driverlib.lib : usb.obj (.text:USBEndpointStatus)
+                  00009342    00000002     --HOLE-- [fill = 0]
+                  00009344    00000010     usblib.lib : usbhostenum.obj (.text:USBHCDPowerAutomatic)
+                  00009354    00000010                : usbhostenum.obj (.text:USBHCDRegisterDrivers)
+                  00009364    00000010     fat_usbmsc.obj (.text:disk_status)
+                  00009374    00000010     ff.obj (.text:mem_cpy)
+                  00009384    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : strcpy.obj (.text)
+                  00009394    00000010     ff.obj (.text:st_clust)
+                  000093a4    0000000e     usblib.lib : usbdma.obj (.text:DMAUSBIntStatusClear)
+                  000093b2    0000000e     grlib.lib : image.obj (.text:GrImageDraw)
+                  000093c0    0000000e     usblib.lib : usbhostenum.obj (.text:HCDInstanceToDevIndex)
+                  000093ce    0000000e     driverlib.lib : usb.obj (.text:USBDMAChannelStatus)
+                  000093dc    0000000e                   : usb.obj (.text:USBDevLPMEnable)
+                  000093ea    0000000e                   : usb.obj (.text:USBHostPwrDisable)
+                  000093f8    0000000e                   : usb.obj (.text:USBHostPwrEnable)
+                  00009406    0000000e                   : usb.obj (.text:USBULPIDisable)
+                  00009414    0000000e                   : usb.obj (.text:USBULPIEnable)
+                  00009422    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  00009430    0000000e     ff.obj (.text:mem_set)
+                  0000943e    0000000c     driverlib.lib : lcd.obj (.text:LCDIDDCommandWrite)
+                  0000944a    0000000c                   : lcd.obj (.text:LCDIDDDataWrite)
+                  00009456    0000000c                   : usb.obj (.text:USBEndpointPacketCountSet)
+                  00009462    00000002     --HOLE-- [fill = 0]
+                  00009464    0000000c     usblib.lib : usbhostenum.obj (.text:USBHCDHubDeviceDisconnected)
+                  00009470    0000000c                : usbhostenum.obj (.text:USBHCDPipeAlloc)
+                  0000947c    0000000c                : usbhostenum.obj (.text:USBHCDPowerConfigInit)
+                  00009488    0000000c     driverlib.lib : usb.obj (.text:USBLPMIntEnable)
+                  00009494    0000000a                   : usb.obj (.text:USBClockEnable)
+                  0000949e    0000000a                   : usb.obj (.text:USBControllerVersion)
+                  000094a8    0000000a                   : usb.obj (.text:USBDMAChannelAddressSet)
+                  000094b2    0000000a                   : usb.obj (.text:USBDMAChannelCountSet)
+                  000094bc    0000000a                   : usb.obj (.text:USBDevDisconnect)
+                  000094c6    0000000a     usblib.lib : usbhhid.obj (.text:USBHHIDGetReport)
+                  000094d0    0000000a     driverlib.lib : usb.obj (.text:USBHostSuspend)
+                  000094da    0000000a                   : usb.obj (.text:USBIntStatusEndpoint)
+                  000094e4    0000000a                   : usb.obj (.text:USBModeGet)
+                  000094ee    0000000a                   : usb.obj (.text:USBNumEndpointsGet)
+                  000094f8    00000008     grlib.lib : charmap.obj (.text:GrMapISO8859_1_Unicode)
+                  00009500    00000008     driverlib.lib : usb.obj (.text:USBFIFOAddrGet)
+                  00009508    00000008                   : usb.obj (.text:USBHostMode)
+                  00009510    00000008                   : usb.obj (.text:USBHostRequestStatus)
+                  00009518    00000008                   : usb.obj (.text:USBOTGMode)
+                  00009520    00000008     fat_usbmsc.obj (.text:get_fattime)
+                  00009528    00000008     usblib.lib : usbdma.obj (.text:iDMAUSBChannelIntDisable)
+                  00009530    00000008                : usbdma.obj (.text:iDMAUSBChannelIntEnable)
+                  00009538    00000006     driverlib.lib : gpio.obj (.text:GPIOPinWrite)
+                  0000953e    00000006     grlib.lib : string.obj (.text:GrContextFontSet)
+                  00009544    00000006     startup_ccs.obj (.text:ResetISR)
+                  0000954a    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00009550    00000006                   : usb.obj (.text:USBDMAChannelIntStatus)
+                  00009556    00000006                   : usb.obj (.text:USBLPMIntStatus)
+                  0000955c    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  00009562    00000006     usblib.lib : usbdma.obj (.text:iDMAUSBIntStatus)
+                  00009568    00000004                : usbdma.obj (.text:DMAUSBStatus)
+                  0000956c    00000004     driverlib.lib : lcd.obj (.text:LCDDMAConfigSet)
+                  00009570    00000004                   : lcd.obj (.text:LCDIDDConfigSet)
+                  00009574    00000004                   : usb.obj (.text:USBDevAddrSet)
+
+.const     0    00009578    000044a0     
+                  00009578    00001a46     frame.obj (.const:.string:g_pui8Top)
+                  0000afbe    00000786     frame.obj (.const:.string:g_pui8Bottom)
+                  0000b744    00000782     grlib.lib : fontcmss18b.obj (.const:.string:g_pui8Cmss18bData)
+                  0000bec6    00000546     frame.obj (.const:.string:g_pui8Left)
+                  0000c40c    00000546     frame.obj (.const:.string:g_pui8Right)
+                  0000c952    00000002     --HOLE-- [fill = 0]
+                  0000c954    000002f8     grlib.lib : fontfixed6x8.obj (.const:.string:g_pui8FontFixed6x8Data)
+                  0000cc4c    00000200     usblib.lib : usbkeyboardmap.obj (.const:g_pui8KeyBoardMap)
+                  0000ce4c    0000017c     frame.obj (.const:.string:g_pui8TopLeft)
+                  0000cfc8    00000173     frame.obj (.const:.string:g_pui8TopRight)
+                  0000d13b    00000001     --HOLE-- [fill = 0]
+                  0000d13c    00000120     driverlib.lib : sysctl.obj (.const:g_pppui32XTALtoVCO)
+                  0000d25c    00000108     usblib.lib : usbkeyboardmap.obj (.const:g_sUSKeyboardMap)
+                  0000d364    000000ea     usb_host_hub.obj (.const:.string)
+                  0000d44e    000000d0     frame.obj (.const:.string:g_pui8BottomLeft)
+                  0000d51e    00000002     --HOLE-- [fill = 0]
+                  0000d520    000000c8     usb_host_msc.obj (.const:.string)
+                  0000d5e8    000000c8     grlib.lib : fontcmss18b.obj (.const:g_sFontCmss18b)
+                  0000d6b0    000000c8               : fontfixed6x8.obj (.const:g_sFontFixed6x8)
+                  0000d778    000000c4     frame.obj (.const:.string:g_pui8BottomRight)
+                  0000d83c    00000070     driverlib.lib : interrupt.obj (.const)
+                  0000d8ac    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  0000d918    00000038                   : sysctl.obj (.const:g_sXTALtoMEMTIM)
+                  0000d950    00000034     usblib.lib : usbdenum.obj (.const:g_psUSBDStdRequests)
+                  0000d984    00000028     kentec320x240x16_ssd2119.obj (.const:g_sKentec320x240x16_SSD2119)
+                  0000d9ac    00000024     usb_host_hub.obj (.const)
+                  0000d9d0    00000010     grlib.lib : context.obj (.const)
+                  0000d9e0    00000010     usblib.lib : usbhhid.obj (.const)
+                  0000d9f0    00000010                : usbhhub.obj (.const)
+                  0000da00    00000010                : usbhmsc.obj (.const)
+                  0000da10    00000008     driverlib.lib : sysctl.obj (.const)
+
+.cinit     0    0000da18    00000128     
+                  0000da18    00000100     (.cinit..data.load) [load image, compression = rle]
+                  0000db18    0000000c     (__TI_handler_table)
+                  0000db24    00000004     --HOLE-- [fill = 0]
+                  0000db28    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  0000db30    00000010     (__TI_cinit_table)
+
+.bss       0    20000000    000017c0     UNINITIALIZED
+                  20000000    00000650     usblib.lib : usbhostenum.obj (.bss:g_sUSBHCD)
+                  20000650    00000564     usb_host_hub.obj (.bss:g_pcLines)
+                  20000bb4    00000280     usb_host_hub.obj (.bss:g_pui8HCDPool)
+                  20000e34    00000234     usb_host_msc.obj (.bss:g_sFatFs)
+                  20001068    00000224     usb_host_msc.obj (.bss:g_sFileObject)
+                  2000128c    00000110     usblib.lib : usbdma.obj (.bss:g_psUSBDMAInst)
+                  2000139c    0000009c                : usbhhub.obj (.bss:g_sRootHub)
+                  20001438    00000080     usb_host_keyboard.obj (.bss:g_pui8Buffer)
+                  200014b8    00000064     usblib.lib : usbhhid.obj (.bss:g_psHIDDevice)
+                  2000151c    00000050     usb_host_msc.obj (.bss:g_pcTmpBuf)
+                  2000156c    00000050     usblib.lib : usbdenum.obj (.bss:g_psDCDInst)
+                  200015bc    00000040     usb_host_hub.obj (.bss:g_pcCmdBuf)
+                  200015fc    00000040     usblib.lib : usbdenum.obj (.bss:g_pui8DataBufferIn)
+                  2000163c    0000003c                : usbhostenum.obj (.bss)
+                  20001678    00000030                : usbtick.obj (.bss)
+                  200016a8    0000002c     usb_host_hub.obj (.bss:g_sContext)
+                  200016d4    00000024     cmdline.obj (.bss:g_ppcArgv)
+                  200016f8    00000020     grlib.lib : image.obj (.bss)
+                  20001718    00000020     (.common:g_psHubStatus)
+                  20001738    0000001c     (.common:g_sDirObject)
+                  20001754    00000018     (.common:g_sFileInfo)
+                  2000176c    0000000c     usblib.lib : usbmode.obj (.bss)
+                  20001778    00000008                : usbdenum.obj (.bss)
+                  20001780    00000008                : usbhhub.obj (.bss)
+                  20001788    00000004     grlib.lib : context.obj (.bss)
+                  2000178c    00000004     (.common:FatFs)
+                  20001790    00000004     (.common:g_psKeyboardInstance)
+                  20001794    00000004     (.common:g_psMSCInstance)
+                  20001798    00000004     (.common:g_ui32CharsPerLine)
+                  2000179c    00000004     (.common:g_ui32CmdIdx)
+                  200017a0    00000004     (.common:g_ui32Column)
+                  200017a4    00000004     (.common:g_ui32CurrentLine)
+                  200017a8    00000004     (.common:g_ui32DriveTimeout)
+                  200017ac    00000004     (.common:g_ui32Flags)
+                  200017b0    00000004     (.common:g_ui32Line)
+                  200017b4    00000004     (.common:g_ui32LinesPerScreen)
+                  200017b8    00000004     (.common:g_ui32Modifiers)
+                  200017bc    00000002     (.common:Fsid)
+                  200017be    00000001     (.common:g_iKeyboardState)
+                  200017bf    00000001     (.common:g_iState)
+
+.stack     0    200017c0    00000800     UNINITIALIZED
+                  200017c0    00000800     --HOLE--
+
+.data      0    20001fc0    000001c4     UNINITIALIZED
+                  20001fc0    00000070     usb_host_msc.obj (.data:g_sFresultStrings)
+                  20002030    0000006c     usb_host_hub.obj (.data:g_psCmdTable)
+                  2000209c    00000050     usb_host_msc.obj (.data:g_pcCwdBuf)
+                  200020ec    0000002c     usblib.lib : usbhostenum.obj (.data)
+                  20002118    0000001c                : usbhhidkeyboard.obj (.data)
+                  20002134    0000001c                : usbhmsc.obj (.data)
+                  20002150    0000000c                : usbtick.obj (.data)
+                  2000215c    00000009                : usbmode.obj (.data)
+                  20002165    00000001     fat_usbmsc.obj (.data)
+                  20002166    00000002     --HOLE--
+                  20002168    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20002170    00000008                                   : exit.obj (.data)
+                  20002178    00000008     usblib.lib : usbdenum.obj (.data)
+                  20002180    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : stkdepth_vars.obj (.data)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 0000db30 records: 2, size/record: 8, table size: 16
+	.data: load addr=0000da18, load size=00000100 bytes, run addr=20001fc0, run size=000001c4 bytes, compression=rle
+	.bss: load addr=0000db28, load size=00000008 bytes, run addr=20000000, run size=000017c0 bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 0000db18 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+00007c39   C$$EXIT
+00006bed   CmdLineProcess
+00003f05   Cmd_cat
+00005499   Cmd_cd
+00006c4d   Cmd_help
+00002cd1   Cmd_ls
+00008e9d   Cmd_pwd
+00006fa9   ConfigDescAlloc
+000087f1   ConfigDescFree
+0000901d   FileInit
+000020e9   FrameDraw
+000088cd   GPIODirModeSet
+00003ba1   GPIOPadConfigSet
+00009249   GPIOPinTypeEthernetLED
+00009539   GPIOPinWrite
+00006b29   GrContextClipRegionSet
+0000953f   GrContextFontSet
+0000686d   GrContextInit
+00004f51   GrDefaultStringRenderer
+000088f7   GrFontBaselineGet
+00008e25   GrFontCodepageGet
+00008c9d   GrFontGlyphDataGet
+00001817   GrFontGlyphRender
+00008921   GrFontHeightGet
+00008b09   GrFontInfoGet
+0000894b   GrFontMaxWidthGet
+000093b3   GrImageDraw
+00007a9d   GrLineDrawH
+00007ae3   GrLineDrawV
+000094f9   GrMapISO8859_1_Unicode
+00006805   GrRectDraw
+0000601d   GrRectFill
+0000925b   GrStringDraw
+00008975   GrStringNextCharGet
+00006731   GrStringWidthGet
+0000354b   HubCallback
+00006cad   IntDisable
+00006d0d   IntEnable
+00006935   IntIsEnabled
+0000881d   InternalUSBHCDSendEvent
+00008329   InternalUSBStartOfFrameTick
+00008525   InternalUSBTickInit
+000006c9   Kentec320x240x16_SSD2119Init
+000061a9   KeyboardCallback
+0000835d   KeyboardMain
+000089c9   KeyboardOpen
+0000956d   LCDDMAConfigSet
+0000943f   LCDIDDCommandWrite
+00009571   LCDIDDConfigSet
+0000944b   LCDIDDDataWrite
+000082bd   LCDIDDTimingSet
+00008cbf   LCDModeSet
+00008eb9   MSCCallback
+00005265   MSCMain
+00009035   MSCOpen
+00008ed5   OTGDeviceDisconnect
+00000201   PinoutSet
+00002b51   PrintChar
+00009545   ResetISR
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+00008555   StringFromFresult
+000022e9   SysCtlClockFreqSet
+0000501d   SysCtlClockGet
+0000954b   SysCtlDelay
+00008391   SysCtlPeripheralEnable
+00007471   SysCtlPeripheralReset
+00009195   SysCtlUSBPLLEnable
+0000737d   ULPIConfigSet
+00005321   USB0OTGModeIntHandler
+00009495   USBClockEnable
+0000949f   USBControllerVersion
+000074c1   USBDCDConfigDescGet
+0000899f   USBDCDConfigDescGetNum
+0000904d   USBDCDConfigDescGetSize
+00008ef1   USBDCDConfigGetInterface
+00007fab   USBDCDConfigGetInterfaceEndpoint
+00006d6d   USBDCDFeatureSet
+00008f0d   USBDCDStallEP0
+000094a9   USBDMAChannelAddressSet
+0000927f   USBDMAChannelConfigSet
+000094b3   USBDMAChannelCountSet
+00009291   USBDMAChannelDisable
+000092a3   USBDMAChannelEnable
+000092b5   USBDMAChannelIntDisable
+000092c7   USBDMAChannelIntEnable
+00009551   USBDMAChannelIntStatus
+000093cf   USBDMAChannelStatus
+00008849   USBDescGet
+00009153   USBDescGetInterface
+00009169   USBDescGetInterfaceEndpoint
+000089f1   USBDescGetNum
+00009575   USBDevAddrSet
+000094bd   USBDevDisconnect
+000062a1   USBDevEndpointConfigSet
+00008be9   USBDevEndpointDataAck
+0000845f   USBDevEndpointStall
+00007691   USBDevEndpointStallClear
+00006e8d   USBDevEndpointStatusClear
+000093dd   USBDevLPMEnable
+000037ed   USBDeviceConfig
+00005e79   USBDeviceConfigAlternate
+00004c01   USBDeviceEnumHandler
+00007b6d   USBDeviceEnumResetHandler
+0000392d   USBDeviceIntHandlerInternal
+00007511   USBDeviceResumeTickHandler
+00008fb5   USBEndpointDMAChannel
+000076dd   USBEndpointDMAConfigSet
+00008c0d   USBEndpointDMADisable
+00008c31   USBEndpointDMAEnable
+00007bb1   USBEndpointDataGet
+000085b5   USBEndpointDataPut
+00008765   USBEndpointDataSend
+00008b2f   USBEndpointDataToggleClear
+00009457   USBEndpointPacketCountSet
+00009333   USBEndpointStatus
+00009501   USBFIFOAddrGet
+00007fe5   USBFIFOConfigSet
+00007933   USBFIFOFlush
+000044f1   USBHCDControlTransfer
+000085e5   USBHCDDevClass
+00008d85   USBHCDDevHubPort
+00008615   USBHCDDevProtocol
+00007281   USBHCDEvents
+00005a79   USBHCDFeatureSet
+00007229   USBHCDHubDeviceConnected
+00009465   USBHCDHubDeviceDisconnected
+000043fd   USBHCDInit
+000047b5   USBHCDMain
+00009471   USBHCDPipeAlloc
+00002841   USBHCDPipeAllocSize
+00004db1   USBHCDPipeConfig
+00008a19   USBHCDPipeDataAck
+0000420d   USBHCDPipeFree
+0000354d   USBHCDPipeRead
+00007ef9   USBHCDPipeReadNonBlocking
+000045e1   USBHCDPipeSchedule
+00003a6d   USBHCDPipeWrite
+00009345   USBHCDPowerAutomatic
+0000947d   USBHCDPowerConfigInit
+00007729   USBHCDPowerConfigSet
+00009355   USBHCDRegisterDrivers
+00008091   USBHCDReset
+0000797d   USBHCDSetAddress
+00008491   USBHCDSetConfig
+000094c7   USBHHIDGetReport
+000080c9   USBHHIDGetReportDescriptor
+00008c55   USBHHIDOpen
+00008101   USBHHIDSetIdle
+00007c7d   USBHHIDSetProtocol
+00008139   USBHHIDSetReport
+00008f29   USBHHubEnumerationComplete
+00008f45   USBHHubEnumerationError
+000079c5   USBHHubInit
+00002e4d   USBHHubMain
+00009095   USBHHubOpen
+00008171   USBHKeyboardInit
+00008fcf   USBHKeyboardModifierSet
+00008da5   USBHKeyboardOpen
+000069fd   USBHKeyboardUsageToChar
+00008645   USBHMSCBlockRead
+00008675   USBHMSCBlockWrite
+000091a9   USBHMSCDriveOpen
+00004305   USBHMSCDriveReady
+00007e01   USBHSCSIInquiry
+00007119   USBHSCSIRead10
+00007e3f   USBHSCSIReadCapacity
+00007f35   USBHSCSIRequestSense
+000081a9   USBHSCSITestUnitReady
+00007175   USBHSCSIWrite10
+0000917f   USBHostAddrSet
+00006e2d   USBHostCheckPipes
+000050e5   USBHostEndpointConfig
+00008dc5   USBHostEndpointDataAck
+00008a41   USBHostEndpointStatusClear
+00008793   USBHostHubAddrSet
+00000b51   USBHostIntHandlerInternal
+000092d9   USBHostLPMConfig
+00009509   USBHostMode
+00008f61   USBHostPwrConfig
+000093eb   USBHostPwrDisable
+000093f9   USBHostPwrEnable
+000092eb   USBHostRequestIN
+000090ad   USBHostRequestINClear
+00009511   USBHostRequestStatus
+000091bd   USBHostReset
+000091d1   USBHostResume
+00008b55   USBHostSpeedGet
+000094d1   USBHostSuspend
+00008a69   USBIntEnableControl
+000091f9   USBIntEnableEndpoint
+000081e1   USBIntStatusControl
+000094db   USBIntStatusEndpoint
+00009489   USBLPMIntEnable
+00009557   USBLPMIntStatus
+0000328d   USBLibDMAInit
+000094e5   USBModeGet
+000094ef   USBNumEndpointsGet
+00008b7b   USBOTGFeatureSet
+00009519   USBOTGMode
+00008fe9   USBOTGSessionRequest
+00008de5   USBStackModeSet
+00009407   USBULPIDisable
+00009415   USBULPIEnable
+00008e43   USBULPIRegRead
+00008e61   USBULPIRegWrite
+00004cd9   UpdateStatus
+00001edd   WriteString
+20001fc0   __STACK_END
+00000800   __STACK_SIZE
+20001fc0   __STACK_TOP
+0000db30   __TI_CINIT_Base
+0000db40   __TI_CINIT_Limit
+0000db18   __TI_Handler_Table_Base
+0000db24   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+00005c3d   __TI_auto_init
+20002170   __TI_cleanup_ptr
+00009423   __TI_decompress_none
+0000955d   __TI_decompress_rle24
+20002174   __TI_dtors_ptr
+00000000   __TI_static_base__
+0000930f   __TI_zero_init
+000058ad   __aeabi_memcpy
+000058ad   __aeabi_memcpy4
+000058ad   __aeabi_memcpy8
+00007cbf   __aeabi_uidivmod
+ffffffff   __binit__
+ffffffff   __c_args__
+200017c0   __stack
+000090dd   _args_main
+00007a0d   _c_int00
+20002168   _lock
+0000922f   _nop
+00009227   _register_lock
+00009221   _register_unlock
+2000216c   _unlock
+00007c3d   abort
+ffffffff   binit
+000090c5   clust2sect
+00007bf5   copy_in
+000086d5   disk_initialize
+00008705   disk_read
+00009365   disk_status
+00007dc1   disk_write
+00007c45   exit
+00004a4d   f_getfree
+00008a91   f_mount
+000036a1   f_open
+00006eeb   f_opendir
+000033ed   f_read
+00007855   f_readdir
+20002150   g_bUSBTimerInitialized
+20001770   g_eOTGModeState
+200017be   g_iKeyboardState
+200017bf   g_iState
+2000215c   g_iUSBMode
+20001678   g_pfnTickHandlers
+00000000   g_pfnVectors
+2000177c   g_ppsDevInfo
+20002030   g_psCmdTable
+2000156c   g_psDCDInst
+0000d9d0   g_psDefaultCodePointMapTable
+20001718   g_psHubStatus
+20001794   g_psMSCInstance
+20001438   g_pui8Buffer
+20000bb4   g_pui8HCDPool
+0000cc4c   g_pui8KeyBoardMap
+20001690   g_pvTickInstance
+200016a8   g_sContext
+0000d5e8   g_sFontCmss18b
+0000d6b0   g_sFontFixed6x8
+20001fc0   g_sFresultStrings
+0000d984   g_sKentec320x240x16_SSD2119
+0000d9ac   g_sUSBEventDriver
+0000d9e0   g_sUSBHIDClassDriver
+0000da00   g_sUSBHostMSCClassDriver
+0000d9f0   g_sUSBHubClassDriver
+0000d25c   g_sUSKeyboardMap
+20001798   g_ui32CharsPerLine
+200017a0   g_ui32Column
+20002154   g_ui32CurrentUSBTick
+200017a8   g_ui32DriveTimeout
+200017b0   g_ui32Line
+200017b4   g_ui32LinesPerScreen
+200017b8   g_ui32Modifiers
+2000176c   g_ui32PollRate
+20002158   g_ui32USBSOFCount
+20002160   g_ui32WaitTicks
+00004e85   get_fat
+00009521   get_fattime
+00001cc5   main
+20002180   main_func_sp
+000058ad   memcpy
+00004971   put_fat
+00009003   strcat
+000090f5   strcmp
+00009385   strcpy
+00009235   strlen
+00008735   strncpy
+00007a55   uDMAChannelAttributeDisable
+00008c79   uDMAChannelControlSet
+0000910d   uDMAChannelDisable
+00009125   uDMAChannelEnable
+00008ab9   uDMAChannelModeGet
+00006129   uDMAChannelTransferSet
+00008e05   usprintf
+00009321   ustrlen
+00008d03   ustrncpy
+00001a7d   uvsnprintf
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+00000201   PinoutSet
+000006c9   Kentec320x240x16_SSD2119Init
+00000800   __STACK_SIZE
+00000b51   USBHostIntHandlerInternal
+00001817   GrFontGlyphRender
+00001a7d   uvsnprintf
+00001cc5   main
+00001edd   WriteString
+000020e9   FrameDraw
+000022e9   SysCtlClockFreqSet
+00002841   USBHCDPipeAllocSize
+00002b51   PrintChar
+00002cd1   Cmd_ls
+00002e4d   USBHHubMain
+0000328d   USBLibDMAInit
+000033ed   f_read
+0000354b   HubCallback
+0000354d   USBHCDPipeRead
+000036a1   f_open
+000037ed   USBDeviceConfig
+0000392d   USBDeviceIntHandlerInternal
+00003a6d   USBHCDPipeWrite
+00003ba1   GPIOPadConfigSet
+00003f05   Cmd_cat
+0000420d   USBHCDPipeFree
+00004305   USBHMSCDriveReady
+000043fd   USBHCDInit
+000044f1   USBHCDControlTransfer
+000045e1   USBHCDPipeSchedule
+000047b5   USBHCDMain
+00004971   put_fat
+00004a4d   f_getfree
+00004c01   USBDeviceEnumHandler
+00004cd9   UpdateStatus
+00004db1   USBHCDPipeConfig
+00004e85   get_fat
+00004f51   GrDefaultStringRenderer
+0000501d   SysCtlClockGet
+000050e5   USBHostEndpointConfig
+00005265   MSCMain
+00005321   USB0OTGModeIntHandler
+00005499   Cmd_cd
+000058ad   __aeabi_memcpy
+000058ad   __aeabi_memcpy4
+000058ad   __aeabi_memcpy8
+000058ad   memcpy
+00005a79   USBHCDFeatureSet
+00005c3d   __TI_auto_init
+00005e79   USBDeviceConfigAlternate
+0000601d   GrRectFill
+00006129   uDMAChannelTransferSet
+000061a9   KeyboardCallback
+000062a1   USBDevEndpointConfigSet
+00006731   GrStringWidthGet
+00006805   GrRectDraw
+0000686d   GrContextInit
+00006935   IntIsEnabled
+000069fd   USBHKeyboardUsageToChar
+00006b29   GrContextClipRegionSet
+00006bed   CmdLineProcess
+00006c4d   Cmd_help
+00006cad   IntDisable
+00006d0d   IntEnable
+00006d6d   USBDCDFeatureSet
+00006e2d   USBHostCheckPipes
+00006e8d   USBDevEndpointStatusClear
+00006eeb   f_opendir
+00006fa9   ConfigDescAlloc
+00007119   USBHSCSIRead10
+00007175   USBHSCSIWrite10
+00007229   USBHCDHubDeviceConnected
+00007281   USBHCDEvents
+0000737d   ULPIConfigSet
+00007471   SysCtlPeripheralReset
+000074c1   USBDCDConfigDescGet
+00007511   USBDeviceResumeTickHandler
+00007691   USBDevEndpointStallClear
+000076dd   USBEndpointDMAConfigSet
+00007729   USBHCDPowerConfigSet
+00007855   f_readdir
+00007933   USBFIFOFlush
+0000797d   USBHCDSetAddress
+000079c5   USBHHubInit
+00007a0d   _c_int00
+00007a55   uDMAChannelAttributeDisable
+00007a9d   GrLineDrawH
+00007ae3   GrLineDrawV
+00007b6d   USBDeviceEnumResetHandler
+00007bb1   USBEndpointDataGet
+00007bf5   copy_in
+00007c39   C$$EXIT
+00007c3d   abort
+00007c45   exit
+00007c7d   USBHHIDSetProtocol
+00007cbf   __aeabi_uidivmod
+00007dc1   disk_write
+00007e01   USBHSCSIInquiry
+00007e3f   USBHSCSIReadCapacity
+00007ef9   USBHCDPipeReadNonBlocking
+00007f35   USBHSCSIRequestSense
+00007fab   USBDCDConfigGetInterfaceEndpoint
+00007fe5   USBFIFOConfigSet
+00008091   USBHCDReset
+000080c9   USBHHIDGetReportDescriptor
+00008101   USBHHIDSetIdle
+00008139   USBHHIDSetReport
+00008171   USBHKeyboardInit
+000081a9   USBHSCSITestUnitReady
+000081e1   USBIntStatusControl
+000082bd   LCDIDDTimingSet
+00008329   InternalUSBStartOfFrameTick
+0000835d   KeyboardMain
+00008391   SysCtlPeripheralEnable
+0000845f   USBDevEndpointStall
+00008491   USBHCDSetConfig
+00008525   InternalUSBTickInit
+00008555   StringFromFresult
+000085b5   USBEndpointDataPut
+000085e5   USBHCDDevClass
+00008615   USBHCDDevProtocol
+00008645   USBHMSCBlockRead
+00008675   USBHMSCBlockWrite
+000086d5   disk_initialize
+00008705   disk_read
+00008735   strncpy
+00008765   USBEndpointDataSend
+00008793   USBHostHubAddrSet
+000087f1   ConfigDescFree
+0000881d   InternalUSBHCDSendEvent
+00008849   USBDescGet
+000088cd   GPIODirModeSet
+000088f7   GrFontBaselineGet
+00008921   GrFontHeightGet
+0000894b   GrFontMaxWidthGet
+00008975   GrStringNextCharGet
+0000899f   USBDCDConfigDescGetNum
+000089c9   KeyboardOpen
+000089f1   USBDescGetNum
+00008a19   USBHCDPipeDataAck
+00008a41   USBHostEndpointStatusClear
+00008a69   USBIntEnableControl
+00008a91   f_mount
+00008ab9   uDMAChannelModeGet
+00008b09   GrFontInfoGet
+00008b2f   USBEndpointDataToggleClear
+00008b55   USBHostSpeedGet
+00008b7b   USBOTGFeatureSet
+00008be9   USBDevEndpointDataAck
+00008c0d   USBEndpointDMADisable
+00008c31   USBEndpointDMAEnable
+00008c55   USBHHIDOpen
+00008c79   uDMAChannelControlSet
+00008c9d   GrFontGlyphDataGet
+00008cbf   LCDModeSet
+00008d03   ustrncpy
+00008d85   USBHCDDevHubPort
+00008da5   USBHKeyboardOpen
+00008dc5   USBHostEndpointDataAck
+00008de5   USBStackModeSet
+00008e05   usprintf
+00008e25   GrFontCodepageGet
+00008e43   USBULPIRegRead
+00008e61   USBULPIRegWrite
+00008e9d   Cmd_pwd
+00008eb9   MSCCallback
+00008ed5   OTGDeviceDisconnect
+00008ef1   USBDCDConfigGetInterface
+00008f0d   USBDCDStallEP0
+00008f29   USBHHubEnumerationComplete
+00008f45   USBHHubEnumerationError
+00008f61   USBHostPwrConfig
+00008fb5   USBEndpointDMAChannel
+00008fcf   USBHKeyboardModifierSet
+00008fe9   USBOTGSessionRequest
+00009003   strcat
+0000901d   FileInit
+00009035   MSCOpen
+0000904d   USBDCDConfigDescGetSize
+00009095   USBHHubOpen
+000090ad   USBHostRequestINClear
+000090c5   clust2sect
+000090dd   _args_main
+000090f5   strcmp
+0000910d   uDMAChannelDisable
+00009125   uDMAChannelEnable
+00009153   USBDescGetInterface
+00009169   USBDescGetInterfaceEndpoint
+0000917f   USBHostAddrSet
+00009195   SysCtlUSBPLLEnable
+000091a9   USBHMSCDriveOpen
+000091bd   USBHostReset
+000091d1   USBHostResume
+000091f9   USBIntEnableEndpoint
+00009221   _register_unlock
+00009227   _register_lock
+0000922f   _nop
+00009235   strlen
+00009249   GPIOPinTypeEthernetLED
+0000925b   GrStringDraw
+0000927f   USBDMAChannelConfigSet
+00009291   USBDMAChannelDisable
+000092a3   USBDMAChannelEnable
+000092b5   USBDMAChannelIntDisable
+000092c7   USBDMAChannelIntEnable
+000092d9   USBHostLPMConfig
+000092eb   USBHostRequestIN
+0000930f   __TI_zero_init
+00009321   ustrlen
+00009333   USBEndpointStatus
+00009345   USBHCDPowerAutomatic
+00009355   USBHCDRegisterDrivers
+00009365   disk_status
+00009385   strcpy
+000093b3   GrImageDraw
+000093cf   USBDMAChannelStatus
+000093dd   USBDevLPMEnable
+000093eb   USBHostPwrDisable
+000093f9   USBHostPwrEnable
+00009407   USBULPIDisable
+00009415   USBULPIEnable
+00009423   __TI_decompress_none
+0000943f   LCDIDDCommandWrite
+0000944b   LCDIDDDataWrite
+00009457   USBEndpointPacketCountSet
+00009465   USBHCDHubDeviceDisconnected
+00009471   USBHCDPipeAlloc
+0000947d   USBHCDPowerConfigInit
+00009489   USBLPMIntEnable
+00009495   USBClockEnable
+0000949f   USBControllerVersion
+000094a9   USBDMAChannelAddressSet
+000094b3   USBDMAChannelCountSet
+000094bd   USBDevDisconnect
+000094c7   USBHHIDGetReport
+000094d1   USBHostSuspend
+000094db   USBIntStatusEndpoint
+000094e5   USBModeGet
+000094ef   USBNumEndpointsGet
+000094f9   GrMapISO8859_1_Unicode
+00009501   USBFIFOAddrGet
+00009509   USBHostMode
+00009511   USBHostRequestStatus
+00009519   USBOTGMode
+00009521   get_fattime
+00009539   GPIOPinWrite
+0000953f   GrContextFontSet
+00009545   ResetISR
+0000954b   SysCtlDelay
+00009551   USBDMAChannelIntStatus
+00009557   USBLPMIntStatus
+0000955d   __TI_decompress_rle24
+0000956d   LCDDMAConfigSet
+00009571   LCDIDDConfigSet
+00009575   USBDevAddrSet
+0000cc4c   g_pui8KeyBoardMap
+0000d25c   g_sUSKeyboardMap
+0000d5e8   g_sFontCmss18b
+0000d6b0   g_sFontFixed6x8
+0000d984   g_sKentec320x240x16_SSD2119
+0000d9ac   g_sUSBEventDriver
+0000d9d0   g_psDefaultCodePointMapTable
+0000d9e0   g_sUSBHIDClassDriver
+0000d9f0   g_sUSBHubClassDriver
+0000da00   g_sUSBHostMSCClassDriver
+0000db18   __TI_Handler_Table_Base
+0000db24   __TI_Handler_Table_Limit
+0000db30   __TI_CINIT_Base
+0000db40   __TI_CINIT_Limit
+20000bb4   g_pui8HCDPool
+20001438   g_pui8Buffer
+2000156c   g_psDCDInst
+20001678   g_pfnTickHandlers
+20001690   g_pvTickInstance
+200016a8   g_sContext
+20001718   g_psHubStatus
+2000176c   g_ui32PollRate
+20001770   g_eOTGModeState
+2000177c   g_ppsDevInfo
+20001794   g_psMSCInstance
+20001798   g_ui32CharsPerLine
+200017a0   g_ui32Column
+200017a8   g_ui32DriveTimeout
+200017b0   g_ui32Line
+200017b4   g_ui32LinesPerScreen
+200017b8   g_ui32Modifiers
+200017be   g_iKeyboardState
+200017bf   g_iState
+200017c0   __stack
+20001fc0   __STACK_END
+20001fc0   __STACK_TOP
+20001fc0   g_sFresultStrings
+20002030   g_psCmdTable
+20002150   g_bUSBTimerInitialized
+20002154   g_ui32CurrentUSBTick
+20002158   g_ui32USBSOFCount
+2000215c   g_iUSBMode
+20002160   g_ui32WaitTicks
+20002168   _lock
+2000216c   _unlock
+20002170   __TI_cleanup_ptr
+20002174   __TI_dtors_ptr
+20002180   main_func_sp
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[310 symbols]
