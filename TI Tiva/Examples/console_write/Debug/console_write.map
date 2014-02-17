@@ -1,0 +1,1392 @@
+******************************************************************************
+                  TI ARM Linker PC v5.1.1                      
+******************************************************************************
+>> Linked Sun Feb 16 23:52:28 2014
+
+OUTPUT FILE NAME:   <console_write.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 000068f1
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00008953  000376ad  R  X
+  SRAM                  20000000   00008000  00003e66  0000419a  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00008958   00008958    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00007f20   00007f20    r-x .text
+  0000818c    0000818c    000005ef   000005ef    r-- .const
+  00008780    00008780    000001d8   000001d8    r-- .cinit
+20000000    20000000    00003e68   00000000    rw-
+  20000000    20000000    000028ae   00000000    rw- .bss
+  200028b0    200028b0    00000800   00000000    rw- .stack
+  200030b0    200030b0    00000800   00000000    rw- .sysmem
+  200038b0    200038b0    000005b8   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.text      0    0000026c    00007f20     
+                  0000026c    00000e8c     rtsv7M4_T_le_v4SPD16_eabi.lib : _printfi.obj (.text)
+                  000010f8    000003cc                                   : memory.obj (.text)
+                  000014c4    00000310                                   : lowlev.obj (.text)
+                  000017d4    000002d4                                   : trgdrv.obj (.text)
+                  00001aa8    00000294     sensorlib.lib : comp_dcm.obj (.text:CompDCMUpdate)
+                  00001d3c    0000028c     motion.obj (.text:GestureEmitClassify)
+                  00001fc8    000001f4     rtsv7M4_T_le_v4SPD16_eabi.lib : ull_div_t2.obj (.text)
+                  000021bc    000001d8     usblib.lib : usbdcomp.obj (.text:BuildCompositeDescriptor)
+                  00002394    000001c0     rtsv7M4_T_le_v4SPD16_eabi.lib : fopen.obj (.text)
+                  00002554    000001b8     motion.obj (.text:MotionInit)
+                  0000270c    000001b6     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_add_t2.obj (.text)
+                  000028c2    00000002     tm4c123gh6pm_startup_ccs.obj (.text:FaultISR)
+                  000028c4    00000180     sensorlib.lib : mpu9150.obj (.text:MPU9150Callback)
+                  00002a44    00000178     airmouse.obj (.text:main)
+                  00002bbc    00000170     lprf.obj (.text:LPRFMain)
+                  00002d2c    00000160     usblib.lib : usbdma.obj (.text:USBLibDMAInit)
+                  00002e8c    00000148                : usbdenum.obj (.text:USBDCDInit)
+                  00002fd4    00000136     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_div_t2.obj (.text)
+                  0000310a    00000002     tm4c123gh6pm_startup_ccs.obj (.text:IntDefaultHandler)
+                  0000310c    00000134     rtsv7M4_T_le_v4SPD16_eabi.lib : fputs.obj (.text)
+                  00003240    00000130     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  00003370    0000010e     usblib.lib : usbdhid.obj (.text:HandleRequest)
+                  0000347e    00000002     tm4c123gh6pm_startup_ccs.obj (.text:NmiSR)
+                  00003480    00000108     motion.obj (.text:MotionCallback)
+                  00003588    00000108     motion.obj (.text:MotionMain)
+                  00003690    00000100     rgb.obj (.text:RGBInit)
+                  00003790    000000fc     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_mul_t2.obj (.text)
+                  0000388c    000000e8     usblib.lib : usbdma.obj (.text:iDMAUSBTransfer)
+                  00003974    000000e0                : usbdhid.obj (.text:USBDHIDCompositeInit)
+                  00003a54    000000dc     lprf.obj (.text:ZIDConfigParams)
+                  00003b30    000000dc     rtsv7M4_T_le_v4SPD16_eabi.lib : setvbuf.obj (.text)
+                  00003c0c    000000d8                                   : atan2f.obj (.text)
+                  00003ce4    000000d0     usblib.lib : usbdcomp.obj (.text:USBDCompositeInit)
+                  00003db4    000000c8     motion.obj (.text:GestureUpdate)
+                  00003e7c    000000c8     driverlib.lib : sysctl.obj (.text:SysCtlClockGet)
+                  00003f44    000000c0     rgb.obj (.text:RGBEnable)
+                  00004004    000000c0     rtsv7M4_T_le_v4SPD16_eabi.lib : fflush.obj (.text)
+                  000040c4    000000c0     usblib.lib : usbdma.obj (.text:uDMAUSBChannelAllocate)
+                  00004184    000000ba                : usbdma.obj (.text:uDMAUSBTransfer)
+                  0000423e    000000b0     sensorlib.lib : comp_dcm.obj (.text:CompDCMStart)
+                  000042ee    00000002     usblib.lib : usbdma.obj (.text:iDMAUSBArbSizeSet)
+                  000042f0    000000b0     uartstdio.obj (.text:UARTStdioConfig)
+                  000043a0    000000b0     rtsv7M4_T_le_v4SPD16_eabi.lib : asinf.obj (.text)
+                  00004450    000000ac                                   : _io_perm.obj (.text)
+                  000044fc    000000a8                                   : xfatan.obj (.text)
+                  000045a4    000000a4     sensorlib.lib : mpu9150.obj (.text:MPU9150DataMagnetoGetFloat)
+                  00004648    000000a0                   : mpu9150.obj (.text:MPU9150Write)
+                  000046e8    0000009c     usb_dev_comp_hid.obj (.text:MouseMoveHandler)
+                  00004784    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : fputc.obj (.text)
+                  00004820    0000009c                                   : memcpy_t2.obj (.text)
+                  000048bc    0000009a     usblib.lib : usbdhidkeyb.obj (.text:HIDKeyboardRxHandler)
+                  00004956    00000002                : usbdma.obj (.text:iDMAUSBUnitSizeSet)
+                  00004958    00000098     lprf.obj (.text:LPRFInit)
+                  000049f0    00000098     usblib.lib : usbdhidkeyb.obj (.text:USBDHIDKeyboardCompositeInit)
+                  00004a88    00000098     rtsv7M4_T_le_v4SPD16_eabi.lib : fclose.obj (.text)
+                  00004b20    00000094                                   : auto_init.obj (.text)
+                  00004bb4    00000090     rgb.obj (.text:RGBColorSet)
+                  00004c44    0000008c     usb_dev_comp_hid.obj (.text:KeyboardHandler)
+                  00004cd0    0000008c     usblib.lib : usbdhid.obj (.text:ProcessIdleTimers)
+                  00004d5c    00000088     usb_dev_comp_hid.obj (.text:KeyboardMain)
+                  00004de4    00000088     motion.obj (.text:MotionErrorHandler)
+                  00004e6c    00000086     usblib.lib : usbdma.obj (.text:iDMAUSBChannelAllocate)
+                  00004ef2    00000084     sensorlib.lib : i2cm_drv.obj (.text:I2CMCommand)
+                  00004f76    00000002     usblib.lib : usbdma.obj (.text:uDMAUSBChannelIntDisable)
+                  00004f78    00000084     motion.obj (.text:MotionKeyboardGet)
+                  00004ffc    00000082     usblib.lib : usbdhidkeyb.obj (.text:USBDHIDKeyboardKeyStateChange)
+                  0000507e    00000002                : usbdma.obj (.text:uDMAUSBChannelIntEnable)
+                  00005080    00000080                : usbdhidmouse.obj (.text:USBDHIDMouseCompositeInit)
+                  00005100    00000080     driverlib.lib : udma.obj (.text:uDMAChannelTransferSet)
+                  00005180    0000007e     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_cmp_t2.obj (.text:__aeabi_cdcmple)
+                  000051fe    0000007e                                   : fd_cmp_t2.obj (.text:__aeabi_cdrcmple)
+                  0000527c    0000007c     motion.obj (.text:GestureInit)
+                  000052f8    0000007c     lprf.obj (.text:RTI_InitCnf)
+                  00005374    00000078     sensorlib.lib : mpu9150.obj (.text:MPU9150DataAccelGetFloat)
+                  000053ec    00000078                   : mpu9150.obj (.text:MPU9150DataGyroGetFloat)
+                  00005464    00000078     rtsv7M4_T_le_v4SPD16_eabi.lib : memset_t2.obj (.text)
+                  000054dc    00000074     remoti_npi.obj (.text:NPI_SendSynchData)
+                  00005550    00000072     usblib.lib : usbdma.obj (.text:uDMAUSBArbSizeSet)
+                  000055c2    00000002     --HOLE-- [fill = 0]
+                  000055c4    00000070                : usbdenum.obj (.text:USBDEP0StateTx)
+                  00005634    00000070     rtsv7M4_T_le_v4SPD16_eabi.lib : printf.obj (.text)
+                  000056a4    00000070     usblib.lib : usbdma.obj (.text:uDMAUSBUnitSizeSet)
+                  00005714    0000006c                : usbdhidmouse.obj (.text:HIDMouseRxHandler)
+                  00005780    0000006c     sensorlib.lib : mpu9150.obj (.text:MPU9150Init)
+                  000057ec    00000068     buttons.obj (.text:ButtonsInit)
+                  00005854    00000068     remoti_uart.obj (.text:RemoTIUARTInit)
+                  000058bc    00000064     airmouse.obj (.text:ConfigureUART)
+                  00005920    00000064     driverlib.lib : interrupt.obj (.text:IntIsEnabled)
+                  00005984    00000064     remoti_uart.obj (.text:RemoTIUARTGetMsg)
+                  000059e8    00000064     rtsv7M4_T_le_v4SPD16_eabi.lib : fseek.obj (.text)
+                  00005a4c    00000064     usblib.lib : usbdma.obj (.text:uDMAUSBChannelEnable)
+                  00005ab0    00000060                : usbdcomp.obj (.text:GetDescriptor)
+                  00005b10    00000060                : usbdhid.obj (.text:HandleGetDescriptor)
+                  00005b70    00000060                : usbdcomp.obj (.text:HandleRequests)
+                  00005bd0    00000060     driverlib.lib : interrupt.obj (.text:IntDisable)
+                  00005c30    00000060                   : interrupt.obj (.text:IntEnable)
+                  00005c90    00000060     usb_dev_comp_hid.obj (.text:MouseHandler)
+                  00005cf0    00000060     lprf.obj (.text:RTI_AsynchMsgProcess)
+                  00005d50    00000060     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.obj (.text)
+                  00005db0    0000005e     remoti_rtis.obj (.text:RTI_SendDataReq)
+                  00005e0e    0000005e     driverlib.lib : usb.obj (.text:USBDevEndpointStatusClear)
+                  00005e6c    0000005e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text)
+                  00005eca    0000005c     usblib.lib : usbdhid.obj (.text:FindHIDDescriptor)
+                  00005f26    0000005a                : usbdhid.obj (.text:HandleDevice)
+                  00005f80    0000005a     rtsv7M4_T_le_v4SPD16_eabi.lib : ltoa.obj (.text)
+                  00005fda    00000002     --HOLE-- [fill = 0]
+                  00005fdc    00000058     sensorlib.lib : i2cm_drv.obj (.text:I2CMWrite8)
+                  00006034    00000058     motion.obj (.text:MotionMouseGet)
+                  0000608c    00000058     usblib.lib : usbdhid.obj (.text:ProcessDataFromHost)
+                  000060e4    00000056     sensorlib.lib : vector.obj (.text:VectorCrossProduct)
+                  0000613a    00000002     --HOLE-- [fill = 0]
+                  0000613c    00000054     motion.obj (.text:GestureNormalize)
+                  00006190    00000054     usblib.lib : usbdcomp.obj (.text:HandleDevice)
+                  000061e4    00000054     usb_dev_comp_hid.obj (.text:KeyboardStateChange)
+                  00006238    00000054     usblib.lib : usbdhid.obj (.text:ProcessDataToHost)
+                  0000628c    00000054     remoti_rtis.obj (.text:RTI_ReadItemEx)
+                  000062e0    00000054     remoti_uart.obj (.text:RemoTIUARTPutMsg)
+                  00006334    00000054     lprf.obj (.text:ZIDResetRNP)
+                  00006388    00000054     lprf.obj (.text:ZIDSendMouseReport)
+                  000063dc    00000054     usblib.lib : usbdma.obj (.text:uDMAUSBChannelRelease)
+                  00006430    00000052                : usbulpi.obj (.text:ULPIConfigSet)
+                  00006482    00000050                : usbdhidkeyb.obj (.text:RemoveKeyFromPressedList)
+                  000064d2    00000002     --HOLE-- [fill = 0]
+                  000064d4    00000050     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralReset)
+                  00006524    00000050     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigDescGet)
+                  00006574    0000004c                : usbdcdesc.obj (.text:ConfigAlternateInterfaceGet)
+                  000065c0    0000004c     driverlib.lib : usb.obj (.text:USBEndpointDMAConfigSet)
+                  0000660c    0000004c     lprf.obj (.text:ZIDSelectInitialTargetDevice)
+                  00006658    0000004c     lprf.obj (.text:ZIDSendKeyboardReport)
+                  000066a4    0000004c     rtsv7M4_T_le_v4SPD16_eabi.lib : atoi.obj (.text)
+                  000066f0    0000004a     usblib.lib : usbdhid.obj (.text:USBDHIDReportWrite)
+                  0000673a    0000004a                : usbdma.obj (.text:iDMAUSBChannelEnable)
+                  00006784    0000004a     rtsv7M4_T_le_v4SPD16_eabi.lib : fd_tos_t2.obj (.text)
+                  000067ce    0000004a     usblib.lib : usbdma.obj (.text:uDMAUSBChannelDisable)
+                  00006818    00000048     driverlib.lib : i2c.obj (.text:I2CMasterInitExpClk)
+                  00006860    00000048     remoti_npi.obj (.text:NPI_MsgWrap)
+                  000068a8    00000048     remoti_rtis.obj (.text:RTI_WriteItemEx)
+                  000068f0    00000048     rtsv7M4_T_le_v4SPD16_eabi.lib : boot.obj (.text)
+                  00006938    00000048                                   : fd_toi_t2.obj (.text)
+                  00006980    00000048     driverlib.lib : udma.obj (.text:uDMAChannelAttributeDisable)
+                  000069c8    00000044     sensorlib.lib : comp_dcm.obj (.text:CompDCMInit)
+                  00006a0c    00000044     motion.obj (.text:MatrixVectorMul)
+                  00006a50    00000044     usblib.lib : usbdenum.obj (.text:USBDCDDeviceInfoInit)
+                  00006a94    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : cpy_tbl.obj (.text)
+                  00006ad8    00000044                                   : exit.obj (.text)
+                  00006b1c    00000044                                   : xdtest.obj (.text)
+                  00006b60    00000042     sensorlib.lib : comp_dcm.obj (.text:CompDCMComputeEulers)
+                  00006ba2    00000042     usblib.lib : usbdhid.obj (.text:SetIdleTimeout)
+                  00006be4    00000040     usb_dev_comp_hid.obj (.text:EventHandler)
+                  00006c24    00000040     usblib.lib : usbdhidkeyb.obj (.text:HIDKeyboardTxHandler)
+                  00006c64    00000040     driverlib.lib : uart.obj (.text:UARTConfigSetExpClk)
+                  00006ca4    00000040     rtsv7M4_T_le_v4SPD16_eabi.lib : signal.obj (.text)
+                  00006ce4    0000003e     usblib.lib : usbdhid.obj (.text:ScheduleReportTransmission)
+                  00006d22    0000003e                : usbdhidmouse.obj (.text:USBDHIDMouseStateChange)
+                  00006d60    0000003c     motion.obj (.text:MotionI2CWait)
+                  00006d9c    0000003c     uartstdio.obj (.text:UARTFlushTx)
+                  00006dd8    0000003a     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigGetInterfaceEndpoint)
+                  00006e12    0000003a                : usbdma.obj (.text:iDMAUSBChannelRelease)
+                  00006e4c    00000038                : usbdcomp.obj (.text:EndpointToIndex)
+                  00006e84    00000038     sensorlib.lib : i2cm_drv.obj (.text:I2CMWrite8Callback)
+                  00006ebc    00000038     lprf.obj (.text:RTI_PairCnf)
+                  00006ef4    00000038     usblib.lib : usbdenum.obj (.text:USBDCDRemoteWakeupRequest)
+                  00006f2c    00000038     driverlib.lib : usb.obj (.text:USBIntStatusControl)
+                  00006f64    00000038     rtsv7M4_T_le_v4SPD16_eabi.lib : fs_tod_t2.obj (.text)
+                  00006f9c    00000036     usblib.lib : usbdcomp.obj (.text:HandleDisconnect)
+                  00006fd2    00000036                : usbdhid.obj (.text:HandleEndpoints)
+                  00007008    00000036                : usbdcomp.obj (.text:ResetHandler)
+                  0000703e    00000036                : usbdcomp.obj (.text:ResumeHandler)
+                  00007074    00000036                : usbdcomp.obj (.text:SuspendHandler)
+                  000070aa    00000002     --HOLE-- [fill = 0]
+                  000070ac    00000034                : usbdhid.obj (.text:HIDTickHandler)
+                  000070e0    00000034     sensorlib.lib : i2cm_drv.obj (.text:I2CMInit)
+                  00007114    00000034     usblib.lib : usbtick.obj (.text:InternalUSBRegisterTickHandler)
+                  00007148    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  0000717c    00000034     usblib.lib : usbdma.obj (.text:iDMAUSBChannelStatus)
+                  000071b0    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : feraiseexcept.obj (.text)
+                  000071e4    00000034                                   : xfdtest.obj (.text)
+                  00007218    00000032     usblib.lib : usbdhid.obj (.text:ClearReportTimer)
+                  0000724a    00000032                : usbdcomp.obj (.text:InterfaceChange)
+                  0000727c    00000032                : usbdcdesc.obj (.text:NextConfigDescGet)
+                  000072ae    00000032     driverlib.lib : usb.obj (.text:USBDevEndpointStall)
+                  000072e0    00000032     sensorlib.lib : vector.obj (.text:VectorAdd)
+                  00007312    00000032     usblib.lib : usbdma.obj (.text:iDMAUSBChannelDisable)
+                  00007344    00000030                : usbdhidkeyb.obj (.text:AddKeyToPressedList)
+                  00007374    00000030                : usbdma.obj (.text:DMAUSBIntHandler)
+                  000073a4    00000030                : usbdhid.obj (.text:HandleConfigChange)
+                  000073d4    00000030     sensorlib.lib : i2cm_drv.obj (.text:I2CMTransferResume)
+                  00007404    00000030     usblib.lib : usbtick.obj (.text:InternalUSBTickInit)
+                  00007434    00000030     driverlib.lib : usb.obj (.text:USBEndpointDataPut)
+                  00007464    00000030     ringbuf.obj (.text:UpdateIndexAtomic)
+                  00007494    00000030     rtsv7M4_T_le_v4SPD16_eabi.lib : strncpy.obj (.text)
+                  000074c4    00000030                                   : xferaise.obj (.text)
+                  000074f4    0000002e     usblib.lib : usbdcomp.obj (.text:ConfigChangeHandler)
+                  00007522    0000002e                : usbdcomp.obj (.text:HandleEndpoints)
+                  00007550    0000002e     driverlib.lib : usb.obj (.text:USBEndpointDataSend)
+                  0000757e    0000002e     rtsv7M4_T_le_v4SPD16_eabi.lib : i_tofd_t2.obj (.text)
+                  000075ac    0000002e                                   : raise.obj (.text)
+                  000075da    0000002c     usblib.lib : usbdcomp.obj (.text:InterfaceToIndex)
+                  00007606    00000002     --HOLE-- [fill = 0]
+                  00007608    0000002c     uartstdio.obj (.text:UARTFlushRx)
+                  00007634    0000002c     usblib.lib : usbdesc.obj (.text:USBDescGet)
+                  00007660    0000002c                : usbdma.obj (.text:uDMAUSBIntStatus)
+                  0000768c    0000002a     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  000076b6    00000002     --HOLE-- [fill = 0]
+                  000076b8    00000028     usb_dev_comp_hid.obj (.text:KeyboardWaitForSendIdle)
+                  000076e0    00000028     usb_dev_comp_hid.obj (.text:MouseWaitForSendIdle)
+                  00007708    00000028     remoti_npi.obj (.text:NPI_MsgRxCallback)
+                  00007730    00000028     usblib.lib : usbdesc.obj (.text:USBDescGetNum)
+                  00007758    00000028     driverlib.lib : usb.obj (.text:USBIntEnableControl)
+                  00007780    00000028                   : udma.obj (.text:uDMAChannelModeGet)
+                  000077a8    00000026     sensorlib.lib : comp_dcm.obj (.text:CompDCMMatrixGet)
+                  000077ce    00000026     usblib.lib : usbdhid.obj (.text:GetIdleTimeout)
+                  000077f4    00000026                : usbdhid.obj (.text:HandleEP0DataReceived)
+                  0000781a    00000026     sensorlib.lib : vector.obj (.text:VectorDotProduct)
+                  00007840    00000026                   : vector.obj (.text:VectorScale)
+                  00007866    00000002     --HOLE-- [fill = 0]
+                  00007868    00000024     remoti_npi.obj (.text:NPI_ErrCallback)
+                  0000788c    00000024     driverlib.lib : usb.obj (.text:USBDevEndpointDataAck)
+                  000078b0    00000024                   : usb.obj (.text:USBEndpointDMADisable)
+                  000078d4    00000024                   : usb.obj (.text:USBEndpointDMAEnable)
+                  000078f8    00000024     rtsv7M4_T_le_v4SPD16_eabi.lib : sqrtf.obj (.text)
+                  0000791c    00000024     driverlib.lib : udma.obj (.text:uDMAChannelControlSet)
+                  00007940    00000022     usblib.lib : usbdcomp.obj (.text:DataReceived)
+                  00007962    00000022                : usbdcomp.obj (.text:DataSent)
+                  00007984    00000022     remoti_rtis.obj (.text:RTI_InitReq)
+                  000079a6    00000022     remoti_rtis.obj (.text:RTI_PairReq)
+                  000079c8    00000022     usblib.lib : usbdma.obj (.text:uDMAUSBChannelStatus)
+                  000079ea    00000002     --HOLE-- [fill = 0]
+                  000079ec    00000020     remoti_npi.obj (.text:NPI_Init)
+                  00007a0c    00000020     remoti_npi.obj (.text:NPI_SendAsynchData)
+                  00007a2c    00000020     lprf.obj (.text:RTI_AsynchMsgCallback)
+                  00007a4c    00000020     remoti_rtis.obj (.text:RTI_DisableSleepReq)
+                  00007a6c    00000020     lprf.obj (.text:RTI_SendDataCnf)
+                  00007a8c    00000020     ringbuf.obj (.text:RingBufAdvanceRead)
+                  00007aac    00000020     usblib.lib : usbmode.obj (.text:USBStackModeSet)
+                  00007acc    0000001e                : usbdhid.obj (.text:HandleDisconnect)
+                  00007aea    0000001e                : usbdhid.obj (.text:HandleEP0DataSent)
+                  00007b08    0000001e     driverlib.lib : usb.obj (.text:USBULPIRegRead)
+                  00007b26    0000001e                   : usb.obj (.text:USBULPIRegWrite)
+                  00007b44    0000001c     usblib.lib : usbdhid.obj (.text:ClearIdleTimers)
+                  00007b60    0000001c                : usbdcomp.obj (.text:CompositeEPChange)
+                  00007b7c    0000001c                : usbdcomp.obj (.text:CompositeIfaceChange)
+                  00007b98    0000001c     remoti_uart.obj (.text:RemoTIUARTGetRxMsgCount)
+                  00007bb4    0000001c     remoti_uart.obj (.text:RemoTIUARTRegisterErrCallback)
+                  00007bd0    0000001c     remoti_uart.obj (.text:RemoTIUARTRegisterMsgRxCallback)
+                  00007bec    0000001c     usblib.lib : usbdhid.obj (.text:SetDeferredOpFlag)
+                  00007c08    0000001c     driverlib.lib : uart.obj (.text:UARTDisable)
+                  00007c24    0000001c     usblib.lib : usbdcdesc.obj (.text:USBDCDConfigGetInterface)
+                  00007c40    0000001c                : usbdenum.obj (.text:USBDCDStallEP0)
+                  00007c5c    0000001c     driverlib.lib : usb.obj (.text:USBEndpointDataAvail)
+                  00007c78    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : memccpy.obj (.text)
+                  00007c94    0000001a     usblib.lib : usbdhidmouse.obj (.text:HIDMouseTxHandler)
+                  00007cae    0000001a     ringbuf.obj (.text:RingBufRead)
+                  00007cc8    0000001a     ringbuf.obj (.text:RingBufWrite)
+                  00007ce2    0000001a     driverlib.lib : usb.obj (.text:USBEndpointDMAChannel)
+                  00007cfc    00000018     rtsv7M4_T_le_v4SPD16_eabi.lib : args_main.obj (.text)
+                  00007d14    00000018                                   : ll_mul_t2.obj (.text)
+                  00007d2c    00000018                                   : strcmp.obj (.text)
+                  00007d44    00000018     driverlib.lib : udma.obj (.text:uDMAChannelDisable)
+                  00007d5c    00000018                   : udma.obj (.text:uDMAChannelEnable)
+                  00007d74    00000016     ringbuf.obj (.text:RingBufReadOne)
+                  00007d8a    00000016     ringbuf.obj (.text:RingBufUsed)
+                  00007da0    00000016     rtsv7M4_T_le_v4SPD16_eabi.lib : memchr.obj (.text)
+                  00007db6    00000016                                   : strchr.obj (.text)
+                  00007dcc    00000014     lprf.obj (.text:RTI_DisableSleepCnf)
+                  00007de0    00000014     lprf.obj (.text:RTI_PairAbortCnf)
+                  00007df4    00000014     driverlib.lib : sysctl.obj (.text:SysCtlUSBPLLEnable)
+                  00007e08    00000014                   : uart.obj (.text:UARTEnable)
+                  00007e1c    00000014     usblib.lib : usbdenum.obj (.text:USBDCDRequestDataEP0)
+                  00007e30    00000014                : usbdenum.obj (.text:USBDCDSendDataEP0)
+                  00007e44    00000014     driverlib.lib : usb.obj (.text:USBHostResume)
+                  00007e58    00000014                   : usb.obj (.text:USBIntEnableEndpoint)
+                  00007e6c    00000014     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.text)
+                  00007e80    00000014                                   : strlen.obj (.text)
+                  00007e94    00000012     driverlib.lib : gpio.obj (.text:GPIOPinTypeI2CSCL)
+                  00007ea6    00000012     usblib.lib : usbdhid.obj (.text:HandleResume)
+                  00007eb8    00000012                : usbdhid.obj (.text:HandleSuspend)
+                  00007eca    00000012     driverlib.lib : usb.obj (.text:USBDMAChannelConfigSet)
+                  00007edc    00000012                   : usb.obj (.text:USBDMAChannelDisable)
+                  00007eee    00000012                   : usb.obj (.text:USBDMAChannelEnable)
+                  00007f00    00000012                   : usb.obj (.text:USBDMAChannelIntDisable)
+                  00007f12    00000012                   : usb.obj (.text:USBDMAChannelIntEnable)
+                  00007f24    00000012     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.obj (.text:decompress:ZI)
+                  00007f36    00000012                                   : xdclass.obj (.text)
+                  00007f48    00000010     driverlib.lib : fpu.obj (.text:FPULazyStackingEnable)
+                  00007f58    00000010     ringbuf.obj (.text:RingBufWriteOne)
+                  00007f68    00000010     driverlib.lib : usb.obj (.text:USBEndpointStatus)
+                  00007f78    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : strcpy.obj (.text)
+                  00007f88    0000000e     sensorlib.lib : comp_dcm.obj (.text:CompDCMAccelUpdate)
+                  00007f96    0000000e                   : comp_dcm.obj (.text:CompDCMGyroUpdate)
+                  00007fa4    0000000e                   : comp_dcm.obj (.text:CompDCMMagnetoUpdate)
+                  00007fb2    0000000e     usblib.lib : usbdma.obj (.text:DMAUSBIntStatusClear)
+                  00007fc0    0000000e     uartstdio.obj (.text:IsBufferEmpty)
+                  00007fce    0000000e     driverlib.lib : uart.obj (.text:UARTCharPutNonBlocking)
+                  00007fdc    0000000e     usblib.lib : usbdhid.obj (.text:USBDHIDTxPacketAvailable)
+                  00007fea    0000000e     driverlib.lib : usb.obj (.text:USBDMAChannelStatus)
+                  00007ff8    0000000e                   : usb.obj (.text:USBDevLPMDisable)
+                  00008006    0000000e                   : usb.obj (.text:USBDevLPMEnable)
+                  00008014    0000000e                   : usb.obj (.text:USBULPIDisable)
+                  00008022    0000000e                   : usb.obj (.text:USBULPIEnable)
+                  00008030    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  0000803e    0000000e                                   : xfdclass.obj (.text)
+                  0000804c    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsid)
+                  00008058    0000000c                   : cpu.obj (.text:CPUcpsie)
+                  00008064    0000000c                   : gpio.obj (.text:GPIOIntEnable)
+                  00008070    0000000c                   : interrupt.obj (.text:IntTrigger)
+                  0000807c    0000000c     remoti_rtis.obj (.text:RTI_Init)
+                  00008088    0000000c     ringbuf.obj (.text:RingBufInit)
+                  00008094    0000000c     driverlib.lib : usb.obj (.text:USBEndpointPacketCountSet)
+                  000080a0    0000000c                   : usb.obj (.text:USBLPMIntEnable)
+                  000080ac    0000000a                   : i2c.obj (.text:I2CMasterEnable)
+                  000080b6    0000000a                   : interrupt.obj (.text:IntMasterDisable)
+                  000080c0    0000000a                   : interrupt.obj (.text:IntMasterEnable)
+                  000080ca    0000000a                   : uart.obj (.text:UARTFIFODisable)
+                  000080d4    0000000a                   : usb.obj (.text:USBClockEnable)
+                  000080de    0000000a                   : usb.obj (.text:USBControllerVersion)
+                  000080e8    0000000a                   : usb.obj (.text:USBDMAChannelAddressSet)
+                  000080f2    0000000a                   : usb.obj (.text:USBDMAChannelCountSet)
+                  000080fc    0000000a                   : usb.obj (.text:USBDevConnect)
+                  00008106    0000000a                   : usb.obj (.text:USBIntStatusEndpoint)
+                  00008110    00000008                   : i2c.obj (.text:I2CMasterIntEnableEx)
+                  00008118    00000008                   : uart.obj (.text:UARTIntEnable)
+                  00008120    00000008                   : usb.obj (.text:USBDevMode)
+                  00008128    00000008                   : usb.obj (.text:USBFIFOAddrGet)
+                  00008130    00000008                   : usb.obj (.text:USBOTGMode)
+                  00008138    00000008     usblib.lib : usbdma.obj (.text:iDMAUSBChannelIntDisable)
+                  00008140    00000008                : usbdma.obj (.text:iDMAUSBChannelIntEnable)
+                  00008148    00000006     tm4c123gh6pm_startup_ccs.obj (.text:ResetISR)
+                  0000814e    00000006     driverlib.lib : sysctl.obj (.text:SysCtlDelay)
+                  00008154    00000006                   : uart.obj (.text:UARTClockSourceSet)
+                  0000815a    00000006                   : uart.obj (.text:UARTFIFOLevelSet)
+                  00008160    00000006     usblib.lib : usbdhidkeyb.obj (.text:USBDHIDKeyboardRemoteWakeupRequest)
+                  00008166    00000006                : usbdhid.obj (.text:USBDHIDRemoteWakeupRequest)
+                  0000816c    00000006     driverlib.lib : usb.obj (.text:USBDMAChannelIntStatus)
+                  00008172    00000006                   : usb.obj (.text:USBDevLPMConfig)
+                  00008178    00000006     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  0000817e    00000006     usblib.lib : usbdma.obj (.text:iDMAUSBIntStatus)
+                  00008184    00000004                : usbdma.obj (.text:DMAUSBStatus)
+                  00008188    00000004                : usbdhid.obj (.text:HandleReset)
+
+.const     0    0000818c    000005ef     
+                  0000818c    00000102     rtsv7M4_T_le_v4SPD16_eabi.lib : ctype.obj (.const:.string:_ctypes_)
+                  0000828e    00000002     --HOLE-- [fill = 0]
+                  00008290    000000c4     motion.obj (.const:g_ppfEmitProb)
+                  00008354    000000c4     motion.obj (.const:g_ppfTransitionProb)
+                  00008418    00000070     driverlib.lib : interrupt.obj (.const)
+                  00008488    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  000084f4    0000003f     usblib.lib : usbdhidkeyb.obj (.const:.string:g_pui8KeybReportDescriptor)
+                  00008533    00000001     --HOLE-- [fill = 0]
+                  00008534    00000038                : usbdhidmouse.obj (.const:.string:g_pui8MouseReportDescriptor)
+                  0000856c    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : xfatan.obj (.const)
+                  000085a0    00000034     usblib.lib : usbdhidkeyb.obj (.const)
+                  000085d4    00000032     usb_structs.obj (.const:.string)
+                  00008606    00000002     --HOLE-- [fill = 0]
+                  00008608    00000030     usblib.lib : usbdcomp.obj (.const:g_sCompHandlers)
+                  00008638    00000030                : usbdhid.obj (.const:g_sHIDHandlers)
+                  00008668    0000002c                : usbdhidmouse.obj (.const)
+                  00008694    00000028     uartstdio.obj (.const)
+                  000086bc    00000024     usb_structs.obj (.const:.string:g_pui8ManufacturerString)
+                  000086e0    00000020     sensorlib.lib : mpu9150.obj (.const)
+                  00008700    0000001c     motion.obj (.const)
+                  0000871c    00000018     lprf.obj (.const:.string)
+                  00008734    00000012     uartstdio.obj (.const:.string)
+                  00008746    00000002     --HOLE-- [fill = 0]
+                  00008748    00000010     usb_structs.obj (.const)
+                  00008758    0000000e     usblib.lib : usbdhidkeyb.obj (.const:.string)
+                  00008766    00000002     --HOLE-- [fill = 0]
+                  00008768    00000009                : usbdcomp.obj (.const:.string)
+                  00008771    00000003     --HOLE-- [fill = 0]
+                  00008774    00000007                : usbdhidmouse.obj (.const:.string)
+
+.cinit     0    00008780    000001d8     
+                  00008780    000001ad     (.cinit..data.load) [load image, compression = rle]
+                  0000892d    00000003     --HOLE-- [fill = 0]
+                  00008930    0000000c     (__TI_handler_table)
+                  0000893c    00000004     --HOLE-- [fill = 0]
+                  00008940    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00008948    00000010     (__TI_cinit_table)
+
+.bss       0    20000000    000028ae     UNINITIALIZED
+                  20000000    00001c00     motion.obj (.bss:g_ppfPath)
+                  20001c00    00000200     remoti_uart.obj (.bss:g_pui8RxBuf)
+                  20001e00    00000200     remoti_uart.obj (.bss:g_pui8TxBuf)
+                  20002000    00000200     remoti_npi.obj (.bss:pui32ErrLog)
+                  20002200    00000124     motion.obj (.bss:g_sI2CInst)
+                  20002324    00000120     rtsv7M4_T_le_v4SPD16_eabi.lib : trgmsg.obj (.bss:__CIOBUF_)
+                  20002444    00000110     usblib.lib : usbdma.obj (.bss:g_psUSBDMAInst)
+                  20002554    000000a0     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.obj (.bss:__TI_tmpnams)
+                  200025f4    0000006c     motion.obj (.bss:g_sMPU9150Inst)
+                  20002660    00000058     motion.obj (.bss:g_sCompDCMInst)
+                  200026b8    00000050     usblib.lib : usbdenum.obj (.bss:g_psDCDInst)
+                  20002708    00000040     airmouse.obj (.bss:g_pui8DescriptorData)
+                  20002748    00000038     motion.obj (.bss:g_sGestureInst)
+                  20002780    00000030     usblib.lib : usbtick.obj (.bss)
+                  200027b0    00000018     (.common:g_psCompDevices)
+                  200027c8    00000010     (.common:g_rbRemoTIRxRingBuf)
+                  200027d8    00000010     (.common:g_rbRemoTITxRingBuf)
+                  200027e8    0000000c                : usbmode.obj (.bss)
+                  200027f4    0000000c     (.common:g_pfAccel)
+                  20002800    0000000c     (.common:g_pfEulers)
+                  2000280c    0000000c     (.common:g_pfGyro)
+                  20002818    0000000c     (.common:g_pfMag)
+                  20002824    0000000c     (.common:g_pui32RGBColors)
+                  20002830    0000000c     (.common:g_ui32Colors)
+                  2000283c    00000008                : usbdenum.obj (.bss)
+                  20002844    00000008     (.common:g_sZIDKeys)
+                  2000284c    00000008     (.common:parmbuf)
+                  20002854    00000004                : usbdcomp.obj (.bss)
+                  20002858    00000004     (.common:g_fAccelMagnitudePrevious)
+                  2000285c    00000004     (.common:g_pfnErrCallback)
+                  20002860    00000004     (.common:g_pfnRTIRxCallback)
+                  20002864    00000004     (.common:g_pfnRxCallback)
+                  20002868    00000004     (.common:g_ui16RxMsgCount)
+                  2000286c    00000004     (.common:g_ui32Events)
+                  20002870    00000004     (.common:g_ui32PortNum)
+                  20002874    00000004     (.common:g_ui32RGBLPRFBlinkCounter)
+                  20002878    00000004     (.common:g_ui32RGBMotionBlinkCounter)
+                  2000287c    00000004     (.common:g_ui32SysTickCount)
+                  20002880    00000004     (.common:g_ui32UARTBase)
+                  20002884    00000004     (.common:g_ui32USBFlags)
+                  20002888    00000004     (.common:g_ui8Buttons)
+                  2000288c    00000004     (.common:g_ui8LPRFButtonsPrev)
+                  20002890    00000004     (.common:g_ui8MotionState)
+                  20002894    00000004     (.common:g_ui8MouseButtonsPrev)
+                  20002898    00000004     (.common:g_vui8ErrorFlag)
+                  2000289c    00000004     (.common:g_vui8LinkState)
+                  200028a0    00000004     (.common:g_vui8RTISState)
+                  200028a4    00000004     (.common:ui32Index$1)
+                  200028a8    00000001     (.common:g_bKeyHold)
+                  200028a9    00000001     (.common:g_bModifierHold)
+                  200028aa    00000001     (.common:g_bPressed)
+                  200028ab    00000001     (.common:g_bTxBusy)
+                  200028ac    00000001     (.common:g_ui8LinkDestIndex)
+                  200028ad    00000001     (.common:g_vbSyncResponse)
+
+.stack     0    200028b0    00000800     UNINITIALIZED
+                  200028b0    00000800     --HOLE--
+
+.sysmem    0    200030b0    00000800     UNINITIALIZED
+                  200030b0    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : memory.obj (.sysmem)
+                  200030b8    000007f8     --HOLE--
+
+.data      0    200038b0    000005b8     UNINITIALIZED
+                  200038b0    000000f0     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.obj (.data:_ftable)
+                  200039a0    000000d0                                   : lowlev.obj (.data)
+                  20003a70    000000b0                                   : signal.obj (.data:sigtable)
+                  20003b20    000000a4     usb_structs.obj (.data:g_sKeyboardDevice)
+                  20003bc4    00000094     usb_structs.obj (.data:g_sMouseDevice)
+                  20003c58    0000007c     usb_structs.obj (.data:g_sCompDevice)
+                  20003cd4    00000004     rgb.obj (.data)
+                  20003cd8    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : xfvalues.obj (.data)
+                  20003d40    00000038     usblib.lib : usbdhidkeyb.obj (.data)
+                  20003d78    00000034                : usbdhidmouse.obj (.data)
+                  20003dac    0000001c     motion.obj (.data)
+                  20003dc8    00000015     uartstdio.obj (.data)
+                  20003ddd    00000003     buttons.obj (.data)
+                  20003de0    00000012     usblib.lib : usbdcomp.obj (.data)
+                  20003df2    00000002     usb_dev_comp_hid.obj (.data)
+                  20003df4    00000012     usblib.lib : usbdhid.obj (.data)
+                  20003e06    00000002     --HOLE--
+                  20003e08    00000010     rtsv7M4_T_le_v4SPD16_eabi.lib : defs.obj (.data)
+                  20003e18    0000000c                                   : memory.obj (.data)
+                  20003e24    0000000c     usblib.lib : usbtick.obj (.data)
+                  20003e30    00000009                : usbmode.obj (.data)
+                  20003e39    00000003     --HOLE--
+                  20003e3c    00000008     rtsv7M4_T_le_v4SPD16_eabi.lib : _lock.obj (.data)
+                  20003e44    00000008                                   : exit.obj (.data)
+                  20003e4c    00000008                                   : feraiseexcept.obj (.data)
+                  20003e54    00000008     usblib.lib : usbdenum.obj (.data)
+                  20003e5c    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : errno.obj (.data)
+                  20003e60    00000004                                   : fopen.obj (.data)
+                  20003e64    00000004                                   : stkdepth_vars.obj (.data)
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00008948 records: 2, size/record: 8, table size: 16
+	.data: load addr=00008780, load size=000001ad bytes, run addr=200038b0, run size=000005b8 bytes, compression=rle
+	.bss: load addr=00008940, load size=00000008 bytes, run addr=20000000, run size=000028ae bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00008930 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+000021bd   BuildCompositeDescriptor
+000057ed   ButtonsInit
+00006ad9   C$$EXIT
+00005d7b   C$$IO$$
+0000804d   CPUcpsid
+00008059   CPUcpsie
+00007f89   CompDCMAccelUpdate
+00006b61   CompDCMComputeEulers
+00007f97   CompDCMGyroUpdate
+000069c9   CompDCMInit
+00007fa5   CompDCMMagnetoUpdate
+000077a9   CompDCMMatrixGet
+0000423f   CompDCMStart
+00001aa9   CompDCMUpdate
+000058bd   ConfigureUART
+00006be5   EventHandler
+00007f49   FPULazyStackingEnable
+0000768d   GPIODirModeSet
+00008065   GPIOIntEnable
+00003241   GPIOPadConfigSet
+00007e95   GPIOPinTypeI2CSCL
+00001d3d   GestureEmitClassify
+0000527d   GestureInit
+0000613d   GestureNormalize
+00003db5   GestureUpdate
+00001a61   HOSTclock
+00001a29   HOSTclose
+000019eb   HOSTgetenv
+0000198f   HOSTlseek
+0000193d   HOSTopen
+000018f1   HOSTread
+00001893   HOSTrename
+00001859   HOSTtime
+00001821   HOSTunlink
+000017d5   HOSTwrite
+00004ef3   I2CMCommand
+000070e1   I2CMInit
+000073d5   I2CMTransferResume
+00005fdd   I2CMWrite8
+000080ad   I2CMasterEnable
+00006819   I2CMasterInitExpClk
+00008111   I2CMasterIntEnableEx
+00005bd1   IntDisable
+00005c31   IntEnable
+00005921   IntIsEnabled
+000080b7   IntMasterDisable
+000080c1   IntMasterEnable
+00008071   IntTrigger
+00007115   InternalUSBRegisterTickHandler
+00007405   InternalUSBTickInit
+00004c45   KeyboardHandler
+00004d5d   KeyboardMain
+000061e5   KeyboardStateChange
+000076b9   KeyboardWaitForSendIdle
+00004959   LPRFInit
+00002bbd   LPRFMain
+00005375   MPU9150DataAccelGetFloat
+000053ed   MPU9150DataGyroGetFloat
+000045a5   MPU9150DataMagnetoGetFloat
+00005781   MPU9150Init
+00004649   MPU9150Write
+00003481   MotionCallback
+00004de5   MotionErrorHandler
+00006d61   MotionI2CWait
+00002555   MotionInit
+00004f79   MotionKeyboardGet
+00003589   MotionMain
+00006035   MotionMouseGet
+00005c91   MouseHandler
+000046e9   MouseMoveHandler
+000076e1   MouseWaitForSendIdle
+00007869   NPI_ErrCallback
+000079ed   NPI_Init
+00007709   NPI_MsgRxCallback
+00006861   NPI_MsgWrap
+00007a0d   NPI_SendAsynchData
+000054dd   NPI_SendSynchData
+00004bb5   RGBColorSet
+00003f45   RGBEnable
+00003691   RGBInit
+00007a2d   RTI_AsynchMsgCallback
+00005cf1   RTI_AsynchMsgProcess
+00007dcd   RTI_DisableSleepCnf
+00007a4d   RTI_DisableSleepReq
+0000807d   RTI_Init
+000052f9   RTI_InitCnf
+00007985   RTI_InitReq
+00007de1   RTI_PairAbortCnf
+00006ebd   RTI_PairCnf
+000079a7   RTI_PairReq
+0000628d   RTI_ReadItemEx
+00007a6d   RTI_SendDataCnf
+00005db1   RTI_SendDataReq
+000068a9   RTI_WriteItemEx
+00005985   RemoTIUARTGetMsg
+00007b99   RemoTIUARTGetRxMsgCount
+00005855   RemoTIUARTInit
+000062e1   RemoTIUARTPutMsg
+00007bb5   RemoTIUARTRegisterErrCallback
+00007bd1   RemoTIUARTRegisterMsgRxCallback
+00008149   ResetISR
+00007a8d   RingBufAdvanceRead
+00008089   RingBufInit
+00007caf   RingBufRead
+00007d75   RingBufReadOne
+00007d8b   RingBufUsed
+00007cc9   RingBufWrite
+00007f59   RingBufWriteOne
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+00003e7d   SysCtlClockGet
+0000814f   SysCtlDelay
+00007149   SysCtlPeripheralEnable
+000064d5   SysCtlPeripheralReset
+00007df5   SysCtlUSBPLLEnable
+00007fcf   UARTCharPutNonBlocking
+00008155   UARTClockSourceSet
+00006c65   UARTConfigSetExpClk
+00007c09   UARTDisable
+00007e09   UARTEnable
+000080cb   UARTFIFODisable
+0000815b   UARTFIFOLevelSet
+00007609   UARTFlushRx
+00006d9d   UARTFlushTx
+00008119   UARTIntEnable
+000042f1   UARTStdioConfig
+00006431   ULPIConfigSet
+000080d5   USBClockEnable
+000080df   USBControllerVersion
+00006525   USBDCDConfigDescGet
+00007c25   USBDCDConfigGetInterface
+00006dd9   USBDCDConfigGetInterfaceEndpoint
+00006a51   USBDCDDeviceInfoInit
+00002e8d   USBDCDInit
+00006ef5   USBDCDRemoteWakeupRequest
+00007e1d   USBDCDRequestDataEP0
+00007e31   USBDCDSendDataEP0
+00007c41   USBDCDStallEP0
+00003ce5   USBDCompositeInit
+00003975   USBDHIDCompositeInit
+000049f1   USBDHIDKeyboardCompositeInit
+00004ffd   USBDHIDKeyboardKeyStateChange
+00008161   USBDHIDKeyboardRemoteWakeupRequest
+00005081   USBDHIDMouseCompositeInit
+00006d23   USBDHIDMouseStateChange
+00008167   USBDHIDRemoteWakeupRequest
+000066f1   USBDHIDReportWrite
+00007fdd   USBDHIDTxPacketAvailable
+000080e9   USBDMAChannelAddressSet
+00007ecb   USBDMAChannelConfigSet
+000080f3   USBDMAChannelCountSet
+00007edd   USBDMAChannelDisable
+00007eef   USBDMAChannelEnable
+00007f01   USBDMAChannelIntDisable
+00007f13   USBDMAChannelIntEnable
+0000816d   USBDMAChannelIntStatus
+00007feb   USBDMAChannelStatus
+00007635   USBDescGet
+00007731   USBDescGetNum
+000080fd   USBDevConnect
+0000788d   USBDevEndpointDataAck
+000072af   USBDevEndpointStall
+00005e0f   USBDevEndpointStatusClear
+00008173   USBDevLPMConfig
+00007ff9   USBDevLPMDisable
+00008007   USBDevLPMEnable
+00008121   USBDevMode
+00007ce3   USBEndpointDMAChannel
+000065c1   USBEndpointDMAConfigSet
+000078b1   USBEndpointDMADisable
+000078d5   USBEndpointDMAEnable
+00007c5d   USBEndpointDataAvail
+00007435   USBEndpointDataPut
+00007551   USBEndpointDataSend
+00008095   USBEndpointPacketCountSet
+00007f69   USBEndpointStatus
+00008129   USBFIFOAddrGet
+00007e45   USBHostResume
+00007759   USBIntEnableControl
+00007e59   USBIntEnableEndpoint
+00006f2d   USBIntStatusControl
+00008107   USBIntStatusEndpoint
+000080a1   USBLPMIntEnable
+00002d2d   USBLibDMAInit
+00008131   USBOTGMode
+00007aad   USBStackModeSet
+00008015   USBULPIDisable
+00008023   USBULPIEnable
+00007b09   USBULPIRegRead
+00007b27   USBULPIRegWrite
+000072e1   VectorAdd
+000060e5   VectorCrossProduct
+0000781b   VectorDotProduct
+00007841   VectorScale
+00003a55   ZIDConfigParams
+00006335   ZIDResetRNP
+00006659   ZIDSendKeyboardReport
+00006389   ZIDSendMouseReport
+00007f37   _Dclass
+00006b1d   _Dtest
+20003e5c   _Errno
+000044fd   _FAtan
+0000803f   _FDclass
+20003cd8   _FDenorm
+000071e5   _FDtest
+20003ce8   _FEps
+20003cf8   _FInf
+20003d08   _FNan
+20003d28   _FRteps
+20003d18   _FSnan
+20003d38   _FXbig
+20003d3c   _FZero
+20003e4c   _Fenv
+000074c5   _Feraise
+20003e50   _Tls_setup__Fenv
+20002324   __CIOBUF_
+200030b0   __STACK_END
+00000800   __STACK_SIZE
+200068b0   __STACK_TOP
+00000800   __SYSMEM_SIZE
+00008948   __TI_CINIT_Base
+00008958   __TI_CINIT_Limit
+00008930   __TI_Handler_Table_Base
+0000893c   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+00004b21   __TI_auto_init
+0000245d   __TI_cleanup
+20003e44   __TI_cleanup_ptr
+00004a89   __TI_closefile
+00008031   __TI_decompress_none
+00008179   __TI_decompress_rle24
+00004005   __TI_doflush
+20003e48   __TI_dtors_ptr
+20003e08   __TI_ft_end
+00000def   __TI_printfi
+000044b3   __TI_rd_ok
+00005d7f   __TI_readmsg
+00000000   __TI_static_base__
+20002554   __TI_tmpnams
+00005d51   __TI_writemsg
+00004451   __TI_wrt_ok
+00007f25   __TI_zero_init
+00005181   __aeabi_cdcmpeq
+00005181   __aeabi_cdcmple
+000051ff   __aeabi_cdrcmple
+00006785   __aeabi_d2f
+00006939   __aeabi_d2iz
+00002717   __aeabi_dadd
+00002fd5   __aeabi_ddiv
+00003791   __aeabi_dmul
+0000270d   __aeabi_dsub
+00006f65   __aeabi_f2d
+0000757f   __aeabi_i2d
+00007d15   __aeabi_lmul
+00005465   __aeabi_memclr
+00005465   __aeabi_memclr4
+00005465   __aeabi_memclr8
+00004821   __aeabi_memcpy
+00004821   __aeabi_memcpy4
+00004821   __aeabi_memcpy8
+00005467   __aeabi_memset
+00005467   __aeabi_memset4
+00005467   __aeabi_memset8
+20003e14   __aeabi_stderr
+20003e0c   __aeabi_stdin
+20003e10   __aeabi_stdout
+00001fc9   __aeabi_uldivmod
+ffffffff   __binit__
+ffffffff   __c_args__
+200028b0   __stack
+00007cfd   _args_main
+000068f1   _c_int00
+0000818c   _ctypes_
+200038b0   _ftable
+20003e3c   _lock
+00007e7b   _nop
+00007e73   _register_lock
+00007e6d   _register_unlock
+200030b0   _sys_memory
+20003e40   _unlock
+00006add   abort
+00001727   add_device
+000043a1   asinf
+00003c0d   atan2f
+000066a5   atoi
+ffffffff   binit
+0000148d   calloc
+000016d5   close
+00006a95   copy_in
+00006ae5   exit
+00004aef   fclose
+000071b1   feraiseexcept
+00004051   fflush
+000024b3   fopen
+00004785   fputc
+0000310d   fputs
+000011e7   free
+00002489   freopen
+000059e9   fseek
+200028a8   g_bKeyHold
+200028a9   g_bModifierHold
+200028aa   g_bPressed
+200028ab   g_bTxBusy
+20003e24   g_bUSBTimerInitialized
+20003df3   g_eKeyboardState
+20003df2   g_eMouseState
+200027ec   g_eOTGModeState
+20002858   g_fAccelMagnitudePrevious
+20003e30   g_iUSBMode
+200027f4   g_pfAccel
+20002800   g_pfEulers
+2000280c   g_pfGyro
+00008700   g_pfInitProb
+20002818   g_pfMag
+2000285c   g_pfnErrCallback
+20002860   g_pfnRTIRxCallback
+20002864   g_pfnRxCallback
+20002780   g_pfnTickHandlers
+00000000   g_pfnVectors
+20002854   g_ppCompConfigDescriptors
+00008290   g_ppfEmitProb
+20000000   g_ppfPath
+00008354   g_ppfTransitionProb
+20002840   g_ppsDevInfo
+0000868c   g_ppsHIDConfigDescriptors
+200027b0   g_psCompDevices
+200026b8   g_psDCDInst
+20003d94   g_psHIDSections
+20002824   g_pui32RGBColors
+20002708   g_pui8DescriptorData
+20003df4   g_pui8HIDDeviceDescriptor
+00008774   g_pui8HIDInEndpoint
+20003d81   g_pui8HIDInterface
+000085d4   g_pui8LangDescriptor
+000086bc   g_pui8ManufacturerString
+20003d78   g_pui8MouseDescriptor
+000085d8   g_pui8ProductString
+20001c00   g_pui8RxBuf
+000085f4   g_pui8SerialNumberString
+00008748   g_pui8StringDescriptors
+20001e00   g_pui8TxBuf
+20002798   g_pvTickInstance
+200027c8   g_rbRemoTIRxRingBuf
+200027d8   g_rbRemoTITxRingBuf
+20002660   g_sCompDCMInst
+20003c58   g_sCompDevice
+00008608   g_sCompHandlers
+20002748   g_sGestureInst
+20003da4   g_sHIDConfigHeader
+00008674   g_sHIDConfigSection
+20003d8c   g_sHIDDescriptorSection
+00008638   g_sHIDHandlers
+00008684   g_sHIDInEndpointSection
+0000867c   g_sHIDInterfaceSection
+20002200   g_sI2CInst
+20003b20   g_sKeyboardDevice
+200025f4   g_sMPU9150Inst
+20003bc4   g_sMouseDevice
+20002844   g_sZIDKeys
+20003dac   g_ui16DeadBands
+20002868   g_ui16RxMsgCount
+20003e28   g_ui32CurrentUSBTick
+2000286c   g_ui32Events
+200027e8   g_ui32PollRate
+20002874   g_ui32RGBLPRFBlinkCounter
+20002878   g_ui32RGBMotionBlinkCounter
+2000287c   g_ui32SysTickCount
+20002880   g_ui32UARTBase
+20002884   g_ui32USBFlags
+20003e2c   g_ui32USBSOFCount
+20003e34   g_ui32WaitTicks
+20002888   g_ui8Buttons
+2000288c   g_ui8LPRFButtonsPrev
+200028ac   g_ui8LinkDestIndex
+20002890   g_ui8MotionState
+20002894   g_ui8MouseButtonsPrev
+200028ad   g_vbSyncResponse
+20002898   g_vui8ErrorFlag
+2000289c   g_vui8LinkState
+200028a0   g_vui8RTISState
+000016b1   lseek
+00005f81   ltoa
+00002a45   main
+20003e64   main_func_sp
+00001185   malloc
+000013ad   memalign
+00007c79   memccpy
+00007da1   memchr
+00004821   memcpy
+0000546d   memset
+000010f9   minit
+00001603   open
+0000563d   printf
+00008726   pucTargetList
+20002000   pui32ErrLog
+0000871c   pui8DevList
+0000871f   pui8ProfileList
+0000872c   pui8VendorName
+00004809   putc
+0000480d   putchar
+00003219   puts
+000075ad   raise
+000015df   read
+000012a7   realloc
+00001555   remove
+000015b7   remove_device
+00001579   rename
+00003b31   setvbuf
+00006ca5   signal
+000078f9   sqrtf
+00007db7   strchr
+00007d2d   strcmp
+00007f79   strcpy
+00007e81   strlen
+00007495   strncpy
+00006981   uDMAChannelAttributeDisable
+0000791d   uDMAChannelControlSet
+00007d45   uDMAChannelDisable
+00007d5d   uDMAChannelEnable
+00007781   uDMAChannelModeGet
+00005101   uDMAChannelTransferSet
+00001555   unlink
+000014c5   write
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000000   __TI_static_base__
+00000000   g_pfnVectors
+00000001   __TI_args_main
+00000800   __STACK_SIZE
+00000800   __SYSMEM_SIZE
+00000def   __TI_printfi
+000010f9   minit
+00001185   malloc
+000011e7   free
+000012a7   realloc
+000013ad   memalign
+0000148d   calloc
+000014c5   write
+00001555   remove
+00001555   unlink
+00001579   rename
+000015b7   remove_device
+000015df   read
+00001603   open
+000016b1   lseek
+000016d5   close
+00001727   add_device
+000017d5   HOSTwrite
+00001821   HOSTunlink
+00001859   HOSTtime
+00001893   HOSTrename
+000018f1   HOSTread
+0000193d   HOSTopen
+0000198f   HOSTlseek
+000019eb   HOSTgetenv
+00001a29   HOSTclose
+00001a61   HOSTclock
+00001aa9   CompDCMUpdate
+00001d3d   GestureEmitClassify
+00001fc9   __aeabi_uldivmod
+000021bd   BuildCompositeDescriptor
+0000245d   __TI_cleanup
+00002489   freopen
+000024b3   fopen
+00002555   MotionInit
+0000270d   __aeabi_dsub
+00002717   __aeabi_dadd
+00002a45   main
+00002bbd   LPRFMain
+00002d2d   USBLibDMAInit
+00002e8d   USBDCDInit
+00002fd5   __aeabi_ddiv
+0000310d   fputs
+00003219   puts
+00003241   GPIOPadConfigSet
+00003481   MotionCallback
+00003589   MotionMain
+00003691   RGBInit
+00003791   __aeabi_dmul
+00003975   USBDHIDCompositeInit
+00003a55   ZIDConfigParams
+00003b31   setvbuf
+00003c0d   atan2f
+00003ce5   USBDCompositeInit
+00003db5   GestureUpdate
+00003e7d   SysCtlClockGet
+00003f45   RGBEnable
+00004005   __TI_doflush
+00004051   fflush
+0000423f   CompDCMStart
+000042f1   UARTStdioConfig
+000043a1   asinf
+00004451   __TI_wrt_ok
+000044b3   __TI_rd_ok
+000044fd   _FAtan
+000045a5   MPU9150DataMagnetoGetFloat
+00004649   MPU9150Write
+000046e9   MouseMoveHandler
+00004785   fputc
+00004809   putc
+0000480d   putchar
+00004821   __aeabi_memcpy
+00004821   __aeabi_memcpy4
+00004821   __aeabi_memcpy8
+00004821   memcpy
+00004959   LPRFInit
+000049f1   USBDHIDKeyboardCompositeInit
+00004a89   __TI_closefile
+00004aef   fclose
+00004b21   __TI_auto_init
+00004bb5   RGBColorSet
+00004c45   KeyboardHandler
+00004d5d   KeyboardMain
+00004de5   MotionErrorHandler
+00004ef3   I2CMCommand
+00004f79   MotionKeyboardGet
+00004ffd   USBDHIDKeyboardKeyStateChange
+00005081   USBDHIDMouseCompositeInit
+00005101   uDMAChannelTransferSet
+00005181   __aeabi_cdcmpeq
+00005181   __aeabi_cdcmple
+000051ff   __aeabi_cdrcmple
+0000527d   GestureInit
+000052f9   RTI_InitCnf
+00005375   MPU9150DataAccelGetFloat
+000053ed   MPU9150DataGyroGetFloat
+00005465   __aeabi_memclr
+00005465   __aeabi_memclr4
+00005465   __aeabi_memclr8
+00005467   __aeabi_memset
+00005467   __aeabi_memset4
+00005467   __aeabi_memset8
+0000546d   memset
+000054dd   NPI_SendSynchData
+0000563d   printf
+00005781   MPU9150Init
+000057ed   ButtonsInit
+00005855   RemoTIUARTInit
+000058bd   ConfigureUART
+00005921   IntIsEnabled
+00005985   RemoTIUARTGetMsg
+000059e9   fseek
+00005bd1   IntDisable
+00005c31   IntEnable
+00005c91   MouseHandler
+00005cf1   RTI_AsynchMsgProcess
+00005d51   __TI_writemsg
+00005d7b   C$$IO$$
+00005d7f   __TI_readmsg
+00005db1   RTI_SendDataReq
+00005e0f   USBDevEndpointStatusClear
+00005f81   ltoa
+00005fdd   I2CMWrite8
+00006035   MotionMouseGet
+000060e5   VectorCrossProduct
+0000613d   GestureNormalize
+000061e5   KeyboardStateChange
+0000628d   RTI_ReadItemEx
+000062e1   RemoTIUARTPutMsg
+00006335   ZIDResetRNP
+00006389   ZIDSendMouseReport
+00006431   ULPIConfigSet
+000064d5   SysCtlPeripheralReset
+00006525   USBDCDConfigDescGet
+000065c1   USBEndpointDMAConfigSet
+00006659   ZIDSendKeyboardReport
+000066a5   atoi
+000066f1   USBDHIDReportWrite
+00006785   __aeabi_d2f
+00006819   I2CMasterInitExpClk
+00006861   NPI_MsgWrap
+000068a9   RTI_WriteItemEx
+000068f1   _c_int00
+00006939   __aeabi_d2iz
+00006981   uDMAChannelAttributeDisable
+000069c9   CompDCMInit
+00006a51   USBDCDDeviceInfoInit
+00006a95   copy_in
+00006ad9   C$$EXIT
+00006add   abort
+00006ae5   exit
+00006b1d   _Dtest
+00006b61   CompDCMComputeEulers
+00006be5   EventHandler
+00006c65   UARTConfigSetExpClk
+00006ca5   signal
+00006d23   USBDHIDMouseStateChange
+00006d61   MotionI2CWait
+00006d9d   UARTFlushTx
+00006dd9   USBDCDConfigGetInterfaceEndpoint
+00006ebd   RTI_PairCnf
+00006ef5   USBDCDRemoteWakeupRequest
+00006f2d   USBIntStatusControl
+00006f65   __aeabi_f2d
+000070e1   I2CMInit
+00007115   InternalUSBRegisterTickHandler
+00007149   SysCtlPeripheralEnable
+000071b1   feraiseexcept
+000071e5   _FDtest
+000072af   USBDevEndpointStall
+000072e1   VectorAdd
+000073d5   I2CMTransferResume
+00007405   InternalUSBTickInit
+00007435   USBEndpointDataPut
+00007495   strncpy
+000074c5   _Feraise
+00007551   USBEndpointDataSend
+0000757f   __aeabi_i2d
+000075ad   raise
+00007609   UARTFlushRx
+00007635   USBDescGet
+0000768d   GPIODirModeSet
+000076b9   KeyboardWaitForSendIdle
+000076e1   MouseWaitForSendIdle
+00007709   NPI_MsgRxCallback
+00007731   USBDescGetNum
+00007759   USBIntEnableControl
+00007781   uDMAChannelModeGet
+000077a9   CompDCMMatrixGet
+0000781b   VectorDotProduct
+00007841   VectorScale
+00007869   NPI_ErrCallback
+0000788d   USBDevEndpointDataAck
+000078b1   USBEndpointDMADisable
+000078d5   USBEndpointDMAEnable
+000078f9   sqrtf
+0000791d   uDMAChannelControlSet
+00007985   RTI_InitReq
+000079a7   RTI_PairReq
+000079ed   NPI_Init
+00007a0d   NPI_SendAsynchData
+00007a2d   RTI_AsynchMsgCallback
+00007a4d   RTI_DisableSleepReq
+00007a6d   RTI_SendDataCnf
+00007a8d   RingBufAdvanceRead
+00007aad   USBStackModeSet
+00007b09   USBULPIRegRead
+00007b27   USBULPIRegWrite
+00007b99   RemoTIUARTGetRxMsgCount
+00007bb5   RemoTIUARTRegisterErrCallback
+00007bd1   RemoTIUARTRegisterMsgRxCallback
+00007c09   UARTDisable
+00007c25   USBDCDConfigGetInterface
+00007c41   USBDCDStallEP0
+00007c5d   USBEndpointDataAvail
+00007c79   memccpy
+00007caf   RingBufRead
+00007cc9   RingBufWrite
+00007ce3   USBEndpointDMAChannel
+00007cfd   _args_main
+00007d15   __aeabi_lmul
+00007d2d   strcmp
+00007d45   uDMAChannelDisable
+00007d5d   uDMAChannelEnable
+00007d75   RingBufReadOne
+00007d8b   RingBufUsed
+00007da1   memchr
+00007db7   strchr
+00007dcd   RTI_DisableSleepCnf
+00007de1   RTI_PairAbortCnf
+00007df5   SysCtlUSBPLLEnable
+00007e09   UARTEnable
+00007e1d   USBDCDRequestDataEP0
+00007e31   USBDCDSendDataEP0
+00007e45   USBHostResume
+00007e59   USBIntEnableEndpoint
+00007e6d   _register_unlock
+00007e73   _register_lock
+00007e7b   _nop
+00007e81   strlen
+00007e95   GPIOPinTypeI2CSCL
+00007ecb   USBDMAChannelConfigSet
+00007edd   USBDMAChannelDisable
+00007eef   USBDMAChannelEnable
+00007f01   USBDMAChannelIntDisable
+00007f13   USBDMAChannelIntEnable
+00007f25   __TI_zero_init
+00007f37   _Dclass
+00007f49   FPULazyStackingEnable
+00007f59   RingBufWriteOne
+00007f69   USBEndpointStatus
+00007f79   strcpy
+00007f89   CompDCMAccelUpdate
+00007f97   CompDCMGyroUpdate
+00007fa5   CompDCMMagnetoUpdate
+00007fcf   UARTCharPutNonBlocking
+00007fdd   USBDHIDTxPacketAvailable
+00007feb   USBDMAChannelStatus
+00007ff9   USBDevLPMDisable
+00008007   USBDevLPMEnable
+00008015   USBULPIDisable
+00008023   USBULPIEnable
+00008031   __TI_decompress_none
+0000803f   _FDclass
+0000804d   CPUcpsid
+00008059   CPUcpsie
+00008065   GPIOIntEnable
+00008071   IntTrigger
+0000807d   RTI_Init
+00008089   RingBufInit
+00008095   USBEndpointPacketCountSet
+000080a1   USBLPMIntEnable
+000080ad   I2CMasterEnable
+000080b7   IntMasterDisable
+000080c1   IntMasterEnable
+000080cb   UARTFIFODisable
+000080d5   USBClockEnable
+000080df   USBControllerVersion
+000080e9   USBDMAChannelAddressSet
+000080f3   USBDMAChannelCountSet
+000080fd   USBDevConnect
+00008107   USBIntStatusEndpoint
+00008111   I2CMasterIntEnableEx
+00008119   UARTIntEnable
+00008121   USBDevMode
+00008129   USBFIFOAddrGet
+00008131   USBOTGMode
+00008149   ResetISR
+0000814f   SysCtlDelay
+00008155   UARTClockSourceSet
+0000815b   UARTFIFOLevelSet
+00008161   USBDHIDKeyboardRemoteWakeupRequest
+00008167   USBDHIDRemoteWakeupRequest
+0000816d   USBDMAChannelIntStatus
+00008173   USBDevLPMConfig
+00008179   __TI_decompress_rle24
+0000818c   _ctypes_
+00008290   g_ppfEmitProb
+00008354   g_ppfTransitionProb
+000085d4   g_pui8LangDescriptor
+000085d8   g_pui8ProductString
+000085f4   g_pui8SerialNumberString
+00008608   g_sCompHandlers
+00008638   g_sHIDHandlers
+00008674   g_sHIDConfigSection
+0000867c   g_sHIDInterfaceSection
+00008684   g_sHIDInEndpointSection
+0000868c   g_ppsHIDConfigDescriptors
+000086bc   g_pui8ManufacturerString
+00008700   g_pfInitProb
+0000871c   pui8DevList
+0000871f   pui8ProfileList
+00008726   pucTargetList
+0000872c   pui8VendorName
+00008748   g_pui8StringDescriptors
+00008774   g_pui8HIDInEndpoint
+00008930   __TI_Handler_Table_Base
+0000893c   __TI_Handler_Table_Limit
+00008948   __TI_CINIT_Base
+00008958   __TI_CINIT_Limit
+20000000   g_ppfPath
+20001c00   g_pui8RxBuf
+20001e00   g_pui8TxBuf
+20002000   pui32ErrLog
+20002200   g_sI2CInst
+20002324   __CIOBUF_
+20002554   __TI_tmpnams
+200025f4   g_sMPU9150Inst
+20002660   g_sCompDCMInst
+200026b8   g_psDCDInst
+20002708   g_pui8DescriptorData
+20002748   g_sGestureInst
+20002780   g_pfnTickHandlers
+20002798   g_pvTickInstance
+200027b0   g_psCompDevices
+200027c8   g_rbRemoTIRxRingBuf
+200027d8   g_rbRemoTITxRingBuf
+200027e8   g_ui32PollRate
+200027ec   g_eOTGModeState
+200027f4   g_pfAccel
+20002800   g_pfEulers
+2000280c   g_pfGyro
+20002818   g_pfMag
+20002824   g_pui32RGBColors
+20002840   g_ppsDevInfo
+20002844   g_sZIDKeys
+20002854   g_ppCompConfigDescriptors
+20002858   g_fAccelMagnitudePrevious
+2000285c   g_pfnErrCallback
+20002860   g_pfnRTIRxCallback
+20002864   g_pfnRxCallback
+20002868   g_ui16RxMsgCount
+2000286c   g_ui32Events
+20002874   g_ui32RGBLPRFBlinkCounter
+20002878   g_ui32RGBMotionBlinkCounter
+2000287c   g_ui32SysTickCount
+20002880   g_ui32UARTBase
+20002884   g_ui32USBFlags
+20002888   g_ui8Buttons
+2000288c   g_ui8LPRFButtonsPrev
+20002890   g_ui8MotionState
+20002894   g_ui8MouseButtonsPrev
+20002898   g_vui8ErrorFlag
+2000289c   g_vui8LinkState
+200028a0   g_vui8RTISState
+200028a8   g_bKeyHold
+200028a9   g_bModifierHold
+200028aa   g_bPressed
+200028ab   g_bTxBusy
+200028ac   g_ui8LinkDestIndex
+200028ad   g_vbSyncResponse
+200028b0   __stack
+200030b0   __STACK_END
+200030b0   _sys_memory
+200038b0   _ftable
+20003b20   g_sKeyboardDevice
+20003bc4   g_sMouseDevice
+20003c58   g_sCompDevice
+20003cd8   _FDenorm
+20003ce8   _FEps
+20003cf8   _FInf
+20003d08   _FNan
+20003d18   _FSnan
+20003d28   _FRteps
+20003d38   _FXbig
+20003d3c   _FZero
+20003d78   g_pui8MouseDescriptor
+20003d81   g_pui8HIDInterface
+20003d8c   g_sHIDDescriptorSection
+20003d94   g_psHIDSections
+20003da4   g_sHIDConfigHeader
+20003dac   g_ui16DeadBands
+20003df2   g_eMouseState
+20003df3   g_eKeyboardState
+20003df4   g_pui8HIDDeviceDescriptor
+20003e08   __TI_ft_end
+20003e0c   __aeabi_stdin
+20003e10   __aeabi_stdout
+20003e14   __aeabi_stderr
+20003e24   g_bUSBTimerInitialized
+20003e28   g_ui32CurrentUSBTick
+20003e2c   g_ui32USBSOFCount
+20003e30   g_iUSBMode
+20003e34   g_ui32WaitTicks
+20003e3c   _lock
+20003e40   _unlock
+20003e44   __TI_cleanup_ptr
+20003e48   __TI_dtors_ptr
+20003e4c   _Fenv
+20003e50   _Tls_setup__Fenv
+20003e5c   _Errno
+20003e64   main_func_sp
+200068b0   __STACK_TOP
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[423 symbols]
