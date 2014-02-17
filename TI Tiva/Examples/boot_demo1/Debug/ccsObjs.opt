@@ -1,0 +1,1 @@
+"./drivers/cfal96x64x16.obj" "./utils/ustdlib.obj" "./startup_ccs.obj" "./boot_demo1.obj" "../boot_demo1_ccs.cmd" -l"libc.a" -l"C:/ti/TivaWare_C_Series-2.0.1.11577/examples/boards/ek-lm4f232/boot_demo1/ccs/../../../../../driverlib/ccs/Debug/driverlib.lib" -l"C:/ti/TivaWare_C_Series-2.0.1.11577/examples/boards/ek-lm4f232/boot_demo1/ccs/../../../../../grlib/ccs/Debug/grlib.lib" 
