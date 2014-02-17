@@ -34,12 +34,12 @@ lab3/project/
 
 
 # Tiva Projects
-*/Debug/*
-*/.project
-*/.cproject
-*/.ccsproject
-*/.launches/
-*/.settings/*
+# */Debug/*
+# */.project
+# */.cproject
+# */.ccsproject
+# */.launches/
+# */.settings/*
 
 # Windows Links
 *.lnk
