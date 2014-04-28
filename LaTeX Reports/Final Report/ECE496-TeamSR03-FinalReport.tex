@@ -46,6 +46,7 @@ Final Report
 \titlespacing\section{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing\subsection{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
 \titlespacing\subsubsection{0pt}{0pt plus 4pt minus 2pt}{0pt plus 2pt minus 2pt}
+\titlespacing\paragraph{20pt}{0pt}{10pt}
 
 % Set up BibTeX integration using IEEE citation format
 \usepackage{cite}
@@ -174,12 +175,34 @@ We based our design off of the following design principles:
 \section*{Final Design}
 
     \subsection*{Subsystem Description}
+    
+    Figure \ref{SubsystemInteraction} shows the subsystem interactions between the Tiva board, the battery, optical sensors, DC motors, the driver chip, the controller, the Raspberry Pi, and the gyroscope/accelerometer.
+    
+    \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\textwidth]{SubsystemInteraction}
+                \caption{Subsystem Interactions Diagram}
+                \label{SubsystemInteraction}
+            \end{figure}
 
         \paragraph{Power Electronics}
         
+        The power electronics design was developed to satisfy the needs of the purchased 29:1 DC Gearmotors. A dual-channel H-Bridge was used to control both motor direction and speed. The L298N driver chip requires six total signals from the Tiva LaunchPad to properly control both motors. Two digital outputs are used to control the direction a motor. Signals of 0-1 tell the motor to turn forwards, signals of 1-0 tell the motor to turn backwards, and if the two signals are the same the motor stops turning. The driver chip also uses a PWM signal from the Tiva chip for each motor to control speed. Because the Tiva outputs a 3.3 V signal, a 2N3904 transistor pull-up circuit was built with two 10k$\Omega$ resistors to pull up the logic voltage to 5 V (the driver chip expected a 5 V input). A higher PWM duty cycle means that a higher average voltage is delivered to the motors which increases their speed. Eight protection Schottky diodes and two 100 nF capacitors were added to the driver chip circuit as seen in Figure \ref{PowerElectronics} in order to protect the motor terminals from voltage spikes due to incorrect wiring and smooth out the power signals, respectively. 
+        
+            \begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\textwidth]{PowerElectronics}
+                \caption{Power Electronics Subsystem Circuit Diagram}
+                \label{PowerElectronics}
+            \end{figure}
+        
         \paragraph{Sensors}
         
+        Two current sensors were utilized onboard the miniature Segway robot. They were located internally in the L298N driver chip. The L298N monitored the current in both motor circuits and sent a corresponding analog voltage between 0 and 2 V. This current feedback was essential to the controller design and required gains to be tuned with the current sensor feedback. Optical sensors were used in place of encoders to report the real-time speed of the motors to the controller. The QRD1114 optical sensors were mounted to the bottom of the lower mount facing out towards the inside of the wheels. Black and white print out circles were made and attached to the inside of the wheels. The circles had triangular segments, alternating white and black every ten degrees. The optical sensors use infrared beams to detect white/black transitions. In a 0 to 5 V range, it will return a low or high voltage depending on if the sensor sees white or black. By counting the transitions and interpreting over time, a motor speed could be calculated.
+        
         \paragraph{Battery Power System}
+        
+        A 12V NiMH battery package was decided on as the optimal power supply for our robotic system. The package that was decided upon was a custom fabricated 3800mAh 12V supply from Batteryspace.com – a company that specializes in modularpower solutions for hobbyist projects. The 12V pack consists of 10 individual 1.2V NiMH cells strung together in series and secured together using the manufacturers wrapping. We chose to use 6 inch 18AWG bare wire leads for our connection purposes. The purpose of the battery power supply was to remove the need for all external connections/wires/tethers from the robot, and it succeeded in supplying more than enough power for the robot to be operational.
         
         \paragraph{Controller}
         
@@ -187,24 +210,38 @@ We based our design off of the following design principles:
         
         \paragraph{Mechanical System}
         
+        The motors used for the final design were Pololu 29:1 DC Gearmotors.  They were powered through the L298N dual H-Bridge motor driver and mounted directly below the lower wooden mounting block using aluminum L-brackets. Aluminum mounting hubs were used to attach the motor shafts to a pair of Pololu 90mm by 10 mm wheels. 
+        
+        The physical build that was decided upon consisted of two pine wood platforms – one a 6 inch square and the other a 4 inch square, both $\frac{1}{2}$ inch thick, connected by an 18 inch stainless steel threaded rod sheathed by a hollow aluminum tube. The 6 inch square was fastened to the top of the steel rod, while the 4 inch square served as the base of the robot. The motors/wheels were attached to the underside of the base plate. The idea was to put the processor and the battery at the top to help raise the robot’s center of gravity, creating an easier dynamic system for the controller to balance. However, after realizing we needed two processors instead of one, it was decided to move the battery to the base to allow the processors to sit together on top. 
+        
         \paragraph{Communications}
         
-        The communications subsystem that was to be implemented on the robot was the Emmoco EDB-BLE development board using Bluetooth 4.0 Low Energy (BLE) standard. The reason for using the board was that by having a separate development board for Bluetooth\textsuperscript{\textregistered} communications, we would be able to debug the wireless protocols seperately from the rest of the system in order to save on development time and costs. Additionally, the EDB-BLE development board provided the em-framework to allow for building control apps for moobile devices such as Android and iOS phones.
+        The communications subsystem that was to be implemented on the robot was the Emmoco EDB-BLE development board using Bluetooth 4.0 Low Energy (BLE) standard. The reason for using the board was that by having a separate development board for Bluetooth communications, we would be able to debug the wireless protocols seperately from the rest of the system in order to save on development time and costs. Additionally, the EDB-BLE development board provided the em-framework to allow for building control apps for moobile devices such as Android and iOS phones.
         
 
     \subsection*{Subsystem Discussion}
     
         \paragraph{Power Electronics}
         
+        The power electronics design was chosen because it was the only stable way to properly supply both motors with the needed current. The dual channel H-Bridge is the best and cheapest solution to implement both directional and speed motor control. Each channel can supply up to 2 A continuously. In the original design, just a power amplifier was suggested to power both motors. This would not have worked successfully and the idea stemmed from a lack of knowledge concerning H-Bridges. After doing more research and exploring the capabilities of H-Bridges it was discovered that it would be the only stable and viable option for the given design requirements.
+        
         \paragraph{Sensors}
         
+        Originally, neither of these sensors were part of the overall design. After developing the control scheme, it was discovered that both the motor positions and currents needed to be monitored and used as feedback. The L298N dual H-Bridge driver chip had built-in current sensors that fed back to the Tiva and the control scheme. The optical sensors were used as a work-around because the motors were not purchased with encoders. Instead of purchasing new motors, the optical sensors were used as a replacement to still send feedback on motor position to the controller.
+        
         \paragraph{Battery Power System}
+        
+        The primary concerns for the battery supply were total discharge capacity and safety. After researching multiple types of battery packs, NiMH cells were deemed to be the safest option, as they posed the least likelihood to explode (advice from a seasoned robotics engineer), and they don’t have the capacity to leak toxic chemicals like many other types of battery packs. As for discharge capacity, during motor testing, the maximum observed current draw from both of the motors was around .7 Amps each. It was decided that having a battery capable of powering more than double that load for at least half an hour would be sufficient for all of our testing and demonstration purposes. As such, a 3800mAh pack fit our bill, because it would be able to power two times our anticipated motor load (2.8 Amps) for more than an hour without the need to recharge. This subsystem in our robot matches the expectations set forth in the preliminary report.
         
         \paragraph{Controller}
         
         \paragraph{Microcontrollers}
         
         \paragraph{Mechanical System}
+        
+        The original motor design did not change in the final design. DC motors were used as originally proposed and mounted in a stable and efficient location.
+        
+        Our final mechanical build looks quite different from most of the other competitors’ models. Where most designs tried to create a sleek profile and utilize a minimalist approach, our team decided that a durable wood and steel build would provide the best chance of success. We chose to use dissimilar wooden platforms in an attempt to raise the system’s center of gravity. According to dynamics equations given in the course, theoretically, the higher the center of mass, the easier it is to implement a controller for balance. Thus, we attempted to place the heaviest components as far above the base of the model as possible. The durability over acrylic that we gained from using wood and steel was also a factor as we expected to have many crashes during balance testing.
         
         \paragraph{Communications}
         
@@ -212,13 +249,15 @@ We based our design off of the following design principles:
 
 \section*{Cost Accounting}
 
-    \subsection*{Development Costs}
-    
-    \subsection*{Out of Pocket Development Costs}
-    
-    \subsection*{Final Artifact Cost}
-    
-    \subsection*{Out of Pocket Final Artifact Cost}
+See Appendix A for the full cost accounting tables.
+
+\begin{itemize}[noitemsep,nolistsep]
+    \item \textbf{Development costs:} \$369.46 (the total cost of all items used during the semester, purchased and donated)
+    \item \textbf{Out of Pocket Development Costs:} \$354.49 (the total cost of all items purchased during the semester)
+    \item \textbf{Final Artifact Cost:} \$318.88 (the total cost of all items that appear in the final design, purchased and donated)
+    \item \textbf{Out-of-Pocket Final Artifact Cost:} \$308.95 (the total cost of all items purchased and used in the final design)
+
+\end{itemize}
 
 \section*{Performance Characterization and Discussion}
 
@@ -239,11 +278,31 @@ We based our design off of the following design principles:
 
     \subsection*{Technical Postmortem}
     
+    The strengths of the final design for this project include robust power electronics, a completely onboard electrical and mechanical system, and the use of a Raspberry Pi microcontroller in conjunction with the Tiva LaunchPad. The power electronics included an L298N dual H-Bridge driver chip that was capable of supplying a total of 4 Amps (2 Amps per motor) continuously. With built-in current sensing, the driver chip functioned properly to both control the motors and provide vital feedback to the controller. Both motor directional and speed controls were tested before the power electronics were mounted on the mechanical system and were found to work perfectly. The PWM duty cycle was directly proportional to the average voltage and therefore speed of the motors. 
+    
+    All of the electronics used to monitor and control the system were located onboard the mechanical system. No tethers to any equipment on the desktop were necessary due to the use of a battery and several voltage regulator chips. This was an important strength of the system because it allowed for untethered testing and movement of the system. 
+    
+    The final strength was the utilization of the Raspberry Pi microcontroller in conjunction with the Tiva LaunchPad. The Raspberry Pi processes the gyroscope and accelerometer data much more quickly than the Tiva LaunchPad – then the processed angle value was sent from the Raspberry Pi to the Tiva LaunchPad to feed into the controller. However, the Raspberry Pi also represented a weakness in the final system design. In order to begin proper operation, the Raspberry Pi requires 30 seconds to boot, during which time no sensor data is being read. This design choice was a byproduct of the system’s largest weakness: communication of sensor data with the purchased MPU9150 gyroscope and accelerometer sensor package.Although designed to work with the Tiva LaunchPad, the necessary open source code to interface the two did not exist. By the time this was researched and discovered, very little could be done in terms of code-development due to time limitations. Therefore, the Raspberry Pi was instituted as a work-around. Additionally, setbacks in the implementation of the gyroscope and accelerometer as well as a lack of graphical data and error signals led to having a controller that was not fine-tuned. Although initial values were developed, the lack of graphical signals meant that the controller was never able to be tuned beyond the initial guesses from the root locus plots. 
+    
+    The project was also hindered for financial reasons. As projects were self-funded, the cost of the project was an important factor. Because of this, motors without encoders were purchased to save money. Later during the development of the control scheme it was discovered that encoders were an integral part of the controls. This led to optical sensors being a less accurate but plausible work-around for the lack of motor encoders. 
+    
+    The final design would be capable of much more if time restrictions and management issues had not arisen. The entire power electronics system was fully and perfectly functional with the Tiva LaunchPad until mounting everything onto the mechanical system. With more time, graphical sensor data and error signals could have been obtained, and the control gains could have been finalized and the system could have performed at a much higher level than demonstrated.In retrospect, two things stand out as alternatives that would have greatly improved the abilities of the final design. First, starting to analyze and communicate the sensor data from the gyroscope and accelerometer at a much earlier date would have brought issues to light much sooner when they could still be fixed. Secondly, more time could have been spent attempting to make the feedback controls function on the Quanser Q4 board. Due to overconfidence, the choice was made to switch almost directly to the Tiva LaunchPad software which caused so many communication issues. 
+    
     \subsection*{Nontechnical Postmortem}
+    
+    The design and report-writing tasks were divided equally among group members. Every member contributed significantly to the report-writing and video-taping. For the design portions, subsystems were separated between group members to encourage parallel progress of all pieces of the project. Ben was assigned the development of the Bluetooth communications, Julian the gyroscope and accelerometer integration, Laura the power electronics, Katelyn the control scheme development and assistance with the power electronics, and Greg the onboard battery system and mechanical build. Struggles were found with time management and conflicting schedules. The power electronics and controls scheme were designed and completed fairly early in the semester. However, issues with drive chip (SN754410) compatibility meant that the power electronics did not produce the needed signals to accurately drive the motors. Because progress for the graphical sensor data was not attempted until much later in the semester, it was difficult to verify how successful the driver chip was. Eventually (fairly late into the semester) a different, more robust driver chip (L298N) was selected as a replacement. Although the driver chip performed perfectly, the time was not there to sufficiently tune the controller, especially without a graphical error signal to work from. 
+    
+    Scheduling conflicts were a constant problem throughout the semester. Between work schedules, campus group commitments, and other extracurricular commitments, it was extremely difficult to meet as an entire group every week. Generally, the only time during the week that all members were meeting was during the status report meetings. Scheduling time for team members to come into lab was also difficult due to scheduling conflicts. Because of this, progress on the project was set back and led to a time crunch towards the end of the semester. 
+    
+    Team coordination was alright during the semester. The tasks were clearly divided among team members but communication issues stemming from updating each other on progress made were troublesome. While parallel progress was a goal for the group, issues arose from certain progress being dependent on other advancements that were not made in a timely manner. Specifically, the lack of usable sensor data until the very end of the semester impeded the progress in developing and tuning the controller as well as verifying the power electronics. Although the need for such dependencies was communicated, sometimes the message was not received or misinterpreted concerning the desired time schedule.
+    
+    Overall, though the tasks were assigned evenly between team members but scheduling conflicts and misinterpreted communication about deadlines significantly impeded the final design’s success. Without these problems, the final demonstration of the design could have been much better.
 
 \section*{Highlights}
 
+One of the main highlights of our system was the robust power electronics. The electronics encompassed delivering the necessary signals to the motors to control their direction as well as speed – this enables the controller to move the robot forwards, backwards, and turn by determining the signals sent to both motors. The L298N driver chip and additional required circuitry were selected after the original SN754410 was not powerful enough to properly drive the motors. More information concerning the construction of the driver chip circuit can be found in the subsystems description found in the Final Design section above. This new driver chip had built-in current sensing and seemed much more reliable than the previous driver chip. It came with a breakout board and documentation on additional needed circuitry. This aided the group in learning that documentation is not available for all parts but helps greatly in designing the system. If someone else has already designed a working system, it is much easier to use theirs and adapt it to suit your needs. 
 
+Our system has the unique feature that all of the components are powered by an onboard battery system – that is, there are absolutely no external connections necessary for our robotic balancing system to operate. This feature removes complications that can arise from long wire trains and tethers, and gives the robot a much greater degree of freedom. Along with the power system, a mechanical toggle kill switch was implemented on the aluminum shaft of the robot. This switch, implemented in series with our screwcap connectors, allows for easy disconnection of the battery for charging and storage.
 
 % Bibliography
 \bibliography{citationsfile}{}
@@ -251,6 +310,19 @@ We based our design off of the following design principles:
 \clearpage
 
 \section*{Appendix A: Cost Accounting Tables}
+
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{Costs1}
+    \end{figure}
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{Costs2}
+    \end{figure}
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{Costs3}
+    \end{figure}
+    \begin{figure}[H]
+        \includegraphics[width=\textwidth]{Costs4}
+    \end{figure}
 
 %% END EDITS HERE %%
 
