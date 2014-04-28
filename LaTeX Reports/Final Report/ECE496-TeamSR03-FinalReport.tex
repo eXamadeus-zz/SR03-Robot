@@ -206,6 +206,28 @@ We based our design off of the following design principles:
         
         \paragraph{Controller}
         
+        The purpose of the balancing system is to ensure that the robotic system will maintain a desired position determined by the microcontroller subsystem. The controller used three control loops: one for angular position, velocity, and current. 
+        
+        The first control loop was set to control angular position.  The desired position, called the desired $\theta_2$ value as shown in \cite{Groff}, is used as an input to the balancing system by the microcontroller subsystem. The actual angle position of the robotic system is derived by measurements from a gyroscope (which is part of the sensing subsystem). The gyroscope measures angular velocity and as such, this value is integrated twice to provide the actual angle position $\theta_2$. To balance the system at rest, the desired $\theta_2$ was set to zero. To move the robot either forwards or backwards, the desired $\theta_2$ was set to a positive or negative angle respectively. 
+        
+        The second loop was set to control velocity.  The desired velocity, called the desired $\Omega_1$ value as shown in \cite{Groff}, was set to 0 for balancing and to a small value for movement.  The actual $\Omega_1$ was measured from a set of optical sensors.  These sensors measured the number of color changes from black and white pinwheels mounted on the wheels of the robot.  The number of changes in a certain amount of time was used to determine the speed of the robot.  
+        
+        These first two loops each produced a torque signal.  These two signals were added to create an overall torque signal.  This value was first divided by 2 in order to account for the fact there are two motors.  The overall torque signal is the torque needed for the entire system.  Since there are two motors, this value must be divided between the two.  This value was then divided by $k = .1335$ to create a current signal.  This constant $k$ was determined by dividing the stall torque and current of our motors.
+        
+        The transformed signal was then treated as the desired current, or desired $i$.  This value was then compared to values obtained from current sensors built into the motor driver chip.  These two values were used to create an error signal that was minimized using a gain.  This signal acted as a modifier for the desired $i$ and as such was added to a feed forward loop for the desired $i$.  This signal was then transformed into a duty cycle.  The current was multiplied by the armature resistance $R_A$ of the motors to calculate the armature voltage $V_A$.  Then $V_A$ was divided by the source voltage $V_S$ to calculate the duty cycle, $k$.  Finally, the duty cycle was then used to generate a PWM to be sent to each motor.  This transformation and values of the variables are shown below in Equation \ref{PIDControlEquation}.
+        \begin{align}
+    k &= \dfrac{i \cdot  R_A}{V_S} = \dfrac{i \cdot 122 \Omega}{6 V} \label{PIDControlEquation}
+\end{align}
+
+The complete controller is shown below in Figure \ref{ControllerDiagram}.
+
+\begin{figure}[H]
+                \centering
+                \includegraphics[width=\textwidth]{ControllerDiagram}
+                \caption{Controller Diagram}
+                \label{ControllerDiagram}
+            \end{figure}
+        
         \paragraph{Microcontrollers}
         
         \paragraph{Mechanical System}
@@ -234,6 +256,9 @@ We based our design off of the following design principles:
         The primary concerns for the battery supply were total discharge capacity and safety. After researching multiple types of battery packs, NiMH cells were deemed to be the safest option, as they posed the least likelihood to explode (advice from a seasoned robotics engineer), and they don’t have the capacity to leak toxic chemicals like many other types of battery packs. As for discharge capacity, during motor testing, the maximum observed current draw from both of the motors was around .7 Amps each. It was decided that having a battery capable of powering more than double that load for at least half an hour would be sufficient for all of our testing and demonstration purposes. As such, a 3800mAh pack fit our bill, because it would be able to power two times our anticipated motor load (2.8 Amps) for more than an hour without the need to recharge. This subsystem in our robot matches the expectations set forth in the preliminary report.
         
         \paragraph{Controller}
+        
+        The control loop for the angular position employed a lead compensator to provide a steady system and to minimize the distance between the desired $\theta_2$ and the actual $\theta_2$ (i.e. minimizing the error).  This was necessary because without the addition of a new pole, the root locus plot for this variable would have a pole that never entered the left hand side of the plane and thus would never be stable.  A further discussion of this is shown in Appendix B.  The control loop for the velocity and the control loop for the current only needed to use a simple gain rather than employ a compensator or controller.  Unlike the root locus plot for the angular position, the zeros and poles for these plots moved to the real half of the plane without having to introduce a new pole.  
+        
         
         \paragraph{Microcontrollers}
         
@@ -323,6 +348,26 @@ Our system has the unique feature that all of the components are powered by an o
     \begin{figure}[H]
         \includegraphics[width=\textwidth]{Costs4}
     \end{figure}
+
+\clearpage
+
+\section*{Appendix A: Root Locus Plots and Discussion}
+
+Figure \ref{RootLocusOriginal} shows the root locus plot for the angular position to torque transfer function.  The pole in the right hand half of the plane never moves to the stable left hand side of the plane.  As such, a lead compensator was used to introduce a zero at -5 and a pole at 35 in order to force this pole into the left hand side of the plane.  The new root locus plot is shown in Figure \ref{RootLocusNew}.
+
+\begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\textwidth]{RootLocusOriginal}
+                \caption{Original Root Locus Plot}
+                \label{RootLocusOriginal}
+            \end{figure}
+
+\begin{figure}[H]
+                \centering
+                \includegraphics[width=0.5\textwidth]{RootLocusNew}
+                \caption{New Root Locus Plot with Additional Zero and Pole}
+                \label{RootLocusNew}
+            \end{figure}
 
 %% END EDITS HERE %%
 
